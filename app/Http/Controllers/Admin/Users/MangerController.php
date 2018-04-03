@@ -81,9 +81,11 @@ class MangerController extends Controller
             'phone'=>'required',
 
 
+
             'repass'=>'required',
             'address'=>'required',
             'email'=>'required'
+
 
         ];
         $msg=[
@@ -94,9 +96,11 @@ class MangerController extends Controller
             'phone.required'=>'手机号格式不正确',
 
 
+
             'repass.required'=>'两次密码不一致',
             'address.required'=>'地址不能为空',
             'email.required'=>'邮箱不能为空'
+
 
 
         ];
@@ -110,6 +114,7 @@ class MangerController extends Controller
             return $arr;
         }
         //检查用户是否存在
+
 
 
         //检查用户名
@@ -154,6 +159,7 @@ class MangerController extends Controller
             'password'=>$pass,
             'phone'=>$input['phone'],
             'sex'=>$input['sex'],
+
 
             'email'=>$input['email'],
             'address'=>$input['address'],
@@ -212,6 +218,7 @@ class MangerController extends Controller
     {
 
 
+
         $input = $request->all();
         //检查用户是否已经存在
         //检查用户是否存在
@@ -243,6 +250,7 @@ class MangerController extends Controller
             ];
             return $arr;
         }
+
 
 
         $res  = User::find($id)->update($request->except('id'));

@@ -6,9 +6,11 @@ use App\Model\User;
 
 
 
+
 use App\Model\UserInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 
 
 
@@ -18,22 +20,27 @@ class UserController extends Controller
 //    {
 
 
+
 //        return view('Admin.Users.UserList');
+
 
 
 //    }
 //
     public function grade()
     {
+
         return view('Admin.Users.UserGrade');
     }
     public function audit()
     {
         return view('Admin.Users.UserAudit');
+
     }
 
     public function index(Request $request)
     {
+
 
 
 
@@ -59,6 +66,7 @@ class UserController extends Controller
 
 //
          return view('Admin.Users.UserList',['users'=>$users,'request'=> $request]);
+
 
 
 
@@ -125,7 +133,9 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
+
         return view('Admin.Users.UserGrade',compact('users'));
+
     }
 
     public function update(Request $request, $id)
@@ -157,6 +167,7 @@ class UserController extends Controller
 
         return $arr;
     }
+
 
 
 

@@ -79,6 +79,7 @@ class ConfigController extends Controller
     }
 
 
+
     public function upload(Request $request)
     {
         $file = $request -> file('fileupload');
@@ -97,6 +98,7 @@ class ConfigController extends Controller
         }
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -105,6 +107,7 @@ class ConfigController extends Controller
      */
     public function store(Request $request)
     {
+
 
 
         //接收表单数据
@@ -119,6 +122,7 @@ class ConfigController extends Controller
         }else{
             return back()->with('msg','添加失败');
             echo '添加失败';
+
 
         }
     }
@@ -157,7 +161,6 @@ class ConfigController extends Controller
     {
         //
     }
-
 
     /**
      * Remove the specified resource from storage.

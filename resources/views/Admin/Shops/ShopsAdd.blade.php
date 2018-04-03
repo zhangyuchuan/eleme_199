@@ -20,7 +20,9 @@
                     <select name="pid" lay-filter="">
                         <option value=""></option>
                         @foreach($cateone as $v)
+
                   <option value="{{ $v->id }}">{{ $v->catename }}</option>
+
 
                         @endforeach
                     </select>

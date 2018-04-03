@@ -40,6 +40,7 @@ class LoginController extends Controller
         // 设置背景颜色
 
 
+
         $builder->setBackgroundColor(190, 190, 210);
 
         $builder->setMaxAngle(35);

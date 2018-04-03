@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Seller;
 
 
+
 use App\Model\User;
 
 use Illuminate\Http\Request;
@@ -16,12 +17,14 @@ class SellerController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+
     public function index(Request $request)
     {
         //列表页
             //获取个人信息列表
             $user = User::find(session('user')->id);
             return view('Admin.Seller.Sellers.SellerList',compact('user'));
+
 
 
     }
@@ -34,6 +37,7 @@ class SellerController extends Controller
     public function create()
     {
 
+
     }
 
     /**
@@ -44,6 +48,8 @@ class SellerController extends Controller
      */
     public function store(Request $request)
     {
+
+
 
     }
 
@@ -67,9 +73,11 @@ class SellerController extends Controller
     public function edit($id)
     {
 
+
         $user = User::find($id);
 //        dd($user);
         return view('Admin.Seller.Sellers.SellerEdit',compact('user'));
+
 
     }
 
@@ -82,6 +90,7 @@ class SellerController extends Controller
      */
     public function update(Request $request, $id)
     {
+
 
         $res  = User::find($id)->update($request->except('id'));
         if($res) {
@@ -98,6 +107,7 @@ class SellerController extends Controller
 
         return $arr;
 
+
     }
 
     /**
@@ -110,6 +120,7 @@ class SellerController extends Controller
     {
         //
     }
+
 
 
     /**
@@ -160,5 +171,6 @@ class SellerController extends Controller
         }
         return $arr;
     }
+
 
 }

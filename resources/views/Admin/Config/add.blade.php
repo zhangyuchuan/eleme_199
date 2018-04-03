@@ -2,7 +2,9 @@
 
 @section('content')
 
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     <div class="x-body">
 
@@ -49,6 +51,7 @@
 
             <div class="layui-form-item" >
 
+
                               {{ csrf_field() }}
 
                 <label for="L_username" class="layui-form-label">
@@ -60,6 +63,7 @@
                     <input type="radio" name="field_type" value="textarea" title="文本域" >
                 </div>
             </div>
+
 
             <div class="layui-upload">
                 <label class="layui-form-label">缩略图上传</label>
@@ -76,6 +80,7 @@
                     <img id="cpic" src="" style="width:60px;">
                 </div>
             </div>
+
 
 
             <div class="layui-form-item" >
@@ -99,6 +104,7 @@
       </form>
     </div>
     <script>
+
 
 
         $(function () {

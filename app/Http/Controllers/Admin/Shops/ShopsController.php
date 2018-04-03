@@ -21,6 +21,7 @@ class ShopsController extends Controller
 
 
 
+
         return view('Admin.Shops.ShopsList', compact('cates', 'count'));
 
 
@@ -36,8 +37,10 @@ class ShopsController extends Controller
         //获得父分类
 
 
+
         $cateone = ShopCategory::where('pid', '0')->get();
         return view('Admin.Shops.ShopsAdd', compact('cateone'));
+
 
 
 
@@ -47,7 +50,7 @@ class ShopsController extends Controller
      * Store a newly created resource in storage.
      *
 
-     * @return \Illuminate\Http\Response
+
      */
     public function store(Request $request)
     {
@@ -55,6 +58,7 @@ class ShopsController extends Controller
         //执行存储
         $res = ShopCategory::create($input);
         //结果判断
+
 
 
 
@@ -84,10 +88,12 @@ class ShopsController extends Controller
 
 
 
+
         $count = count(ShopInfo::whereIn('cateid', $arr)->whereIn('status', [0, 1])->get());
         //获得所有符合条件的店铺详情
         $details = ShopInfo::whereIn('cateid', $arr)->whereIn('status', [0, 1])->paginate(5);
         return view('Admin.Shops.ShopsDetails', compact('details', 'count'));
+
 
 
     }
@@ -95,7 +101,7 @@ class ShopsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-inate\Http\Response
+
      */
     public function edit($id)
     {
@@ -105,7 +111,9 @@ inate\Http\Response
 
 
 
+
         return view('Admin.Shops.ShopsEdit', compact('cateone'));
+
 
     }
 
@@ -118,6 +126,7 @@ inate\Http\Response
     public function update(Request $request, $id)
     {
         $input = $request->except('id');
+
 
 
 
@@ -141,6 +150,7 @@ inate\Http\Response
                 'msg' => '修改失败'
 
 
+
             ];
         }
         return $data;
@@ -150,11 +160,11 @@ inate\Http\Response
      * Remove the specified resource from storage.
      *
 
-
      */
     public function destroy($id)
     {
         //判断一级分类是否含有子分类
+
 
 
 
@@ -171,12 +181,14 @@ inate\Http\Response
 
 
 
+
             ];
             return $data;
         }
         //执行删除
         $res = ShopCategory::destroy($id);
         //结果返回
+
 
 
 
@@ -192,6 +204,7 @@ inate\Http\Response
 
 
 
+
             ];
         }
         return $data;
@@ -202,14 +215,17 @@ inate\Http\Response
 
 
 
+
     /**
      * 修改排序
      *
+
 
      * @return \Illuminate\Http\Response
      */
     public function changeorder(Request $request)
     {
+
 
         $input = $request->all();
         //判断输入的值
@@ -235,10 +251,12 @@ inate\Http\Response
 
 
 
+
             ];
         }
         return $data;
     }
+
 
 
 
@@ -248,7 +266,7 @@ inate\Http\Response
      *
      * @param  int $id
 
-
+    
      * @return \Illuminate\Http\Response
      */
     public function changestatus(Request $request)
@@ -257,6 +275,7 @@ inate\Http\Response
         $id = $request->input('id');
         //获得状态
         $status = $request->input('status');
+
 
 
 
@@ -282,10 +301,12 @@ inate\Http\Response
 
 
 
+
             ];
         }
         return $data;
     }
+
 
 
     public function deleteshop($id)
@@ -303,10 +324,12 @@ inate\Http\Response
 
 
 
+
             ];
         }
         return $data;
     }
+
 
 
 

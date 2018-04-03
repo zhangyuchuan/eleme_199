@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 
 
+
 <html class="no-js" lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title> 登录</title>
     <meta name="csrf-token" content="WgAAB8QXyAqVNFKFt3s1lM1LlywEBAvrOxMarHd6">
     <link class="usemin" rel="stylesheet" href="/home/login_files/global_rebuild.a739f3af.css">
     <link class="usemin" rel="stylesheet" href="/home/login_files/account_rebuild.54cf8909.css">
     <script type="text/javascript" src="/home/login_files/jquery-1.8.3.min.js"></script>
+
 
 
 </head>
@@ -64,14 +66,17 @@
         <div class="panel-ft">
             <a class="g-btn g-btn-l g-btn-submit" href="{{url('home/register')}}" style="text-aligin:center;line-height: 43px">免费注册</a>
 
+
         </div>
     </div>
 </div>
 
 
+
 <footer class="site-footer group" role="contentinfo">
     <div class="container">
         <p class="sfooter-line"> <a class="sfooter-link" href="http://kaidian.ele.me/">我要开店</a> | <a class="sfooter-link" href="http://waimai.com/login">联系我们</a> | <a class="sfooter-link" href="http://waimai.com/login">服务条款和协议</a> | <a class="sfooter-link" href="http://waimai.com/">站点地图</a>
+
 
 
         </p></div>
@@ -87,12 +92,14 @@
     });
 
 
+
     function re_captcha() {
         $url = "{{ URL('admin/code/captcha') }}";
         $url = $url + "/" + Math.random();
         document.getElementById('123456').src = $url;
     }
 </script>
+
 
 
 </body></html>

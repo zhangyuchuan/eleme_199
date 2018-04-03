@@ -25,6 +25,7 @@
             <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
 
 
+
             <span class="x-right" style="line-height:40px">共有数据：{{ $count }} 条</span>
 
 
@@ -48,7 +49,9 @@
                 <td>
 
 
+
                     <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='{{ $v->id }}'><i class="layui-icon">&#xe605;</i></div>
+
 
 
                 </td>
@@ -57,7 +60,9 @@
                 <td>{{ $v->gcontent }}</td>
 
 
+
                 <td>{{ $shops[$v->sid] }}</td>
+
 
 
                 <td class="td-status">
@@ -67,7 +72,9 @@
                 <td class="td-manage">
 
 
+
                     <a onclick="member_stop(this,'{{ $v->id }}') " href="javascript:;"  title="停用">
+
 
 
                         <i class="layui-icon">&#xe62f;</i>
@@ -76,6 +83,7 @@
                         <span class="layui-btn layui-btn-normal layui-btn-mini layui-btn-disabled">已停用 </span>
                 </td>
                 <td class="td-manage">
+
 
 
                     <a onclick="member_stop(this,'{{ $v->id }}') " href="javascript:;"  title="启用">
@@ -164,6 +172,7 @@
 
 
 
+
         /*栏位-删除*/
         function member_del(obj,id){
 
@@ -187,6 +196,7 @@
 
 
 
+
         }
 
 
@@ -196,6 +206,7 @@
             var data = tableCheck.getData();
 
             layer.confirm('确认要删除吗？'+data,function(index){
+
 
                 // layer.confirm('确认要删除吗？',function(index){
                 $.post('/admin/goodscate/delall',{'_token':"{{csrf_token()}}",'ids':data},function(data){
@@ -211,6 +222,7 @@
                     }
                 })
                 //捉到所有被选中的，发异步进行删除
+
 
             });
         }

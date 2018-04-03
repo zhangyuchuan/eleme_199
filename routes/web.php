@@ -18,6 +18,7 @@ Route::get('/', function () {
 
     return view('welcome');
 
+
 });
 //后台登陆
 Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
@@ -35,14 +36,17 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
 
 
 
+
 //后台路由组
 Route::group(['middleware'=>'adminIslogin'],function() {
+
 
 
     // 退出登录
     Route::get('/admin/logout', 'Admin\Login\LoginController@logout');
     //后台首页路由
     Route::get('/admin/index', 'Admin\Login\LoginController@index');
+
 
     //后台管理员路由
     //Admin\Users\MangerController
@@ -63,6 +67,7 @@ Route::group(['middleware'=>'adminIslogin'],function() {
 
 
 
+
     //商铺审核
     Route::get('/admin/shops/judgeshop', 'Admin\Shops\ShopsController@judgeShop');
 
@@ -70,6 +75,7 @@ Route::group(['middleware'=>'adminIslogin'],function() {
 
 
     //后台商品路由 Admin\Goods\GoodController
+
     Route::post('/admin/goods/delall','Admin\Goods\GoodsController@delall');
     Route::post('/admin/goods/upload', 'Admin\Goods\GoodsController@upload');
     Route::resource('/admin/goods', 'Admin\Goods\GoodsController');
@@ -78,9 +84,11 @@ Route::group(['middleware'=>'adminIslogin'],function() {
     Route::post('/admin/goodscate/delall','Admin\Goods\GoodsCateController@delall');
 
 
+
     Route::post('/admin/goodscate/statusup', 'Admin\Goods\GoodsCateController@statusup');
     Route::post('/admin/goodscate/statusdown', 'Admin\Goods\GoodsCateController@statusdown');
     Route::resource('/admin/goodscate', 'Admin\Goods\GoodsCateController');
+
 
 
 //    //后台普通用户路由
@@ -89,6 +97,7 @@ Route::group(['middleware'=>'adminIslogin'],function() {
 //    Route::resource('/admin/users/users','Admin\Users\UserController');
 //    //后台用户修改状态
 //    Route::post('/admin/users/users/changestatus','Admin\Users\UserController@changestatus');
+
 
     //后台商家路由
     Route::get('/admin/biz/biz/list','Admin\Biz\MerchantController@list');
@@ -101,6 +110,7 @@ Route::group(['middleware'=>'adminIslogin'],function() {
     //批量删除
     Route::get('/admin/biz/biz/delall','Admin\Biz\MerchantController@delall');
     Route::get('/admin/biz/biz/audit','Admin\Biz\MerchantController@audit');
+
 
 
     //后台普通用户路由
@@ -127,10 +137,12 @@ Route::group(['middleware'=>'adminIslogin'],function() {
     //批量修改网站配置项
     Route::post('/admin/config/changecontent','Admin\Config\ConfigController@changeContent');
 
+
     Route::resource('/admin/config','Admin\Config\ConfigController');
 
     //店家后台个人信息
 //    Admin\Seller\SellerController
+
     Route::get('/admin/seller/sellers/repass/{id}', 'Admin\Seller\SellerController@repass');
     Route::resource('admin/seller/sellers', 'Admin\Seller\SellerController');
 
@@ -182,6 +194,7 @@ Route::group(['middleware'=>'homeIslogin'],function(){
     Route::post('/admin/config/upload','Admin\Config\ConfigController@upload');
     Route::resource('/admin/config','Admin\Config\ConfigController');
 
+
     //个人中心
     Route::get('/center','Home\Users\UserController@center');
     //安全中心
@@ -190,12 +203,17 @@ Route::group(['middleware'=>'homeIslogin'],function(){
     Route::get('/add','Home\Users\UserController@add');
     //用户密码
     Route::get('/password','Home\Users\UserController@password');
+
+    //用户密码修改
+    Route::post('/repass','Home\Users\UserController@repass');
+
     //用户数据资料
     Route::get('/data','Home\Users\UserController@data');
     //用户积分
     Route::get('/integral','Home\Users\UserController@integral');
     //用户收藏
     Route::get('/collect','Home\Users\UserController@collect');
+
 
     //账户余额
     Route::get('/balance','Home\Users\UserController@balance');
@@ -227,8 +245,7 @@ Route::group(['middleware'=>'homeIslogin'],function(){
     //我要开店首页
     Route::get('home/openshop','Home\Shops\OpenShopController@index');
 
-    //加盟合作
-    Route::get('/join','Home\Users\UserController@join');
+    
     //店铺详情详情
     Route::get('/shop/{id}','Home\Shops\ShopController@shop');
     //店铺评价
@@ -243,14 +260,30 @@ Route::group(['middleware'=>'homeIslogin'],function(){
     Route::get('/home/addgcart','Home\Shops\ShopController@addgcart');
     //结算
     Route::get('/shop/{id}/jiesuan','Home\Orders\OrderController@jiesuan');
+
+    //账户余额
+    Route::get('/balance','Home\Users\UserController@balance');
+   
+    
+   
+    //商品订单
+    Route::get('/orders','Home\Orders\OrderController@orders');
+    
+
+
+
+
     //商家资质
     Route::get('/shopzizhi','Home\Sellers\SellerController@shopzizhi');
     //用户评价
     Route::get('/evaluate','Home\Users\UserController@evaluate');
+
     //我的资料开始
     //我的资料结束
     //公共左
     Route::get('/public','Home\Users\UserController@public');
+
+
 
 
 
@@ -270,4 +303,20 @@ Route::group(['middleware'=>'homeIslogin'],function(){
 
     //前台网站配置
     Route::resource('/home/config','Home\Config\ConfigController');
+
+
+
+
+//公共左
+Route::get('/public','Home\Users\UserController@public');
+//我的资料开始
+//添加地址
+Route::get('/create','Home\Users\UserController@create');
+Route::post('/store','Home\Users\UserController@store');
+//修改地址
+Route::get('/modify/{id}','Home\Users\UserController@modify');
+Route::post('/storemodify{id}','Home\Users\UserController@storemodify');
+//删除地址
+Route::get('/delete/{id}','Home\Users\UserController@delete');
+//我的资料结束
 

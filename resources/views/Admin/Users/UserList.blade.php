@@ -6,6 +6,7 @@
         <div class="layui-row">
 
 
+
             <form class="layui-form layui-col-md12 x-so" action="/admin/users/users" method="get">
                 <div class="layui-input-inline">
                     <select name="num">
@@ -35,7 +36,9 @@
 
 
 
+
             <span class="x-right" style="line-height:40px">共有数据：{{count($users)}} 条</span>
+
 
         </xblock>
         <table class="layui-table">
@@ -75,6 +78,7 @@
 
                     <a onclick="member_stop(this,'{{ $v->id }}')" href="javascript:;" status="{{ $v->status }}" title="启用">
 
+
                         <i class="layui-icon">&#xe601;</i>
                     </a>
                     <a title="编辑"  onclick="x_admin_show('编辑','/admin/users/users/grade',600,400)" href="javascript:;">
@@ -96,6 +100,7 @@
         <div class="page">
             <div>
                 {{--        {{ $users->appends(['username' => $username])->links() }}--}}
+
 
 
                 {!! $users->appends($request->all())->render() !!}
@@ -211,6 +216,7 @@
                     }
                 })
                 //捉到所有被选中的，发异步进行删除
+
 
 
 

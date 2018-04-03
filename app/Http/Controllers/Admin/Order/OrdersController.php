@@ -20,6 +20,7 @@ class OrdersController extends Controller
 
 
 
+
 //    public function index(Request $request)
 //    {}
     public function list(Request $request)
@@ -48,6 +49,7 @@ class OrdersController extends Controller
 //    {
 //        return view('Admin.Order.OrderDel');
 //    }
+
 
 
     /**
@@ -113,6 +115,7 @@ class OrdersController extends Controller
      */
     public function destroy($id)
     {
+
 
 
         $order = order::find($id);
@@ -189,6 +192,7 @@ class OrdersController extends Controller
 
 //
         return view('Admin.Order.OrdersInfo',['ordersinfo'=>$orderinfo,'request'=> $request]);
+
 
 
 

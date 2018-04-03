@@ -32,7 +32,9 @@
                                 </span>
                         <span>
                                     <span class="profileinfo-value ng-binding" ng-bind="user.username">
-                                        seeklegend
+
+                                        {{$users->username}}
+
                                     </span>
                             <!-- ngIf: user.is_auto_generated.username -->
                                 </span>
@@ -44,7 +46,9 @@
                         <!-- ngIf: user.is_mobile_valid -->
                         <span ng-if="user.is_mobile_valid" class="ng-scope">
                                     <span class="profileinfo-value ng-binding" ng-bind="user.mobile">
-                                        15139802553
+
+                                        {{$users->phone}}
+
                                     </span>
                                     <a class="profileinfo-link" href="">
                                         [修改]
@@ -61,7 +65,9 @@
                         <!-- ngIf: !user.is_email_valid -->
                         <span ng-if="!user.is_email_valid" class="ng-scope">
                                     <span class="profileinfo-value unbind">
-                                        未绑定
+
+                                        {{$users->email}}
+
                                     </span>
                                     <a class="profileinfo-link unbind" href="">
                                         [立即绑定]

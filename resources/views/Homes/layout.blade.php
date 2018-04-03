@@ -41,6 +41,7 @@
         <link href="/home/css/vendor.d724a8_2.css" rel="stylesheet">
         <link href="/home/css/main.0a7669.css" rel="stylesheet">
 
+
         <style>
             @font-face {
                 font-family: 'MyNewFont';   /*字体名称*/
@@ -55,11 +56,13 @@
 
         </style>
 
+
         <!--[if lte IE 8]>
             <script>
                 window.location.href = 'https://h.ele.me/activities/landing';
             </script>
         <![endif]-->
+
 
 
 
@@ -85,6 +88,7 @@
 
 
 
+
         <div class="isolate-scope" switch="state.type" state="layoutState" id="toptool">
 
 
@@ -94,6 +98,7 @@
                     <div class="container clearfix">
                         <h1>
 
+
                             <a class="topbar-logo icon-logo" href="/lists" hardjump="">
 
                                 <span>
@@ -102,25 +107,28 @@
                             </a>
                         </h1>
 
-                        <a class="topbar-item topbar-homepage focus" href="/lists" hardjump="">
+                        <a class="topbar-item topbar-homepage focus" href="/" hardjump="">
                             首页
                         </a>
-                        <a class="topbar-item" href="/orders" hardjump="" class="{'focus': $root.locationpath[1] === 'order'}">
+                        <a class="topbar-item" href="/profile/order" hardjump="" class="{'focus': $root.locationpath[1] === 'order'}">
                             我的订单
                         </a>
-                        <a class="topbar-item cooperation" href="javascript:;"
+                        <a class="topbar-item cooperation" href="//h5.ele.me/service/cooperation/"
 
                         target="_blank">
                             加盟合作
                         </a>
                         <nav class="topbar-nav">
 
+
                             <a class="topbar-nav-link" href="javascript:;" hardjump="" target="_blank">
+
 
                                 <i class="topbar-nav-icon icon-service">
                                 </i>
                                 服务中心
                             </a>
+
 
                             <a class="topbar-nav-link" href="javascript:;" hardjump="" target="_blank">
 
@@ -143,8 +151,10 @@
                                     </span>
                                     <span class="" show="!$root.user.username">
 
+
                                         <a href="/login"
                                         target="_blank" href="/login">
+
 
                                             登录/注册
                                         </a>
@@ -156,16 +166,16 @@
                                         </span>
                                         <div class="dropbox topbar-profilebox-dropbox">
 
-                                            <a class="icon-profile" href="/center" hardjump="">
+                                            <a class="icon-profile" href="/profile" hardjump="">
                                                 个人中心
                                             </a>
-                                            <a class="icon-star" href="/collect" hardjump="">
+                                            <a class="icon-star" href="/profile/favor" hardjump="">
                                                 我的收藏
                                             </a>
-                                            <a class="icon-location" href="/add" hardjump="">
+                                            <a class="icon-location" href="/profile/address" hardjump="">
                                                 我的地址
                                             </a>
-                                            <a class="icon-setting" href="/safety" hardjump="">
+                                            <a class="icon-setting" href="/profile/security" hardjump="">
 
                                                 安全设置
                                             </a>
@@ -185,11 +195,13 @@
         </div>
         <!-- <eleme-importantnotification></eleme-importantnotification> -->
 
+
         <div class="sidebar" role="complementary" hide="layoutState && layoutState.hideSidebar">
             <div class="sidebar-tabs">
                 <div class="toolbar-tabs-middle">
                     <a class="toolbar-btn icon-order toolbar-close" href="/orders"
 
+s
                     hardjump="" tooltip="我的订单" tooltip-placement="left" ubt-click="toolbar_order">
                     </a>
                     <div class="toolbar-separator">
@@ -203,10 +215,12 @@
 
 
 
+
                         购物车
                     </a>
                     <div class="toolbar-separator">
                     </div>
+
 
 
 
@@ -223,10 +237,12 @@
 
 
 
+
                         <div class="dropbox toolbar-tabs-dropbox" >
                             <a href="http://static11.elemecdn.com/eleme/desktop/mobile/index.html"
                             target="_blank">
                                 <img src="/home/img/appqc.95e532.png" alt="下载手机应用">
+
 
 
 
@@ -242,6 +258,7 @@
                     tooltip="在线客服" title="在线客服" tooltip-placement="left" target="_blank" href="JavaScript:"
                     style="visibility: hidden;">
                     </a>
+
 
 
 
@@ -380,6 +397,7 @@
 
 
 
+
         @show
         
         <!-- <eleme-footer></eleme-footer> -->
@@ -443,7 +461,9 @@
                             <div class="footer-contect-item">
                                 24小时客服热线 :
 
+
                                 <a class="inherit" href="tel:10105757">
+
 
                                     10105757
                                 </a>
@@ -451,7 +471,9 @@
                             <div class="footer-contect-item">
                                 意见反馈 :
 
+
                                 <a class="inherit" href="javascript:;">
+
 
                                     feedback@ele.me
                                 </a>
@@ -472,10 +494,12 @@
 
                                 <a class="icon-weibo" href="javascript:;" target="_blank">
 
+
                                 </a>
                             </div>
                         </div>
                         <div class="footer-mobile">
+
 
                             <a href="javascript:;" target="_blank">
 
@@ -497,6 +521,7 @@
                             <p>
                                 增值电信业务许可证 :
 
+
                                 <a href="javascript:;" target="_blank">
                                     沪B2-20150033
                                 </a>
@@ -507,6 +532,7 @@
                                 |
                                 <a href="javascript:;"
 
+
                                 target="_blank">
                                     上海工商行政管理
                                 </a>
@@ -514,6 +540,7 @@
                             </p>
                         </div>
                         <div class="footer-police container">
+
 
                             <a href="javascript:;" rel="nofollow" target="_blank">
 
@@ -523,8 +550,10 @@
                     </div>
                 </footer>
 
+
                 <script src="/home/js/6936dbf3e7d94cffa954bcbcf2b79f38.js">
                 </script>
+
 
     </body>
 

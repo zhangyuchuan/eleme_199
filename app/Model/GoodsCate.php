@@ -17,6 +17,7 @@ class GoodsCate extends Model
 
     //    4. 是否允许批量操作字段
     public $guarded = [];
+<<<<<<< HEAD
 
 
 
@@ -26,4 +27,6 @@ class GoodsCate extends Model
     }
 
 
+=======
+>>>>>>> origin/zcs
 }

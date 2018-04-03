@@ -6,6 +6,7 @@ use App\Model\Goods;
 use App\Model\GoodsCate;
 
 
+
 use App\Model\ShopInfo;
 
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ class GoodsController extends Controller
      */
     public function index(Request $request)
     {
+
 
 
 
@@ -39,6 +41,7 @@ class GoodsController extends Controller
             })->get();
 
 
+
 //         多条件并分页
         $goods = Goods::orderBy('id','asc')
             ->where(function($query) use($request){
@@ -55,6 +58,7 @@ class GoodsController extends Controller
                 }
             })
             ->paginate($request->input('num', 5));
+
 
 
 
@@ -191,6 +195,7 @@ class GoodsController extends Controller
     {
 
 
+
         $goods = Goods::find($id);
         $res = $goods -> delete();
         if($res){
@@ -225,6 +230,7 @@ class GoodsController extends Controller
             ];
         }
         return $arr;
+
 
 
 

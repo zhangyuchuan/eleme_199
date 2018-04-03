@@ -26,6 +26,7 @@
                 </div>
 
 
+
                 <div class="layui-form-mid layui-word-aux">
                     <span class="x-red">*</span>不能为空
                 </div>
@@ -54,6 +55,7 @@
                 <div class="layui-form-mid layui-word-aux">
                     <span class="x-red">*</span>不能为空
                 </div>
+
 
             </div>
             <div class="layui-form-item">
@@ -103,6 +105,7 @@
                                 parent.location.reload();
 
                             })
+
 
 
                         }else {

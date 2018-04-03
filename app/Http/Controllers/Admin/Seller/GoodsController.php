@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Admin\Seller;
+
 use App\Http\Controllers\Controller;
 use App\Model\Goods;
 use App\Model\GoodsCate;
 use App\Model\ShopInfo;
 use Illuminate\Http\Request;
+
 
 class GoodsController extends Controller
 {
@@ -14,6 +16,7 @@ class GoodsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
 
     public function index(Request $request)
     {
@@ -50,6 +53,7 @@ class GoodsController extends Controller
         return view('Admin.Seller.Goods.GoodsList',['goods'=>$goods, 'request'=> $request,'good'=>$good,'goodscate'=>$goodscate,
             'shops'=>$shops]);
 
+
     }
 
     /**
@@ -60,12 +64,14 @@ class GoodsController extends Controller
     public function create()
     {
 
+
         $sellerid = session('user')->id;
 
         $sid = ShopInfo::where('sellerid',$sellerid)->first()->id;
         $goodscate = GoodsCate::where('sid',$sid)->get();
         //商品添加页面
         return view('Admin.Seller.Goods.GoodsAdd',compact('goodscate','sid'));
+
 
     }
 
@@ -75,6 +81,7 @@ class GoodsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
 
 
     public function upload(Request $request)
@@ -134,6 +141,7 @@ class GoodsController extends Controller
     public function edit($id)
     {
 
+
         $goods = Goods::find($id);
 
         $sid = $goods->sid;
@@ -192,11 +200,13 @@ class GoodsController extends Controller
 
         return $arr;
 
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
+
 
      */
     public function destroy($id)
@@ -240,4 +250,5 @@ class GoodsController extends Controller
 //    {
 //
 //    }
+
 }

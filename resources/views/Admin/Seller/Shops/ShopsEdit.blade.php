@@ -2,8 +2,10 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @section('content')
     <div class="x-body">
+
         <form class="layui-form" method="post" enctype="multipart/form-data" >
             {{csrf_field()}}
+
             <input type="hidden" name="id" value="{{$shop->id}}">
             <div class="layui-form-item">
                 <label for="username" class="layui-form-label">
@@ -19,6 +21,7 @@
             </div>
             <div class="layui-form-item">
                 <label for="phone" class="layui-form-label">
+
                     <span class="x-red">*</span>店铺地址
                 </label>
 
@@ -26,15 +29,18 @@
                     <textarea name="address" id="" cols="30" rows="10">{{$shop->address}}</textarea>
                 </div>
 
+
             </div>
             <div class="layui-form-item">
                 <label for="phone" class="layui-form-label">
                     <span class="x-red">*</span>店铺logo
                 </label>
                 <div class="layui-input-inline" style="position:relative;height:120px">
+
                     <input type="file" id="file_upload" name="logo" required="" value="{{$shop->logo}}" style="opacity:0;position:absolute;top:10px;z-index:111111;">
                     <img src="/uploads/timg.jpg" alt="" class="layui-upload-img" id="demo1" style="width:50px;height:40px;position:absolute;top:0px;z-index:0">
                     <img src="{{$shop->logo}}" alt=""  id="img2" style="width:80px;height:60px;position:absolute;top:50px;left:0px">
+
                 </div>
             </div>
             <div class="layui-form-item">
@@ -46,6 +52,7 @@
             </div>
         </form>
     </div>
+
 
     <script>
         layui.use(['form','layer'], function(){

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin\Goods;
 
 
+
 use App\Model\Goods;
 use App\Model\GoodsCate;
 use App\Model\ShopInfo;
+
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,6 +21,7 @@ class GoodsCateController extends Controller
      */
     public function index(Request $request)
     {
+
 
 
         $shops = ShopInfo::pluck('name','id');
@@ -46,7 +49,9 @@ class GoodsCateController extends Controller
         //显示列表页
 
 
+
         return view('Admin.Goods.GoodsCateList',['goodscate'=>$goodscate,'request'=>$request,'count'=>$count,'shops'=>$shops]);
+
 
 
     }
@@ -116,6 +121,7 @@ class GoodsCateController extends Controller
     {
 
 
+
         $goods = Goods::where('gcid',$id)->first();
         if (!$goods){
             $goodscate = GoodsCate::find($id);
@@ -142,6 +148,7 @@ class GoodsCateController extends Controller
 
 
         return $arr;
+
 
 
     }
@@ -175,6 +182,7 @@ class GoodsCateController extends Controller
     }
 
 
+
     //批量删除
     public function delall(Request $request)
     {
@@ -204,6 +212,5 @@ class GoodsCateController extends Controller
         return $arr;
 
     }
-
 
 }

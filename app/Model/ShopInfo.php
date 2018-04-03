@@ -10,6 +10,7 @@ class ShopInfo extends Model
     public $primaryKey = 'id';
     public $timestamps = false;
     public $guarded = [];
+<<<<<<< HEAD
 
 
 
@@ -24,4 +25,6 @@ class ShopInfo extends Model
         return $this->belongsTo('App\Model\ShopCategory','cateid','id');
     }
 
+=======
+>>>>>>> origin/zcs
 }

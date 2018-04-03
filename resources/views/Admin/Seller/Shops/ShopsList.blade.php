@@ -28,14 +28,18 @@
                     <td>{{$v->id}}</td>
                     <td style="width:120px">{{$v->name}}</td>
                     <td style="width:120px">{{$v->address}}</td>
+
                     <td style="width:135px">
                         <input type="text" class="layui-input" id="test9" ids = '{{$v->id}}' value='{{$v->time}}' placeholder=" - ">
+
                     </td>
                     <td>{{$v->sailcount}}</td>
                     <td>{{$v->income}}</td>
                     <td>{{$v->order}}</td>
                     <td>{{$v->score}}</td>
+
                     <td><img src="{{$v->logo}}" alt="" style="width:80px"></td>
+
                     <td style="width:180px">
                         {!! $v->content !!}
                     </td>
@@ -69,12 +73,14 @@
                             <td>
 
                         @endif
+
                         <a title="修改店铺信息"  onclick="x_admin_show('修改店铺信息','/admin/seller/shops/{{$v->id}}/edit',900,600)" href="javascript:;">
                             <i class="layui-icon">&#xe642;</i>
                         </a>
                         {{--<a title="删除" onclick="member_del(this,'{{$v->id}}')" href="javascript:;"  status="{{$v->status}}">--}}
                             {{--<i class="layui-icon">&#xe640;</i>--}}
                         {{--</a>--}}
+
                     </td>
                 </tr>
             @endforeach
@@ -95,6 +101,7 @@
             laydate.render({
                 elem: '#start' //指定元素
             });
+
             laydate.render({
                 elem: '#test9'
                 ,type: 'time'
@@ -117,6 +124,7 @@
                     })
                 }
             });
+
             //执行一个laydate实例
             laydate.render({
                 elem: '#end' //指定元素
@@ -141,6 +149,7 @@
 
         /*用户-停用*/
         function member_stop(obj,id){
+
             var status = $(obj).attr('status');
             var str = '';
             if(status=='0'){
@@ -192,8 +201,10 @@
                 })
             });
         }
+
         /*用户-删除*/
         function member_del(obj,id){
+
             layer.confirm('确认要删除吗？', function (index) {
                 $.ajax({
                     url: '/admin/users/manger/' + id,
@@ -209,6 +220,8 @@
                         }
                     }
                 })
+
+
             });
         }
     </script>

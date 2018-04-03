@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin\Seller;
 
 
+
 use App\Model\Shop;
+
 
 use App\Model\ShopInfo;
 use Illuminate\Http\Request;
@@ -24,8 +26,10 @@ class ShopsController extends Controller
         //获得商铺
 
 
+
         $shops =ShopInfo::where('sellerid',$id)->paginate(2);
 //        dd($shops[0]->time);
+
 
 
 
@@ -35,7 +39,9 @@ class ShopsController extends Controller
         }
 
 
+
         return view('Admin.Seller.Shops.ShopsList',compact('shops'));
+
 
     }
 
@@ -80,9 +86,11 @@ class ShopsController extends Controller
     public function edit($id)
     {
 
+
         //获取需要修改的店铺信息
         $shop = ShopInfo::find($id);
         return view('Admin.Seller.Shops.ShopsEdit',compact('shop'));
+
 
     }
 
@@ -95,6 +103,7 @@ class ShopsController extends Controller
      */
     public function update(Request $request, $id)
     {
+
 
         $input = $request->except('_token');
         $input['status'] = 3;
@@ -156,6 +165,8 @@ class ShopsController extends Controller
         return $data;
     }
 
+
+
     /**
      * 营业.休息
      *
@@ -206,6 +217,7 @@ class ShopsController extends Controller
         }
         return $data;
     }
+
     /**
      * 营业.时间
      *
@@ -253,6 +265,5 @@ class ShopsController extends Controller
         }
 
     }
-
 
 }

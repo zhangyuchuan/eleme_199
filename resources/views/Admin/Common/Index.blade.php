@@ -25,6 +25,7 @@
                     <dd><a onclick="x_admin_show('切换帐号','http://www.baidu.com')">切换帐号</a></dd>
 
 
+
                     <dd><a href="{{url('admin/logout')}}">退出</a></dd>
 
 
@@ -144,7 +145,9 @@
 
 
 
+
                             <a _href="/admin/shops/judgeshop" target="_blank">
+
 
 
 
@@ -180,7 +183,15 @@
 
                     </ul>
 
+                    <ul class="sub-menu">
+                        <li>
+                            <a _href="{{ url('admin/goods/create')}}" target="_blank">
+                                <i class="iconfont">&#xe6a7;</i>
+                                <cite>商品添加</cite>
+                            </a>
+                        </li >
 
+                    </ul>
 
 
                 </li>
@@ -199,6 +210,8 @@
                             </a>
                         </li>
                     </ul>
+
+
 
                     <ul class="sub-menu">
                         <li>
@@ -259,7 +272,9 @@
                         <ul class="sub-menu">
                             <li>
 
+
                                 <a _href="{{ url('admin/seller/sellers') }}" target="_blank">
+
 
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>个人信息</cite>
@@ -307,17 +322,20 @@
                             <li>
 
 
+
                                 <a _href="/admin/seller/goodscate" target="_blank">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>商品栏位</cite>
 
 
+s
                                 </a>
                             </li >
 
                         </ul>
                         <ul class="sub-menu">
                             <li>
+
 
 
                                 <a _href="/admin/seller/goods" target="_blank">
@@ -333,9 +351,11 @@
                             <li>
 
 
+
                                 <a _href="/admin/seller/goods/create" target="_blank">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>商品添加</cite>
+
 
 
                                 </a>

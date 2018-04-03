@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home\Logins;
 
+<<<<<<< HEAD
 
 
 use App\Model\User;
@@ -71,11 +72,25 @@ class LoginController extends Controller
 
 
 
+=======
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class LoginController extends Controller
+{
+    //登录
+    public function login()
+    {
+        return view('Homes.Logins.login');
+    }
+
+>>>>>>> origin/zcs
     //注册
     public function register()
     {
         return view('Homes.Logins.register');
     }
+<<<<<<< HEAD
 
 
     //注册验证
@@ -139,3 +154,7 @@ class LoginController extends Controller
 
 
 
+=======
+}
+
+>>>>>>> origin/zcs

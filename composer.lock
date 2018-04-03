@@ -21,6 +21,7 @@
                 "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/7a91480cc6e597caed5117a3c5d685f06d35c5a1",
 
 
+
                 "reference": "7a91480cc6e597caed5117a3c5d685f06d35c5a1",
                 "shasum": ""
             },
@@ -403,6 +404,7 @@
             "dist": {
                 "type": "zip",
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
                 "url": "https://api.github.com/repos/Gregwar/Captcha/zipball/1d06ac8e12d2b3e0df39586d78b9f50e086a0bea",
@@ -413,6 +415,9 @@
 =======
                 "url": "https://api.github.com/repos/Gregwar/Captcha/zipball/1d06ac8e12d2b3e0df39586d78b9f50e086a0bea",
 >>>>>>> origin/hwd
+=======
+                "url": "https://api.github.com/repos/Gregwar/Captcha/zipball/1d06ac8e12d2b3e0df39586d78b9f50e086a0bea",
+>>>>>>> origin/zcs
                 "reference": "1d06ac8e12d2b3e0df39586d78b9f50e086a0bea",
                 "shasum": ""
             },
@@ -835,6 +840,7 @@
                 "type": "zip",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/30e7d60937ee5f1320975ca9bc7bcdd44d500f07",
 =======
                 "url": "https://files.phpcomposer.com/files/maximebf/php-debugbar/30e7d60937ee5f1320975ca9bc7bcdd44d500f07.zip",
@@ -842,6 +848,9 @@
 =======
                 "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/30e7d60937ee5f1320975ca9bc7bcdd44d500f07",
 >>>>>>> origin/hwd
+=======
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/30e7d60937ee5f1320975ca9bc7bcdd44d500f07",
+>>>>>>> origin/zcs
                 "reference": "30e7d60937ee5f1320975ca9bc7bcdd44d500f07",
                 "shasum": ""
             },

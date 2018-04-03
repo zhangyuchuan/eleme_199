@@ -52,6 +52,7 @@
             crossorigin="anonymous">
     </script>
 
+
     <script src="/home/js/jquery.min.js">    </script>
 
     <!--<base href="/">-->
@@ -71,16 +72,20 @@
                     <span class="carttopbar-nav-path">
                         当前位置：
 
+
                         <a href="javascript:;" bind="$root.place.name || $root.place.address"
                            class="binding" href="javascript:;">
+
 
                             宝鼎中心新活馆
                         </a>
                         <i class="icon-arrow-right">
                         </i>
 
+
                         <a class="inherit binding" href="javascript:;" bind="state.rstName"
                            show="state.rstName" href="javascript:;">
+
 
                             杨国福麻辣烫（崇文门店）
                         </a>
@@ -94,6 +99,7 @@
                     <span class="topbar-profilebox-avatar icon-profile hide" show="!$root.user.username">
                             </span>
                     <span show="!$root.user.username" class="hide">
+
 
                                 <a href="javascript:;"
                                    target="_blank" href="javascript:;">
@@ -113,6 +119,7 @@
                         <!-- end ngIf: $root.topbarType !==' checkout' -->
                                 <div class="dropbox topbar-profilebox-dropbox">
 
+
                                     <a class="icon-profile" href="/center" hardjump="">
                                         个人中心
                                     </a>
@@ -126,6 +133,7 @@
                                         安全设置
                                     </a>
                                     <a class="icon-logout" href="javascript:;" click="logout()">
+
 
                                         退出登录
                                     </a>
@@ -144,7 +152,9 @@
     <div class="sidebar-tabs">
         <div class="toolbar-tabs-middle">
 
+
             <a class="toolbar-btn icon-order toolbar-close" href="/orders"
+
 
                hardjump="" tooltip="我的订单" tooltip-placement="left" ubt-click="toolbar_order">
                 <!-- ngIf: sidebarCount.uncompletedOrder> 0 -->
@@ -152,6 +162,7 @@
             <div class="toolbar-separator">
             </div>
             <a class="toolbar-cartbtn icon-cart toolbar-open toolbar-cartbtn-shownum"
+
 
                href="javascript:;" template="cart" class="{&#39;focus&#39;: (activeTemplate === &#39;cart&#39; &amp;&amp; isSidebarOpen), &#39;toolbar-cartbtn-shownum&#39;: foodCount.count}"
 
@@ -176,7 +187,9 @@
             <div class="toolbar-btn icon-QR-code">
                 <div class="dropbox toolbar-tabs-dropbox">
 
+
                     <a href="javascript:;"
+
 
                        target="_blank">
                         <img src="/home/jiesuan_files/appqc.95e532.png" alt="下载手机应用">
@@ -201,10 +214,12 @@
 </div>
 <!-- ngView: -->
 
+
 <div view="" role="main" class="scope">
     <div class="checkoutguide isolate-scope" checkout-guide="" guide="guide">
         <div class="container">
             <a class="checkoutguide-logo icon-logo" href="/lists">
+
 
             </a>
             <span class="checkoutguide-text binding" bind="guide.text">
@@ -236,6 +251,7 @@
         </div>
     </div>
 
+
     @if($gcarts = session()->get('gcarts'))
 
 
@@ -251,7 +267,9 @@
                         订单详情
                     </h2>
 
+
                     <a href="/shop">
+
 
                         &lt; 返回商家修改
                     </a>
@@ -267,6 +285,7 @@
                         小计（元）
                     </div>
                 </div>
+
 
                 <script>
 
@@ -344,6 +363,7 @@
                             @endforeach
 
 
+
                     </dd>
                     <!-- end ngRepeat: item in basket -->
                 </dl>
@@ -368,9 +388,11 @@
                         <div class="cell itemtotal binding" class="{minus: item.price &lt; 0}"
                              bind="&#39;¥&#39; + (item.price | number:2)">
 
+
                             ¥{{ $shopinfo->sendmoney }}
                         </div>
                     </li>
+
 
                     <!-- ngRepeat: item in cart.vm.records -->
                 </ul>
@@ -378,16 +400,20 @@
                 <div class="checkoutcart-total color-stress">
                     ¥
 
+
                     <span class="num binding" bind="cart.vm.total | number: 2" id="sum">
                                 {{ $sum+$shopinfo->sendmoney }}
+
 
                             </span>
                 </div>
                 <div class="checkoutcart-totalextra">
                     共
 
+
                     <span bind="cart.pieces" class="binding" id="sbnt">
                                {{ $sbnt }}
+
 
                             </span>
                     份商品
@@ -535,6 +561,7 @@
 
                         class="btn-stress btn-lg binding ng-isolate-scope " ng-disabled="orderButton.disabled"
 
+
                         bind="orderButton.text" click="orderSubmit()">
                     确认下单
                 </button>
@@ -554,6 +581,7 @@
         </div>
         <!-- end ngIf: !loading && !nofood -->
     </div>
+
 
     @else
         <div class="nodata ng-isolate-scope" ng-if="!loading &amp;&amp; nofood" nodatatip="" content="你的购物车是空的，去<a href='/place'>下单</a>吧"><p class="nodata-container ng-binding" ng-bind-html="content | toTrusted">你的购物车是空的，去<a href="/place">下单</a>吧</p></div>
@@ -578,6 +606,7 @@
 </div>
 
 
+
 <footer class="footer" role="contentinfo">
     <div class="container clearfix">
         <div class="footer-link">
@@ -585,7 +614,9 @@
                 用户帮助
             </h3>
 
+
             <a class="footer-link-item" href="https://help.ele.me/pc/" target="_blank">
+
 
                 我的客服
             </a>
@@ -594,6 +625,7 @@
             <h3 class="footer-link-title">
                 商务合作
             </h3>
+
 
             <a class="footer-link-item" href="javascript:;" target="_blank">
                 我要开店
@@ -608,6 +640,7 @@
             </a>
             <a class="footer-link-item" href="javascript:;" target="_blank">
 
+
                 开放平台
             </a>
         </div>
@@ -615,6 +648,7 @@
             <h3 class="footer-link-title">
                 关于我们
             </h3>
+
             <a class="footer-link-item" href="javascript:;" target="_blank">
                 饿了么介绍
             </a>
@@ -628,6 +662,7 @@
             <a class="footer-link-item" href="javascript:;"
                target="_blank" href="javascript:;">
 
+
                 规则中心
             </a>
         </div>
@@ -635,7 +670,9 @@
             <div class="footer-contect-item">
                 24小时客服热线 :
 
+
                 <a class="inherit" href="javascript:;">
+
 
                     10105757
                 </a>
@@ -654,14 +691,18 @@
                     </div>
                 </div>
 
+
                 <a href="/orders" class="icon-weibo" target="_blank">
+
 
                 </a>
             </div>
         </div>
         <div class="footer-mobile">
 
+
             <a href="javascript:;" target="_blank">
+
 
                 <img src="/home/jiesuan_files/appqc.95e532.png" class="footer-mobile-icon"
                      alt="扫一扫下载饿了么手机 App">
@@ -682,6 +723,7 @@
             <p>
                 增值电信业务许可证 :
 
+
                 <a href="javascript:;" target="_blank">
                     沪B2-20150033
                 </a>
@@ -692,6 +734,7 @@
                 |
                 <a href="javascript:;">
 
+
                     上海工商行政管理
                 </a>
                 Copyright ©2008-2017 ele.me, All Rights Reserved.互联网药品信息服务资格证书 编号：（沪）-经营性-2016-0011
@@ -699,7 +742,9 @@
         </div>
         <div class="footer-police container">
 
+
             <a href="javascript:;" rel="nofollow" target="_blank">
+
 
                 <img alt="已通过沪公网备案，备案号 310100103568" src="/home/jiesuan_files/picp_bg.e373b3.jpg"
                      height="30">
