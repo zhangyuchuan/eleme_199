@@ -147,17 +147,15 @@
                 </ul>
                 <div data-v-868d222c="" data-v-04dec436="">
                     <div data-v-868d222c="" class="index-buttons">
-                        <a href="{{ url('/opendata') }}" style="text-decoration:none;color:#fff">
                         <button data-v-868d222c="" type="button" class="kw-btn btn-primary btn-medium"
-                                >
+                                ubt-click="102258">
                             <!---->
                             <!---->
-                            <span class="inner">
-                                           我要开店
-                                    </span>
+                            <a href="{{ url('/opendata') }}"><span class="inner">
+                                        我要开店
+                                    </span></a>
                             <!---->
                         </button>
-                        </a>
                         <p data-v-868d222c="">
                                     <span data-v-868d222c="" ubt-click="102259">
                                         查看开店记录
@@ -449,7 +447,6 @@
         </div>
     </div>
 </div>
-
 
 </body>
 
