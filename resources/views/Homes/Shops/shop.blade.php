@@ -449,14 +449,6 @@
         <div ng-if="shopAction === &#39;menu&#39;" shop-menu="" shop-cache="shopCache"
              filter-data="shop.filter" display-type="shop.displayType" class="shopmenu ng-isolate-scope"
              perf-click="desktop/201">
-            <div class="loading ng-binding ng-isolate-scope ng-hide" loading="" ng-show="loading">
-                <!-- ngIf: type==='profile' -->
-                <img ng-if="type===&#39;profile&#39;" src="/home/elm/profile-loading.4984fa.gif"
-                     alt="正在加载" class="ng-scope">
-                <!-- end ngIf: type==='profile' -->
-                <!-- ngIf: type==='normal' -->
-                正在载入数据...
-            </div>
             <div class="shopmenu-nav ng-isolate-scope " id="gcate" >
                 @foreach($gcate as $v)
                     <a href="/shop/{{ $shopinfo->id }}#cat{{ $v->id }}"  class="ng-binding ng-scope ">
@@ -468,11 +460,6 @@
             <div ng-show="!loading" class="shopmenu-main grid"  id="cgoods" ng-class="{grid: displayType === &#39;grid&#39;, list: displayType === &#39;list&#39;}" >
                 <!-- ngIf: filterData===' default' && !searchEnv -->
                 <script>
-                    $(window).scroll(function () {
-                        // console.log(top);
-                        // console.log($(document).scrollTop());
-                        dong();
-                    });
                     document.onscroll= function (){
                         if ($(document).scrollTop() < 269) {
                             $('#cgoods').removeAttr('style');

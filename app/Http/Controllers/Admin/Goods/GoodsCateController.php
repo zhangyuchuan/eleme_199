@@ -25,7 +25,7 @@ class GoodsCateController extends Controller
 
 
         $shops = ShopInfo::pluck('name','id');
-        $count = $goodscate = GoodsCate::orderBy('id','asc')
+        $count = GoodsCate::orderBy('id','asc')
             ->where(function($query) use($request){
                 //检测关键字
                 $sid = $request->input('sid');
@@ -47,8 +47,6 @@ class GoodsCateController extends Controller
             })
             ->paginate($request->input('num', 5));
         //显示列表页
-
-
 
         return view('Admin.Goods.GoodsCateList',['goodscate'=>$goodscate,'request'=>$request,'count'=>$count,'shops'=>$shops]);
 
