@@ -186,11 +186,8 @@ Route::group(['middleware'=>'homeIslogin'],function(){
     Route::get('/integral','Home\Users\UserController@integral');
     //用户收藏
     Route::get('/collect','Home\Users\UserController@collect');
-
-
     //账户余额
     Route::get('/balance','Home\Users\UserController@balance');
-
     //开店申请1
     Route::get('/opendata','Home\Shops\OpenShopController@opendata');
     //开店信息采集
@@ -234,16 +231,6 @@ Route::group(['middleware'=>'homeIslogin'],function(){
     //结算
     Route::get('/shop/{id}/jiesuan','Home\Orders\OrderController@jiesuan');
 
-    //账户余额
-    Route::get('/balance','Home\Users\UserController@balance');
-   
-    
-   
-    //商品订单
-    Route::get('/orders','Home\Orders\OrderController@orders');
-    
-
-
 
 
     //商家资质
@@ -252,21 +239,37 @@ Route::group(['middleware'=>'homeIslogin'],function(){
     Route::get('/evaluate','Home\Users\UserController@evaluate');
 
 
+    //我的资料开始
+    //我的资料结束
+    //公共左
+    Route::get('/public','Home\Users\UserController@public');
+
+
     //商品订单
     Route::get('/orders','Home\Orders\OrderController@orders');
-    //用户红包
-    Route::get('/hongbao','Home\Users\UserController@hongbao');
+
     //订单完成
     Route::get('/overorder','Home\Orders\OrderController@overorder');
+
+
+//--------------------------韩伟栋--------------------------------------
+
+    //用户红包
+    Route::get('/hongbao','Home\Users\UserController@hongbao');
     //删除用户收藏
-    Route::get('/delete/{id}','Home\Users\UserController@delete');
-    //账户余额
-    Route::get('/balance','Home\Users\UserController@balance');
+    Route::get('/del/{id}','Home\Users\UserController@del');
     //订单详情
     Route::get('/orderdata/{id}','Home\Orders\OrderController@orderdata');
 
+//----------------------------栋----------------------------------------
+
     //前台网站配置
     Route::resource('/home/config','Home\Config\ConfigController');
+
+
+
+
+
 
 
 

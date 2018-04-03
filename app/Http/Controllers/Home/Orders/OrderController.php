@@ -22,6 +22,7 @@ class OrderController extends Controller
 {
 
 
+
     public function jiesuan($id)
     {
         $shopinfo = ShopInfo::find($id);
@@ -37,8 +38,6 @@ class OrderController extends Controller
 
 
 
-
-
     }
 
     //商品订单
@@ -46,8 +45,6 @@ class OrderController extends Controller
     {
         return view('Homes.Orders.orders');
     }
-
-
 
 
     public function overorder()
@@ -76,6 +73,5 @@ class OrderController extends Controller
 
         return view('Homes.Orders.orderdata',compact('all','shop_all','shop'));
     }
-
 
 }

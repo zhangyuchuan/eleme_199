@@ -1,8 +1,4 @@
-
-
-
 @extends('Homes.layout')
-
 
 @section('title','饿了么-网上订餐_外卖_饿了么订餐官网')
 
@@ -45,8 +41,8 @@
                         <div class="dropbox toolbar-tabs-dropbox">
 
 
-                            <a href="/eleme/desktop/mobile/index.html"
 
+                            <a href="/eleme/desktop/mobile/index.html"
 
                             target="_blank">
                                 <img src="/home/img/appqc.95e532.png" alt="下载手机应用">
@@ -95,7 +91,6 @@
                         <span class="location-change location-hashistory" ng-class="{ &#39;location-hashistory&#39;: user.username &amp;&amp; userPlaces &amp;&amp; userPlaces.length &gt; 0 }">
                             <a ng-href="/home" ubt-click="400" hardjump="" href="https://www.ele.me/home">
 
-
                                 [切换地址]
                             </a>
                             <ul class="dropbox location-dropbox" ubt-visit="398">
@@ -103,7 +98,6 @@
                                 </li>
                                 <!-- ngRepeat: userPlace in userPlaces | filter:filterPlace | limitTo:
                                 4 -->
-
 
 
                                 <li ng-repeat="userPlace in userPlaces | filter:filterPlace | limitTo: 4"
@@ -120,8 +114,8 @@
 
 
 
-                                    <a ng-href="/home" hardjump="" href="/home">
 
+                                    <a ng-href="/home" hardjump="" href="/home">
                                         修改收货地址
                                         <span class="icon-location">
                                         </span>
@@ -148,8 +142,10 @@
 
 
 
+
                             <a href="/center">
                             个人中心
+
                             </a>
                         </h2>
                     </li>
@@ -166,7 +162,6 @@
                                 <a href="/orders">
                                     近期订单
 
-
                                 </a>
                             </li>
                         </ul>
@@ -178,7 +173,6 @@
                             我的资产
                         </h2>
                         <ul>
-
 
 
                             <li ng-class="{ active: pageName === &#39;balance&#39; }" class="active">
@@ -195,7 +189,6 @@
 
                             <li class="{ active: pageName === &#39;points&#39; }">
                                 <a href="/integral">
-
 
                                     我的积分
                                 </a>
@@ -233,7 +226,6 @@
 
                             <li class="{ active: pageName === &#39;changepassword&#39; }">
                                 <a href="javascript:;">
-
 
                                     修改密码
                                 </a>
@@ -284,7 +276,6 @@
                         nodatatip="" content="暂无记录，现在就去&lt;a href=&#39;/place&#39;&gt;订餐&lt;/a&gt;吧!">
                             <p class="nodata-container binding" bind-html="content | toTrusted">
                                 暂无记录，现在就去
-
 
                                 <a href="/lists">
 
