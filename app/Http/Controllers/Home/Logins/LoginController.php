@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Session;
 class LoginController extends Controller
 {
     //引入登录页面
-<<<<<<< HEAD
+
     public function login(Request $request)
     {
         //定义路由组
@@ -28,10 +28,7 @@ class LoginController extends Controller
         if(in_array(url()->previous(),$path)){
             Session::put('paths',url()->previous());
         }
-=======
-    public function login()
-    {
->>>>>>> origin/yys
+
 
         return view('Homes.Logins.login');
     }
@@ -62,13 +59,9 @@ class LoginController extends Controller
             return redirect('home/login')->with('errors','该用户已被禁用');
         }
         //将信息保存进session
-<<<<<<< HEAD
-        Session::put('user',$user);
-=======
 
         Session::put('user',$user);
 
->>>>>>> origin/yys
         //登陆成功跳转至后台首页
         $path = !empty(session('paths'))?session('paths'):'/lists';
         return redirect($path);
