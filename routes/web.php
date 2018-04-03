@@ -197,18 +197,8 @@ Route::group(['middleware'=>'homeIslogin'],function(){
 
     //个人中心
     Route::get('/center','Home\Users\UserController@center');
-    //安全中心
-	Route::get('/safety','Home\Users\UserController@safety');
-    //用户地址
-    Route::get('/add','Home\Users\UserController@add');
-    //用户密码
-    Route::get('/password','Home\Users\UserController@password');
 
-    //用户密码修改
-    Route::post('/repass','Home\Users\UserController@repass');
 
-    //用户数据资料
-    Route::get('/data','Home\Users\UserController@data');
     //用户积分
     Route::get('/integral','Home\Users\UserController@integral');
     //用户收藏
@@ -278,15 +268,6 @@ Route::group(['middleware'=>'homeIslogin'],function(){
     //用户评价
     Route::get('/evaluate','Home\Users\UserController@evaluate');
 
-    //我的资料开始
-    //我的资料结束
-    //公共左
-    Route::get('/public','Home\Users\UserController@public');
-
-
-
-
-
 
     //商品订单
     Route::get('/orders','Home\Orders\OrderController@orders');
@@ -306,10 +287,12 @@ Route::group(['middleware'=>'homeIslogin'],function(){
 
 
 
-
+//都是张晨思的    开始
 //公共左
 Route::get('/public','Home\Users\UserController@public');
 //我的资料开始
+//用户数据资料
+Route::get('/data','Home\Users\UserController@data');
 //添加地址
 Route::get('/create','Home\Users\UserController@create');
 Route::post('/store','Home\Users\UserController@store');
@@ -317,6 +300,16 @@ Route::post('/store','Home\Users\UserController@store');
 Route::get('/modify/{id}','Home\Users\UserController@modify');
 Route::post('/storemodify{id}','Home\Users\UserController@storemodify');
 //删除地址
-Route::get('/delete/{id}','Home\Users\UserController@delete');
+Route::get('/deletedizhi/{id}','Home\Users\UserController@deletedizhi');
 //我的资料结束
 
+//安全中心
+Route::get('/safety','Home\Users\UserController@safety');
+//用户地址
+Route::get('/add','Home\Users\UserController@add');
+//用户密码
+Route::get('/password','Home\Users\UserController@password');
+
+//用户密码修改
+Route::post('/repass','Home\Users\UserController@repass');
+//张晨思    结束
