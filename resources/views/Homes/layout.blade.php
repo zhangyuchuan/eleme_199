@@ -1,5 +1,6 @@
 <!doctype html>
 <html app="eleme" perf-error="desktop/">
+
     <head>
         <meta charset="utf-8" />
         <meta name="renderer" content="webkit" />
@@ -44,6 +45,7 @@
                 window.location.href = 'https://h.ele.me/activities/landing';
             </script>
         <![endif]-->
+
         <script src="/home/js/jquery-1.8.3.min.js"></script>
         {{--<script src="/home/jiesuan_files/vendor.6502b2.js"></script>--}}
         <script src="/home/js/69e30c57868b46e7a0d2b4a6c711970a.js" data-ref="API_CONFIG">
@@ -54,12 +56,16 @@
         {{--// </script>--}}
         {{--<script src="/home/js/main.a0cd82.js" type="text/javascript" crossorigin="anonymous">--}}
         {{--</script>--}}
+
+
         <script src="/home/js/6936dbf3e7d94cffa954bcbcf2b79f38.js"></script>
     </head>
     
     <body cute-title class="{hidesidebar: layoutState && layoutState.hideSidebar, smallbody: layoutState.smallBody, whitebody: layoutState.whiteBody}">
         <!-- <eleme-topbar state="layoutState"></eleme-topbar> -->
+
         <div class="isolate-scope" switch="state.type" state="layoutState" id="toptool">
+
             <div class="scope isolate-scope" switch-default="" topbar-default=""
             state="state">
                 <header class="topbar" role="navigation" class="{shoptopbar: state.type === 'shop'}">
@@ -144,7 +150,9 @@
         <div class="importantnotification container" role="banner">
         </div>
         <!-- <eleme-importantnotification></eleme-importantnotification> -->
+
         <div class="sidebar" id="sidebar" role="complementary" hide="layoutState && layoutState.hideSidebar">
+
             <div class="sidebar-tabs">
                 <div class="toolbar-tabs-middle">
                     <a class="toolbar-btn icon-order toolbar-close" href="/profile/order"
@@ -154,22 +162,28 @@
                     </div>
                     <a class="toolbar-cartbtn icon-cart toolbar-open" href="JavaScript:" template="cart"
                     class="{'focus': (activeTemplate === 'cart' && isSidebarOpen), 'toolbar-cartbtn-shownum': foodCount.count}"
+
                     ubt-click="390" id="goodscart">
+
                         购物车
                     </a>
                     <div class="toolbar-separator">
                     </div>
+
                     <a id="news" class="toolbar-btn icon-notice toolbar-open " href="JavaScript:"
+
                     template="message" class="{'focus': (activeTemplate === 'message' && isSidebarOpen), 'toolbar-open': user, 'modal-hide': user}"
                     tooltip="我的信息" tooltip-placement="left" ubt-click="392">
                     </a>
                 </div>
                 <div class="toolbar-tabs-bottom">
                     <div class="toolbar-btn icon-QR-code">
+
                         <div class="dropbox toolbar-tabs-dropbox" >
                             <a href="http://static11.elemecdn.com/eleme/desktop/mobile/index.html"
                             target="_blank">
                                 <img src="/home/img/appqc.95e532.png" alt="下载手机应用">
+
                                     下载手机应用
                                 </p>
                                 <p class="icon-QR-code-bonus">
@@ -182,6 +196,7 @@
                     tooltip="在线客服" title="在线客服" tooltip-placement="left" target="_blank" href="JavaScript:"
                     style="visibility: hidden;">
                     </a>
+
                     <a class="toolbar-btn sidebar-btn-backtop icon-top" tooltip="回到顶部" href="#toptool" id="top" title="回到顶部"
                     href="JavaScript:" tooltip-placement="left"  style="display:none">
                     </a>
@@ -304,6 +319,7 @@
 
 
         </script>
+
         @section('content')
 
 

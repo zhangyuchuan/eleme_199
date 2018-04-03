@@ -3,11 +3,15 @@
 namespace App\Http\Controllers\Home\Shops;
 
 use App\Model\Goods;
+<<<<<<< HEAD
 
 use App\Model\ShopCategory;
 
 use App\Model\GoodsCate;
 
+=======
+use App\Model\GoodsCate;
+>>>>>>> origin/yys
 use App\Model\ShopInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,6 +22,7 @@ class ShopController extends Controller
     //商品列表
     public function lists()
     {
+<<<<<<< HEAD
         //获得全部一级分类
         $cateone = ShopCategory::where('pid',0)->get();
         return view('Homes.Shops.lists',compact('cateone'));
@@ -73,6 +78,9 @@ class ShopController extends Controller
                             ->get();
 //        dd($shops);
         return view('Homes.Shops.listDoSearch',compact('keywords','shops'));
+=======
+        return view('Homes.Shops.lists');
+>>>>>>> origin/yys
     }
 
     //商铺详情
@@ -83,7 +91,10 @@ class ShopController extends Controller
         return view('Homes.Shops.shop',compact('shopinfo','gcate'));
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/yys
     //商品详情
     public function show(Request $request)
     {

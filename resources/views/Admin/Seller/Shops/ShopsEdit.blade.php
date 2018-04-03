@@ -21,9 +21,11 @@
                 <label for="phone" class="layui-form-label">
                     <span class="x-red">*</span>店铺地址
                 </label>
+
                 <div class="layui-input-inline">
                     <textarea name="address" id="" cols="30" rows="10">{{$shop->address}}</textarea>
                 </div>
+
             </div>
             <div class="layui-form-item">
                 <label for="phone" class="layui-form-label">
@@ -53,6 +55,7 @@
             //监听提交
             form.on('submit(add)', function(data){
                 var id= $('input[name=id]').val();
+
                 var src = $('#img2').attr('src');
                 data.field.logo=src;
                 $.ajax({
@@ -65,6 +68,7 @@
                     dataType:'json',
                     type:'PUT',
                     success:function(data){
+
                         if(data.status==1){
                             layer.alert(data.msg,{icon:5,time:2000},function(){
                                 //关闭弹层，刷新父页面
