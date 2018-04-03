@@ -3,26 +3,20 @@
 namespace App\Http\Controllers\Admin\Users;
 
 use App\Model\User;
-<<<<<<< HEAD
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-=======
+
 use App\Model\UserInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
->>>>>>> origin/zongze
 class UserController extends Controller
 {
 //    public function list()
 //    {
-<<<<<<< HEAD
-//        return view('Admin.Shops.UserList');
-=======
+
 //        return view('Admin.Users.UserList');
->>>>>>> origin/zongze
+
 //    }
 //
     public function grade()
@@ -37,9 +31,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
 
-<<<<<<< HEAD
-        $users =User::where('auth','2')->get();
-=======
+
         // 搜索条件下获取
         $users = User::orderBy('id','asc')->where('auth','2')
             ->where(function($query) use($request){
@@ -58,7 +50,7 @@ class UserController extends Controller
             ->paginate($request->input('num', 3));
 
 
->>>>>>> origin/zongze
+
 //
          return view('Admin.Users.UserList',['users'=>$users,'request'=> $request]);
 
@@ -160,9 +152,7 @@ class UserController extends Controller
         return $arr;
     }
 
-<<<<<<< HEAD
 
-=======
     public function show($id){
 
     }
@@ -219,7 +209,7 @@ class UserController extends Controller
 
         return $arr;
     }
->>>>>>> origin/zongze
+
 
 
 }
