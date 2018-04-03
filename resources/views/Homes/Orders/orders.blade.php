@@ -1,14 +1,9 @@
-<<<<<<< HEAD
+
 
 
 @extends('Homes.layout')
 
 
-
-=======
-@extends('Homes.layout')
-
->>>>>>> origin/zcs
 @section('title','饿了么-网上订餐_外卖_饿了么订餐官网')
 
 @section('content')
@@ -18,25 +13,20 @@
         <div class="sidebar" role="complementary" hide="layoutState &amp;&amp; layoutState.hideSidebar">
             <div class="sidebar-tabs">
                 <div class="toolbar-tabs-middle">
-<<<<<<< HEAD
+
 
                     <a class="toolbar-btn icon-order toolbar-close" href="/orders"
 
-=======
-                    <a class="toolbar-btn icon-order toolbar-close" href="https://www.ele.me/profile/order"
->>>>>>> origin/zcs
                     hardjump="" tooltip="我的订单" tooltip-placement="left" ubt-click="toolbar_order">
                         <!-- ngIf: sidebarCount.uncompletedOrder> 0 -->
                     </a>
                     <div class="toolbar-separator">
                     </div>
-<<<<<<< HEAD
+
 
                     <a class="toolbar-cartbtn icon-cart toolbar-open" href="JavaScript:" template="cart"
 
-=======
-                    <a class="toolbar-cartbtn icon-cart toolbar-open" href="JavaScript:" template="cart"
->>>>>>> origin/zcs
+
                     class="{&#39;focus&#39;: (activeTemplate === &#39;cart&#39; &amp;&amp; isSidebarOpen), &#39;toolbar-cartbtn-shownum&#39;: foodCount.count}"
                     ubt-click="390">
                         购物车
@@ -53,14 +43,11 @@
                 <div class="toolbar-tabs-bottom">
                     <div class="toolbar-btn icon-QR-code">
                         <div class="dropbox toolbar-tabs-dropbox">
-<<<<<<< HEAD
 
 
                             <a href="/eleme/desktop/mobile/index.html"
 
-=======
-                            <a href="http://static11.elemecdn.com/eleme/desktop/mobile/index.html"
->>>>>>> origin/zcs
+
                             target="_blank">
                                 <img src="/home/img/appqc.95e532.png" alt="下载手机应用">
                                 <p>
@@ -97,7 +84,7 @@
                             当前位置:
                         </span>
                         <span class="location-current">
-<<<<<<< HEAD
+
 
 
                            <a class="inherit ng-binding" ng-href="/place/wx4spk2hgfer" ubt-click="401"
@@ -109,15 +96,6 @@
                             <a ng-href="/home" ubt-click="400" hardjump="" href="https://www.ele.me/home">
 
 
-=======
-                            <a class="inherit binding" href="/place/wx4spk2hgfer" ubt-click="401"
-                            bind="place.name || place.address" href="https://www.ele.me/place/wx4spk2hgfer">
-                                昌平区204县道(北京市育荣教育园区西)
-                            </a>
-                        </span>
-                        <span class="location-change location-hashistory" class="{ &#39;location-hashistory&#39;: user.username &amp;&amp; userPlaces &amp;&amp; userPlaces.length &gt; 0 }">
-                            <a href="/home" ubt-click="400" hardjump="" href="https://www.ele.me/home">
->>>>>>> origin/zcs
                                 [切换地址]
                             </a>
                             <ul class="dropbox location-dropbox" ubt-visit="398">
@@ -125,7 +103,7 @@
                                 </li>
                                 <!-- ngRepeat: userPlace in userPlaces | filter:filterPlace | limitTo:
                                 4 -->
-<<<<<<< HEAD
+
 
 
                                 <li ng-repeat="userPlace in userPlaces | filter:filterPlace | limitTo: 4"
@@ -133,28 +111,17 @@
                                     <a class="inherit ng-binding" ng-href="/place/wx4spk2jk0db?latitude=40.102375&amp;longitude=116.334404"
                                        ng-bind="userPlace.name" ubt-click="399" href="/place/wx4spk2jk0db?latitude=40.102375&amp;longitude=116.334404">
 
-
-=======
-                                <li repeat="userPlace in userPlaces | filter:filterPlace | limitTo: 4"
-                                class="scope">
-                                    <a class="inherit binding" href="/place/wx4spk2jk0db?latitude=40.102375&amp;longitude=116.334404"
-                                    bind="userPlace.name" ubt-click="399" href="https://www.ele.me/place/wx4spk2jk0db?latitude=40.102375&amp;longitude=116.334404">
->>>>>>> origin/zcs
                                         昌平区204县道(北京市育荣教育园区西)
                                     </a>
                                 </li>
                                 <!-- end ngRepeat: userPlace in userPlaces | filter:filterPlace | limitTo:
                                 4 -->
                                 <li class="changelocation">
-<<<<<<< HEAD
+
 
 
                                     <a ng-href="/home" hardjump="" href="/home">
 
-
-=======
-                                    <a href="/home" hardjump="" href="https://www.ele.me/home">
->>>>>>> origin/zcs
                                         修改收货地址
                                         <span class="icon-location">
                                         </span>
@@ -178,16 +145,11 @@
                         <h2 class="profile-sidebar-sectiontitle" class="{ active: pageName === &#39;profile&#39; }">
                             <i class="icon-line-home">
                             </i>
-<<<<<<< HEAD
+
 
 
                             <a href="/center">
-
-
-=======
-                            <a href="https://www.ele.me/profile">
->>>>>>> origin/zcs
-                                个人中心
+                            个人中心
                             </a>
                         </h2>
                     </li>
@@ -199,26 +161,12 @@
                         </h2>
                         <ul>
                             <li class="{ active: pageName === &#39;order&#39; }" class="active">
-<<<<<<< HEAD
+
 
                                 <a href="/orders">
                                     近期订单
 
-=======
-                                <a href="https://www.ele.me/profile/order">
-                                    近三个月订单
-                                </a>
-                            </li>
-                            <li class="{ active: pageName === &#39;order-unrated&#39; }">
-                                <a href="https://www.ele.me/profile/order/unrated">
-                                    待评价订单
-                                    <!-- ngIf: unratedNumber -->
-                                </a>
-                            </li>
-                            <li class="{ active: pageName === &#39;order-refunding&#39; }">
-                                <a href="https://www.ele.me/profile/order/refund">
-                                    退单记录
->>>>>>> origin/zcs
+
                                 </a>
                             </li>
                         </ul>
@@ -230,7 +178,7 @@
                             我的资产
                         </h2>
                         <ul>
-<<<<<<< HEAD
+
 
 
                             <li ng-class="{ active: pageName === &#39;balance&#39; }" class="active">
@@ -248,20 +196,7 @@
                             <li class="{ active: pageName === &#39;points&#39; }">
                                 <a href="/integral">
 
-=======
-                            <li class="{ active: pageName === &#39;hongbao&#39; }">
-                                <a href="https://www.ele.me/profile/hongbao">
-                                    我的红包
-                                </a>
-                            </li>
-                            <li class="{ active: pageName === &#39;balance&#39; }">
-                                <a href="https://www.ele.me/profile/balance">
-                                    账户余额
-                                </a>
-                            </li>
-                            <li class="{ active: pageName === &#39;points&#39; }">
-                                <a href="https://www.ele.me/profile/points">
->>>>>>> origin/zcs
+
                                     我的积分
                                 </a>
                             </li>
@@ -274,19 +209,15 @@
                             我的资料
                         </h2>
                         <ul>
-<<<<<<< HEAD
 
                             <li class="{ active: pageName === &#39;info&#39; }">
                                 <a href="/center">
-=======
-                            <li class="{ active: pageName === &#39;info&#39; }">
-                                <a href="https://www.ele.me/profile/info">
->>>>>>> origin/zcs
+
                                     个人资料
                                 </a>
                             </li>
                             <li class="{ active: pageName === &#39;address&#39; }">
-<<<<<<< HEAD
+
 
                                 <a href="/add">
                                     地址管理
@@ -303,19 +234,7 @@
                             <li class="{ active: pageName === &#39;changepassword&#39; }">
                                 <a href="javascript:;">
 
-=======
-                                <a href="https://www.ele.me/profile/address">
-                                    地址管理
-                                </a>
-                            </li>
-                            <li class="{ active: pageName === &#39;security-center&#39; }">
-                                <a href="https://www.ele.me/profile/security">
-                                    安全中心
-                                </a>
-                            </li>
-                            <li class="{ active: pageName === &#39;changepassword&#39; }">
-                                <a href="https://www.ele.me/profile/security/changepassword">
->>>>>>> origin/zcs
+
                                     修改密码
                                 </a>
                             </li>
@@ -323,13 +242,10 @@
                     </li>
                     <li class="profile-sidebar-section">
                         <h2 class="profile-sidebar-sectiontitle" class="{ active: pageName === &#39;favor&#39; }">
-<<<<<<< HEAD
+
 
                             <a href="/collect">
 
-=======
-                            <a href="https://www.ele.me/profile/favor">
->>>>>>> origin/zcs
                                 <i class="icon-order-favor">
                                 </i>
                                 我的收藏
@@ -352,19 +268,13 @@
                             <img src="/home/img/takeout.408a87.png">
                         </div>
                         <div class="order-extra scope">
-<<<<<<< HEAD
+
 
                             <a href="javascript:;">
                                 热门问题
                             </a>
                             <a href="javascript:;"
 
-=======
-                            <a href="https://www.ele.me/support/question/hotissue" target="_blank">
-                                热门问题
-                            </a>
-                            <a href="https://static11.elemecdn.com/eleme/desktop/mobile/index.html"
->>>>>>> origin/zcs
                             target="_blank">
                                 随时关注订单状态
                             </a>
@@ -374,13 +284,10 @@
                         nodatatip="" content="暂无记录，现在就去&lt;a href=&#39;/place&#39;&gt;订餐&lt;/a&gt;吧!">
                             <p class="nodata-container binding" bind-html="content | toTrusted">
                                 暂无记录，现在就去
-<<<<<<< HEAD
+
 
                                 <a href="/lists">
 
-=======
-                                <a href="https://www.ele.me/place">
->>>>>>> origin/zcs
                                     订餐
                                 </a>
                                 吧!
@@ -403,7 +310,4 @@
                 </div>
             </div>
         </div>
-
-
-
 @endsection
