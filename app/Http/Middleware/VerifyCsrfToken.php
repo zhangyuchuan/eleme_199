@@ -12,15 +12,11 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-<<<<<<< HEAD
 
 
 
         'home/shop/doform'
 
 
-=======
-        //
->>>>>>> origin/zcs
     ];
 }

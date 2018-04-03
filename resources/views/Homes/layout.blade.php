@@ -42,26 +42,23 @@
         <link href="/home/css/main.0a7669.css" rel="stylesheet">
 
 
-        <style>
-            @font-face {
-                font-family: 'MyNewFont';   /*字体名称*/
-                src: url('./home/eleme.8e5aeb.ttf')format('truetype');       /*字体源文件*/
-                src: url('./home/eleme.a61c32.woff')format('woff');       /*字体源文件*/
-            }
-            body{
-                font-family: 'MyNewFont';   /*字体名称*/
-
-            }
-
-
-        </style>
+        {{--<style>--}}
+            {{--@font-face {--}}
+                {{--font-family: 'MyNewFont';   /*字体名称*/--}}
+                {{--src: url('./home/eleme.8e5aeb.ttf')format('truetype');       /*字体源文件*/--}}
+                {{--src: url('./home/eleme.a61c32.woff')format('woff');       /*字体源文件*/--}}
+            {{--}--}}
+            {{--body{--}}
+                {{--font-family: 'MyNewFont';   /*字体名称*/--}}
+            {{--}--}}
+        {{--</style>--}}
 
 
         <!--[if lte IE 8]>
-            <script>
-                window.location.href = 'https://h.ele.me/activities/landing';
-            </script>
-        <![endif]-->
+            <!--<script>-->
+                <!--window.location.href = 'https://h.ele.me/activities/landing';-->
+            <!--</script>-->
+        {{--<![endif]-->--}}
 
 
 

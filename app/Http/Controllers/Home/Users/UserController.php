@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Home\Users;
 
-<<<<<<< HEAD
 
 
 use App\Model\User;
@@ -15,8 +14,12 @@ use App\Http\Controllers\Controller;
 use App\Model\Collect;
 use App\Model\Orders;
 use App\Model\ShopInfo;
+use App\Model\Address;
 
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Validator;
 use DB;
+
 
 
 class UserController extends Controller
@@ -68,25 +71,17 @@ class UserController extends Controller
     public function delete($id)
     {
 //        dd($id);
-        $cid = Collect::where('sid',$id)->first();
+        $cid = Collect::where('sid', $id)->first();
 //        dd($cid);
-        $res= $cid->delete();
+        $res = $cid->delete();
 //        dd($res);
-        if($res) {
+        if ($res) {
             return redirect('/collect');
 
-        }else{
-=======
-use App\Model\Address;
-use App\Model\User;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Validator;
-use DB;
+        }
+    }
 
-class UserController extends Controller
-{
+
 
 
     //安全中心
@@ -160,18 +155,18 @@ class UserController extends Controller
         return view('Homes.Users.add');
     }
 
-    //删除地址
-    public function delete($id)
-    {
-        $res= Address::destroy($id);
-
-        if($res) {
-            return redirect('/add');
-
-        }else{
-            return back();
-        }
-    }
+//    //删除地址
+//    public function delete($id)
+//    {
+//        $res= Address::destroy($id);
+//
+//        if($res) {
+//            return redirect('/add');
+//
+//        }else{
+//            return back();
+//        }
+//    }
 
     //修改地址
     public function modify($id)
@@ -253,15 +248,12 @@ class UserController extends Controller
         if($res){
             return redirect('/center');
         }else{
->>>>>>> origin/zcs
+
             return back();
         }
     }
 
-<<<<<<< HEAD
-}
 
-=======
 
     //用户数据资料
     public function data()
@@ -281,4 +273,4 @@ class UserController extends Controller
     }
 
 }
->>>>>>> origin/zcs
+

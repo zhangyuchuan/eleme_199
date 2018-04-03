@@ -16,15 +16,13 @@ class IsLogin
     public function handle($request, Closure $next)
     {
         if (session('user')){
-<<<<<<< HEAD
+
 
 
             if(session('user')->auth==2){
                 return redirect('/lists');
             }
 
-=======
->>>>>>> origin/zcs
             return $next($request);
         }else{
             return redirect('admin/login')->with('errors','请先登录');

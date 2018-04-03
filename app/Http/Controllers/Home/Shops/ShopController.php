@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Home\Shops;
 
-<<<<<<< HEAD
+
 
 
 use App\Model\Goods;
@@ -18,17 +18,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
 
-=======
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
->>>>>>> origin/zcs
+
 
 class ShopController extends Controller
 {
     //商品列表
     public function lists()
     {
-<<<<<<< HEAD
 
 
 
@@ -186,14 +182,5 @@ class ShopController extends Controller
 
 
 
-=======
-        return view('Homes.Shops.lists');
-    }
 
-    //商品详情
-    public function shop()
-    {
-        return view('Homes.Shops.shop');
-    }
->>>>>>> origin/zcs
 }
