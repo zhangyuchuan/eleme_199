@@ -24,6 +24,7 @@
                     <input type="text" id="phone" name="phone" required="" lay-verify="phone"
                            autocomplete="off" class="layui-input" value="{{$user->phone}}">
                 </div>
+
                 <div class="layui-form-mid layui-word-aux">
                     <span class="x-red">*</span>不能为空
                 </div>
@@ -52,6 +53,7 @@
                 <div class="layui-form-mid layui-word-aux">
                     <span class="x-red">*</span>不能为空
                 </div>
+
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">性别</label>
@@ -93,14 +95,16 @@
                     dataType:'json',
                     type:'PUT',
                     success:function(data){
-                        // console.log(data);
+
                         if(data.status==1){
                             layer.alert(data.msg,{icon:5,time:2000},function(){
                                 //关闭弹层，刷新父页面
                                 parent.location.reload();
 
                             })
+
                         }else {
+
                             layer.alert(data.msg,{icon:6,time:2000},function(){
                                 //关闭弹层，刷新父页面
 

@@ -47,11 +47,18 @@
     </script>
     <script src="/home/js/vendor.6b3834.js" type="text/javascript">
     </script>
+
     <script src="/home/js/jquery.min.js">    </script>
+
     <script src="/home/js/222.js" type="text/javascript">
     </script>
     <!--<base href="/">s-->
     <base href=".">
+
+    <meta name="mobile-agent" content="format=html5;url=https://h5.ele.me/shop/#id=1195106">
+    <meta name="description" content="田老师红烧肉（怀柔青春路店）位于北京市怀柔区青春路15号一层的住所南起第三间门店，主要美食有单个狮子头、烤肠(根)、单份米饭、卤蛋(个)、红烧肉+番茄鸡蛋等，了解更多美食外卖，上饿了么网上订餐">
+    <meta name="keywords" content="田老师红烧肉（怀柔青春路店）外卖，田老师红烧肉（怀柔青春路店）菜单，田老师红烧肉（怀柔青春路店）电话">
+
 </head>
 
 <body cute-title="" ng-class="{hidesidebar: layoutState &amp;&amp; layoutState.hideSidebar, smallbody: layoutState.smallBody, whitebody: layoutState.whiteBody}"
@@ -209,6 +216,7 @@
             <div class="shopguide-info">
                 <meta itemprop="url" content="https://www.ele.me/shop/1195106">
                 <img ng-src="//fuss10.elemecdn.com/3/bf/43ba71d180d43fb084348a40a428fjpeg.jpeg?imageMogr2/thumbnail/95x95/format/webp/quality/85"
+
                      alt="{{ $shopinfo->name }}" itemprop="image" src="{{ $shopinfo->logo }}">
                 <div class="shopguide-info-wrapper">
                     <div>
@@ -218,6 +226,7 @@
                         </h1>
                         <!-- ngIf: shop.tip -->
                         <a ng-href="/shop/1195106/info" href="/shop/{{ $shopinfo->id }}/info">
+
                             <!-- ngIf: cityId===6 7 -->
                         </a>
                     </div>
@@ -229,7 +238,9 @@
                                     </span>
                     </div>
                     (
+
                     <a ng-href="/shop/1195106/rate" class="ng-binding" href="/shop/{{ $shopinfo->id }}/rate">
+
                         456
                     </a>
                     )
@@ -295,7 +306,10 @@
                         <!-- ngIf: shop.description -->
                         <li class="shopguide-extra-item ng-binding ng-scope" ng-if="shop.description"
                             itemprop="description">
+
                             {{ $shopinfo->shopdesc }}
+
+
                         </li>
                         <!-- end ngIf: shop.description -->
                         <li class="shopguide-extra-item address">
@@ -304,7 +318,9 @@
                                             商家地址：
                                         </span>
                                 <span class="ng-binding">
+
                                            {{ $shopinfo->address }}
+
                                         </span>
                                 <meta itemprop="telephone" content="010-61604876 15001072754">
                             </p>
@@ -313,7 +329,9 @@
                                             营业时间：
                                         </span>
                                 <span itemprop="openingHours" class="ng-binding">
+
                                             {{ $shopinfo->time }}
+
                                         </span>
                             </p>
                         </li>
@@ -321,7 +339,9 @@
                             <p class="shopguide-extra-delivery">
                                 由
                                 <span class="ng-binding">
+
                                             {{ $shopinfo->name }}
+
                                         </span>
                                 提供配送服务
                             </p>
@@ -335,7 +355,9 @@
                                 起送价
                             </em>
                             <em class="shopguide-server-value ng-binding">
+
                                 {{ $shopinfo->fsmoney }}元
+
                             </em>
                         </span>
                 <span ng-hide="shop.id == 656683" class="">
@@ -343,7 +365,9 @@
                                 配送费
                             </em>
                             <em class="shopguide-server-value ng-binding">
+
                                 配送费¥{{ $shopinfo ->sendmoney }}
+
                             </em>
                     <!-- ngIf: shop.delivery_mode.description -->
                         </span>
@@ -352,7 +376,9 @@
                                 平均送达速度
                             </em>
                             <em class="shopguide-server-value ng-binding">
+
                                {{ $shopinfo->finishtime }}分钟
+
                             </em>
                         </span>
             </div>
@@ -376,13 +402,14 @@
         <div class="shopnav">
             <div class="container clearfix">
                 <div class="shopnav-left">
-                    <a class="shopnav-tab active" href="/shop/{{ $shopinfo->id }}" ng-class="{active: shop.tab === &#39;index&#39;}">
+                  <a class="shopnav-tab active" href="/shop/{{ $shopinfo->id }}" ng-class="{active: shop.tab === &#39;index&#39;}">
                         所有商品
                     </a>
                     <a class="shopnav-tab" href="/shop/{{ $shopinfo->id }}/rate" ng-class="{active: shop.tab === &#39;rate&#39;}">
                         评价
                     </a>
                     <a class="shopnav-tab" href="/shop/{{ $shopinfo->id }}/info" ng-class="{active: shop.tab === &#39;info&#39;}">
+
                         商家资质
                     </a>
                     <!-- ngIf: shopAction===' menu' -->
@@ -420,7 +447,9 @@
                     <!-- end ngIf: shopAction===' menu' -->
                 </div>
                 <div class="shopnav-search">
+
                     <form class="place-search ng-pristine ng-valid" role="search" action="/shop/17" method="get">
+
                         <button class="place-search-btn icon-search" ubt-click="403" ng-attr-ubt-data-keyword=""
                                 title="搜索商家或美食" ubt-data-keyword="">
                         </button>
@@ -447,6 +476,7 @@
                 <!-- ngIf: type==='normal' -->
                 正在载入数据...
             </div>
+
             <div class="shopmenu-nav ng-isolate-scope " id="gcate" >
                 @foreach($gcate as $v)
                 <a href="/shop/{{ $shopinfo->id }}#cat{{ $v->id }}"  class="ng-binding ng-scope ">
@@ -501,6 +531,7 @@
                             <!-- end ngIf: food.image_path -->
                             <div class="col-2 shopmenu-food-main">
 
+
                                 <h3 class="shopmenu-food-name ui-ellipsis ng-binding">
                                     {{ $vv->gname }}
                                 </h3>
@@ -508,10 +539,12 @@
                                     {{ $vv->gdesc }}
                                 </p>
 
+
                                 <p>
                                 <div class="starrating icon-star ng-isolate-scope" title="评分4.2分" rate-star=""
                                      rating="food.rating">
                                                 <span class="icon-star" ng-style="{ width: (rating * 20) + &#39;%&#39; }"
+
                                                       style="width: 84.8%;">
                                                 </span>
                                 </div>
@@ -529,13 +562,16 @@
                                         <small class="ng-binding color-stress">{{ $vv -> price }}
                                         </small>
                                     </span></div>
+
                             <span class="col-4">
                                         <div shop-cartbutton="" food="food" ng-hide="shop.id == &#39;656683&#39;"
                                              class="ng-isolate-scope">
                                             <!-- ngIf: !menuFood.hasSpec -->
                                             <div ng-if="!menuFood.hasSpec" class="ng-scope">
                                                 <!-- ngIf: !cartItem.quantity && menuFood.stock -->
+
                                                 <button class="shop-cartbutton ng-binding ng-scope" onclick="addcart(this,'{{ $vv->id }}')" gid="{{ $vv->id }}">
+
                                                     加入购物车
                                                 </button>
                                                 <!-- end ngIf: !cartItem.quantity && menuFood.stock -->
@@ -547,6 +583,7 @@
                                         </div>
                                     </span>
                         </div>
+
                         @endforeach
                         <!-- end ngRepeat: food in category.foods -->
                     </div>
@@ -640,13 +677,16 @@
                     }
 
                 </script>
+
                 <!-- end ngIf: filterData===' default' && !searchEnv -->
                 <!-- ngIf: filterData !==' default' || searchEnv -->
                 <div shop-cart="" cart-link="cartLink" ng-hide="shopCache.id == 656683"
                      class="ng-isolate-scope">
                     <div class="shop-cart">
+
                         <div class="shop-cartbasket" id="shopbasket" style="top: -{{ ($gcarts = session()->get('gcarts')) ? 44 + count($gcarts)*45 : 44}}px; height: auto;">
                             <div shop-groupswitcher="" id="firstd" cart="shopCart" class="ng-isolate-scope">
+
                                 <!-- ngIf: shopCart.vm.groups.length> 1 -->
                                 <div class="shop-grouphead single" ng-class="{ single: shopCart.vm.groups.length === 1 }">
                                     <!-- ngIf: shopCart.vm.groups.length===1 -->
@@ -664,6 +704,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             @if($gcarts = session()->get('gcarts'))
                             @foreach( $gcarts as $v)
                             <div  class="shop-cartbasket-tablerow ng-scope" id="pcart">
@@ -680,6 +721,7 @@
 
                             <!-- ngIf: !shopCart.vm.groups[shopCart.currentGroupIndex].length -->
                             <div class="shop-cartbasket-empty ng-scope" id="lastd" ng-if="!shopCart.vm.groups[shopCart.currentGroupIndex].length">
+
                                 <div class="icon-cart">
                                 </div>
                                 <p>
@@ -699,11 +741,13 @@
                             <!-- ngIf: shopCart.vm.quantity> 0 -->
                             <!-- ngIf: shopCart.vm.extras.length && !shopCart.vm.button.disabled -->
                             <div class="shop-cartfooter-text extras ng-binding" ng-bind-html="shopCart.vm.picewiseText">
+
                                 配送费¥{{ $shopinfo ->sendmoney }}
                             </div>
                             <a href="/shop/{{ $shopinfo->id }}/jiesuan"> <button class="shop-cartfooter-checkout ng-binding " >
                                     去结算
                             </button></a>
+
                         </div>
                         <div class="shop-carthelper-opener" ng-class="{show: shopCart.cartHelper.show}"
                              ng-click="showCartHelper()">
@@ -759,7 +803,9 @@
                                                         <span class="yen">
                                                             ¥
                                                         </span>
+
                                                         <span class="price ng-binding">
+
                                                         </span>
                                                     </span>
                                         </div>
@@ -791,7 +837,9 @@
                         商家公告
                     </h3>
                     <p class="shopbulletin-content ng-binding">
+
                         {{ $shopinfo->content }}
+
                     </p>
                     <div class="shopbulletin-delivery">
                         <h4>
@@ -856,6 +904,7 @@
         </a>
     </div>
 </div>
+
 <div id="backg" style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0.5; background: rgb(0, 0, 0); z-index: 1018; display: none;"></div>
 <div class="dialog" role="dialog" id="ginfo" dialog="ITEMINFO" style="z-index: 1019; left: 213px; top: 100px;  display: none;">
     <div onclick="xiaoshi()" class="dialog-close icon-close"></div>
@@ -917,6 +966,7 @@
         </div>
     </div>
 </div>
+
 <footer class="footer" role="contentinfo">
     <div class="container clearfix">
         <div class="footer-link">

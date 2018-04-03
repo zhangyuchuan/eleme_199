@@ -12,6 +12,7 @@ class ShopInfo extends Model
     public $guarded = [];
 
 
+
     public function goods()
     {
 

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Seller;
 
+<<<<<<< HEAD
 use App\Model\Shop;
+=======
+>>>>>>> origin/zongze
 use App\Model\ShopInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,12 +23,22 @@ class ShopsController extends Controller
         //获得店主id
         $id  = session('user')->id;
         //获得商铺
+<<<<<<< HEAD
         $shops =ShopInfo::where('sellerid',$id)->paginate(2);
+=======
+
+        $shops =ShopInfo::where('sellerid',$id)->paginate(2);
+//        dd($shops[0]->time);
+>>>>>>> origin/zongze
         foreach($shops as $v){
             $v->content = '<textarea  name="shopcontent" id='.$v->id.' class="layui-textarea">'.$v->content.'</textarea>';
         }
 
+<<<<<<< HEAD
         return view('Admin.Seller.Shops.ShopsList',compact('shops'));
+=======
+        return view('Admin.Seller.ShopsList',compact('shops'));
+>>>>>>> origin/zongze
     }
 
     /**
@@ -68,9 +81,13 @@ class ShopsController extends Controller
      */
     public function edit($id)
     {
+<<<<<<< HEAD
         //获取需要修改的店铺信息
         $shop = ShopInfo::find($id);
         return view('Admin.Seller.Shops.ShopsEdit',compact('shop'));
+=======
+        //
+>>>>>>> origin/zongze
     }
 
     /**
@@ -82,6 +99,7 @@ class ShopsController extends Controller
      */
     public function update(Request $request, $id)
     {
+<<<<<<< HEAD
         $input = $request->except('_token');
         $input['status'] = 3;
 //       return $input;
@@ -101,6 +119,9 @@ class ShopsController extends Controller
         return $data;
 
 
+=======
+        //
+>>>>>>> origin/zongze
     }
 
     /**
@@ -140,6 +161,7 @@ class ShopsController extends Controller
         }
         return $data;
     }
+<<<<<<< HEAD
     /**
      * 营业.休息
      *
@@ -238,4 +260,6 @@ class ShopsController extends Controller
 
     }
 
+=======
+>>>>>>> origin/zongze
 }

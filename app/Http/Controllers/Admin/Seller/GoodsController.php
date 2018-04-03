@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\Admin\Seller;
 
+<<<<<<< HEAD
 use App\Http\Controllers\Controller;
 use App\Model\Goods;
 use App\Model\GoodsCate;
 use App\Model\ShopInfo;
 use Illuminate\Http\Request;
+=======
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+>>>>>>> origin/zongze
 
 class GoodsController extends Controller
 {
@@ -15,6 +20,7 @@ class GoodsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function index(Request $request)
     {
         $sellerid = session('user')->id;
@@ -49,6 +55,11 @@ class GoodsController extends Controller
 //        dd($goodscate);
         return view('Admin.Seller.Goods.GoodsList',['goods'=>$goods, 'request'=> $request,'good'=>$good,'goodscate'=>$goodscate,
             'shops'=>$shops]);
+=======
+    public function index()
+    {
+        //
+>>>>>>> origin/zongze
     }
 
     /**
@@ -58,12 +69,16 @@ class GoodsController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         $sellerid = session('user')->id;
 
         $sid = ShopInfo::where('sellerid',$sellerid)->first()->id;
         $goodscate = GoodsCate::where('sid',$sid)->get();
         //商品添加页面
         return view('Admin.Seller.Goods.GoodsAdd',compact('goodscate','sid'));
+=======
+        //
+>>>>>>> origin/zongze
     }
 
     /**
@@ -72,6 +87,7 @@ class GoodsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
 
     public function upload(Request $request)
     {
@@ -108,13 +124,22 @@ class GoodsController extends Controller
             ];
         }
         return $arr;
+=======
+    public function store(Request $request)
+    {
+        //
+>>>>>>> origin/zongze
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
+<<<<<<< HEAD
      *
+=======
+     * @return \Illuminate\Http\Response
+>>>>>>> origin/zongze
      */
     public function show($id)
     {
@@ -129,6 +154,7 @@ class GoodsController extends Controller
      */
     public function edit($id)
     {
+<<<<<<< HEAD
         $goods = Goods::find($id);
 
         $sid = $goods->sid;
@@ -137,6 +163,9 @@ class GoodsController extends Controller
 //        return $goodscate;
 
         return view('Admin/Seller/Goods/GoodsEdit',['goods'=>$goods,'id'=>$id,'goodscate'=>$goodscate]);
+=======
+        //
+>>>>>>> origin/zongze
     }
 
     /**
@@ -144,11 +173,16 @@ class GoodsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
+<<<<<<< HEAD
      * @return array
+=======
+     * @return \Illuminate\Http\Response
+>>>>>>> origin/zongze
      */
     public function update(Request $request, $id)
     {
         //
+<<<<<<< HEAD
         $input = $request ->except('_token','fileupload');
         $goods = Goods::find($id);
         $res = $goods->update($input);
@@ -191,12 +225,15 @@ class GoodsController extends Controller
         }
 
         return $arr;
+=======
+>>>>>>> origin/zongze
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
+<<<<<<< HEAD
      * @return array
      */
     public function destroy($id)
@@ -236,5 +273,12 @@ class GoodsController extends Controller
         }
         return $arr;
 
+=======
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+>>>>>>> origin/zongze
     }
 }

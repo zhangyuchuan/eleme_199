@@ -46,6 +46,7 @@
             </script>
         <![endif]-->
 
+
         <script src="/home/js/jquery-1.8.3.min.js"></script>
         {{--<script src="/home/jiesuan_files/vendor.6502b2.js"></script>--}}
         <script src="/home/js/69e30c57868b46e7a0d2b4a6c711970a.js" data-ref="API_CONFIG">
@@ -59,10 +60,12 @@
 
 
         <script src="/home/js/6936dbf3e7d94cffa954bcbcf2b79f38.js"></script>
+
     </head>
     
     <body cute-title class="{hidesidebar: layoutState && layoutState.hideSidebar, smallbody: layoutState.smallBody, whitebody: layoutState.whiteBody}">
         <!-- <eleme-topbar state="layoutState"></eleme-topbar> -->
+
 
         <div class="isolate-scope" switch="state.type" state="layoutState" id="toptool">
 
@@ -80,7 +83,9 @@
                         <a class="topbar-item topbar-homepage focus" href="/" hardjump="">
                             首页
                         </a>
-                        <a class="topbar-item" href="/profile/order" hardjump="" class="{'focus': $root.locationpath[1] === 'order'}">
+
+                        <a class="topbar-item" href="/orders" hardjump="" class="{'focus': $root.locationpath[1] === 'order'}">
+
                             我的订单
                         </a>
                         <a class="topbar-item cooperation" href="//h5.ele.me/service/cooperation/"
@@ -88,12 +93,16 @@
                             加盟合作
                         </a>
                         <nav class="topbar-nav">
+
                             <a class="topbar-nav-link" href="/support/center" hardjump="" target="_blank">
+
                                 <i class="topbar-nav-icon icon-service">
                                 </i>
                                 服务中心
                             </a>
+
                             <a class="topbar-nav-link" href="/support/rules/default" hardjump="" target="_blank">
+
                                 规则中心
                             </a>
                             <div class="topbar-nav-link">
@@ -151,7 +160,9 @@
         </div>
         <!-- <eleme-importantnotification></eleme-importantnotification> -->
 
+
         <div class="sidebar" id="sidebar" role="complementary" hide="layoutState && layoutState.hideSidebar">
+
 
             <div class="sidebar-tabs">
                 <div class="toolbar-tabs-middle">
@@ -163,14 +174,18 @@
                     <a class="toolbar-cartbtn icon-cart toolbar-open" href="JavaScript:" template="cart"
                     class="{'focus': (activeTemplate === 'cart' && isSidebarOpen), 'toolbar-cartbtn-shownum': foodCount.count}"
 
+
                     ubt-click="390" id="goodscart">
+
 
                         购物车
                     </a>
                     <div class="toolbar-separator">
                     </div>
 
+
                     <a id="news" class="toolbar-btn icon-notice toolbar-open " href="JavaScript:"
+
 
                     template="message" class="{'focus': (activeTemplate === 'message' && isSidebarOpen), 'toolbar-open': user, 'modal-hide': user}"
                     tooltip="我的信息" tooltip-placement="left" ubt-click="392">
@@ -179,10 +194,12 @@
                 <div class="toolbar-tabs-bottom">
                     <div class="toolbar-btn icon-QR-code">
 
+
                         <div class="dropbox toolbar-tabs-dropbox" >
                             <a href="http://static11.elemecdn.com/eleme/desktop/mobile/index.html"
                             target="_blank">
                                 <img src="/home/img/appqc.95e532.png" alt="下载手机应用">
+
 
                                     下载手机应用
                                 </p>
@@ -196,6 +213,7 @@
                     tooltip="在线客服" title="在线客服" tooltip-placement="left" target="_blank" href="JavaScript:"
                     style="visibility: hidden;">
                     </a>
+
 
                     <a class="toolbar-btn sidebar-btn-backtop icon-top" tooltip="回到顶部" href="#toptool" id="top" title="回到顶部"
                     href="JavaScript:" tooltip-placement="left"  style="display:none">
@@ -329,6 +347,8 @@
 
 
 
+
+
         @show
         
         <!-- <eleme-footer></eleme-footer> -->
@@ -453,7 +473,9 @@
                         </div>
                     </div>
                 </footer>
-        <link rel='stylesheet' type='text/css' property='stylesheet' href='//www.zyc1234.com/_debugbar/assets/stylesheets?v=1521686907'><script type='text/javascript' src='//www.zyc1234.com/_debugbar/assets/javascript?v=1521686907'></script><script type="text/javascript">jQuery.noConflict(true);</script>
+
+                <script src="/home/js/6936dbf3e7d94cffa954bcbcf2b79f38.js">
+                </script>
 
     </body>
 

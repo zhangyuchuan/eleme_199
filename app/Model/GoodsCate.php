@@ -18,8 +18,10 @@ class GoodsCate extends Model
     //    4. 是否允许批量操作字段
     public $guarded = [];
 
+
     public function goods()
     {
         return $this -> hasMany('App\Model\Goods','gcid','id');
     }
+
 }

@@ -23,7 +23,9 @@
         </div>
         <xblock>
             <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
+
             <span class="x-right" style="line-height:40px">共有数据：{{ $count }} 条</span>
+
         </xblock>
         <table class="layui-table">
             <thead>
@@ -42,29 +44,37 @@
             @foreach($goodscate as $v)
             <tr>
                 <td>
+
                     <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='{{ $v->id }}'><i class="layui-icon">&#xe605;</i></div>
+
                 </td>
                 <td>{{ $v->id }}</td>
                 <td>{{ $v->category }}</td>
                 <td>{{ $v->gcontent }}</td>
+
                 <td>{{ $shops[$v->sid] }}</td>
+
                 <td class="td-status">
                     @if($v->status == 1)
                         <span class="layui-btn layui-btn-normal layui-btn-mini">已启用 </span>
                 </td>
                 <td class="td-manage">
+
                     <a onclick="member_stop(this,'{{ $v->id }}') " href="javascript:;"  title="停用">
+
                         <i class="layui-icon">&#xe62f;</i>
                     </a>
                     @else
                         <span class="layui-btn layui-btn-normal layui-btn-mini layui-btn-disabled">已停用 </span>
                 </td>
                 <td class="td-manage">
+
                     <a onclick="member_stop(this,'{{ $v->id }}') " href="javascript:;"  title="启用">
                         <i class="layui-icon">&#xe601;</i>
                     </a>
                     @endif
                     <a title="删除" onclick="member_del(this,'{{ $v->id }}')" href="javascript:;">
+
                         <i class="layui-icon">&#xe640;</i>
                     </a>
                 </td>
@@ -142,6 +152,7 @@
             }
         }
 
+
         /*栏位-删除*/
         function member_del(obj,id){
 
@@ -163,11 +174,13 @@
 
             });
 
+
         }
 
 
 
         function delAll (argument) {
+
             var data = tableCheck.getData();
 
             layer.confirm('确认要删除吗？'+data,function(index){
@@ -185,6 +198,7 @@
                     }
                 })
                 //捉到所有被选中的，发异步进行删除
+
             });
         }
     </script>

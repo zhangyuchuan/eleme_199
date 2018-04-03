@@ -41,8 +41,10 @@
                 <th>用户名</th>
                 <th>性别</th>
                 <th>手机</th>
+
                 <th>邮箱</th>
                 <th>地址</th>
+
                 <th>状态</th>
                 <th>操作</th></tr>
             </thead>
@@ -56,8 +58,10 @@
                 <td>{{$v->username}}</td>
                 <td>{{$v->sex}}</td>
                 <td>{{$v->phone}}</td>
+
                 <td>{{$v->email}}</td>
                 <td>{{$v->address}}</td>
+
                 <td class="td-status">
                     @if($v->status=='0')
                     <span class="layui-btn layui-btn-normal layui-btn-mini" id="spans"> 已启用 </span>

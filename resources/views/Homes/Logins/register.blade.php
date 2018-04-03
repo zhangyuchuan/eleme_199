@@ -1,3 +1,4 @@
+
 <html class="no-js" lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link class="usemin" rel="stylesheet" href="/home/register_files/global_rebuild.a739f3af.css">
     <link class="usemin" rel="stylesheet" href="/home/register_files/account_rebuild.54cf8909.css">
     <title>注册</title>
@@ -7,11 +8,13 @@
     <script type="text/javascript" src="/home/register_files/jquery-1.8.3.min.js"></script>
     <script src="{{asset('Admin/lib/layui/layui.js')}}" charset="utf-8"></script>
     <script type="text/javascript" src="{{asset('Admin/js/xadmin.js')}}"></script>
+
 </head>
 <body class="page-account">
 <header class="header">
     <img class="logo-img" src="/home/register_files/logo.b38593f4.png" alt="ele.me| 叫外卖？上饿了么！">
 </header>
+
 <div class="container clrfix">
     <aside class="banner">
         <img class="img" src="/home/register_files/banner-app.75596728.png" alt="随时随地轻松订餐">
@@ -20,6 +23,7 @@
         <div class="panel-hd clrfix">
             <h2 class="title">注册</h2>
         </div>
+
         <div class="alert alert-danger">
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
@@ -53,25 +57,31 @@
                     <input style="width:150px" id="captcha_input" class="inputbox input-captcha" type="text" name="yzm" minlength="4" maxlength="4" placeholder="验证码" autocomplete="off" required="">
                     <div class="g-error-tip hide"></div>
                     <a href="javascript:;" onclick='javascript:re_captcha()'><img src="{{ url('admin/code/captcha/1') }}" id="123456" alt="" style="width:120px;height:42px;vertical-align:top" ></a>
+
                 </div>
                 <div class="form-helper form-text">
                     <a class="g-link" href="http://waimai.com/agreement" target="_blank">使用条款和协议</a>
                 </div>
+
                 <button id="btn" lay-filter="add" class="g-btn g-btn-l g-btn-submit" lay-submit="">同意协议并注册</button>
+
             </form>
         </div>
         <div class="panel-ft">
             <div class="g-oauth">
             </div>
+
             <a class="g-link" href="{{url('home/login')}}">登录</a>
         </div>
     </div>
 </div>
+
 <footer class="site-footer group" role="contentinfo">
     <div class="container">
         <p class="sfooter-line"> <a class="sfooter-link" href="http://kaidian.ele.me/">我要开店</a> | <a class="sfooter-link" href="http://waimai.com/register">联系我们</a> | <a class="sfooter-link" href="http://waimai.com/register">服务条款和协议</a> | <a class="sfooter-link" href="http://waimai.com/">站点地图</a>
         </p></div>
 </footer>
+
 <script>
     //生成验证码
     function re_captcha() {
@@ -159,4 +169,5 @@
         {{--});--}}
     {{--});--}}
 {{--</script>--}}
+
 </body></html>

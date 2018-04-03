@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Home\Orders;
 
+
+use App\Model\Goods;
+
 use App\Model\ShopInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,6 +12,7 @@ use App\Http\Controllers\Controller;
 class OrderController extends Controller
 {
     //结算
+
     public function jiesuan($id)
     {
         $shopinfo = ShopInfo::find($id);
@@ -21,6 +25,7 @@ class OrderController extends Controller
         }
 //        dd($sum);
         return view('Homes.Orders.jiesuan',compact('sum','sbnt','shopinfo'));
+
     }
 
     //商品订单
@@ -28,4 +33,12 @@ class OrderController extends Controller
     {
         return view('Homes.Orders.orders');
     }
+
+
+    public function overorder()
+    {
+        return view('Homes.Orders.overorder');
+    }
+
+
 }

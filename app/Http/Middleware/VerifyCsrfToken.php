@@ -13,7 +13,9 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
 
+
         'home/shop/doform'
+
 
     ];
 }

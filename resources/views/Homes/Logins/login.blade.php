@@ -1,15 +1,18 @@
 <!DOCTYPE html>
+
 <html class="no-js" lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title> 登录</title>
     <meta name="csrf-token" content="WgAAB8QXyAqVNFKFt3s1lM1LlywEBAvrOxMarHd6">
     <link class="usemin" rel="stylesheet" href="/home/login_files/global_rebuild.a739f3af.css">
     <link class="usemin" rel="stylesheet" href="/home/login_files/account_rebuild.54cf8909.css">
     <script type="text/javascript" src="/home/login_files/jquery-1.8.3.min.js"></script>
+
 </head>
 <body class="page-account">
 <header class="header">
     <img class="logo-img" src="/home/login_files/logo.b38593f4.png" alt="ele.me| 叫外卖？上饿了么！">
 </header>
+
 <div class="container clrfix">
     <aside class="banner">
         <img class="img" src="/home/login_files/banner-app.75596728.png" alt="随时随地轻松订餐">
@@ -18,6 +21,7 @@
         <div class="panel-hd clrfix">
             <h2 class="title">登录</h2>
         </div>
+
         <div class="panel-bd">
             <form id="login_form" class="login-form block" action="{{url('home/dologin')}}" method="post">
                 {{csrf_field()}}
@@ -59,11 +63,13 @@
         </div>
     </div>
 </div>
+
 <footer class="site-footer group" role="contentinfo">
     <div class="container">
         <p class="sfooter-line"> <a class="sfooter-link" href="http://kaidian.ele.me/">我要开店</a> | <a class="sfooter-link" href="http://waimai.com/login">联系我们</a> | <a class="sfooter-link" href="http://waimai.com/login">服务条款和协议</a> | <a class="sfooter-link" href="http://waimai.com/">站点地图</a>
         </p></div>
 </footer>
+
 
 <script>
     $.ajaxSetup({
@@ -71,10 +77,12 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
     function re_captcha() {
         $url = "{{ URL('admin/code/captcha') }}";
         $url = $url + "/" + Math.random();
         document.getElementById('123456').src = $url;
     }
 </script>
+
 </body></html>
