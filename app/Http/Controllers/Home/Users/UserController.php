@@ -24,13 +24,13 @@ use DB;
 
 class UserController extends Controller
 {
-    //个人中心
+    //个人中心  韩伟栋
     public function center()
     {
+        //假设一个用户id   韩伟栋
+        $id=6;
 
-
-
-        $all=User::with('Orders')->where('id',6)->first();
+        $all=User::with('Orders')->where('id',$id)->first();
 //        dd($all);
         $sids = [];
         foreach($all->Orders as $v){
@@ -39,16 +39,24 @@ class UserController extends Controller
 //        dd($sids);
         $shops = ShopInfo::whereIn('id',$sids)->get();
 //        dd($shops);
-        return view('Homes.Users.center',compact('all','shops'));
+
+        //获取用户积分    //获取用户余额
+        $users = UserInfo::where('id',$id)->first();
+
+
+//        $balance = UserInfo::where('id',$id)->first();
+//
+//        dd($users);
+        return view('Homes.Users.center',compact('all','shops','users'));
 
 
     }
 
-    //用户收藏
+    //用户收藏  韩伟栋
     public function collect()
     {
 
-        //假设一个用户
+        //假设一个用户   韩伟栋
         $uid = 24;
 
         //获取用户收藏的店铺id
@@ -65,10 +73,12 @@ class UserController extends Controller
 
 //        dd($shop_data);
 
+
+
         return view('Homes.Users.collect',compact('shop_data'));
     }
-    //删除收藏
-    public function delete($id)
+    //删除收藏 韩伟栋
+    public function del($id)
     {
 //        dd($id);
         $cid = Collect::where('sid', $id)->first();
@@ -80,6 +90,37 @@ class UserController extends Controller
 
         }
     }
+
+    //个人红包
+    public function hongbao()
+    {
+        return view('Homes.Users.hongbao');
+    }
+
+    //用户积分
+    public function integral()
+    {
+        //假设用户id   韩伟栋
+        $id = 6;
+
+        $users = UserInfo::where('id',$id)->first();
+
+//        dd($users);
+        return view('Homes.Users.integral',compact('users'));
+    }
+
+    //账户余额
+    public function balance()
+    {
+        //假设用户id  韩伟栋
+        $id = 6;
+        $balance = UserInfo::where('id',$id)->first();
+
+//        dd($balance);
+        return view('Homes.Users.balance',compact('balance'));
+    }
+
+
 
 
 
