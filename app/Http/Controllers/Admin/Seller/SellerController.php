@@ -18,8 +18,6 @@ class SellerController extends Controller
 
     public function index(Request $request)
     {
-
-
         //列表页
             //获取个人信息列表
             $user = User::find(session('user')->id);

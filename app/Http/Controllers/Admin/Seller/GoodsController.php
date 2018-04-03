@@ -1,15 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin\Seller;
-
-
 use App\Http\Controllers\Controller;
 use App\Model\Goods;
 use App\Model\GoodsCate;
 use App\Model\ShopInfo;
 use Illuminate\Http\Request;
-
-
 
 class GoodsController extends Controller
 {
@@ -92,8 +88,6 @@ class GoodsController extends Controller
 //            1. 将文件上传到本地服务器
             //将文件从临时目录移动到制定目录
             $path = $file->move(public_path().'/uploads',$newfile);
-
-
             return $newfile;
 
         }
@@ -151,13 +145,7 @@ class GoodsController extends Controller
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
 
-     */
     public function update(Request $request, $id)
     {
 
@@ -248,8 +236,8 @@ class GoodsController extends Controller
         }
         return $arr;
     }
-    public function destroy($id)
-    {
-
-    }
+//    public function destroy($id)
+//    {
+//
+//    }
 }

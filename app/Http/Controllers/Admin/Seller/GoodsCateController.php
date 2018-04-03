@@ -10,11 +10,7 @@ use App\Http\Controllers\Controller;
 
 class GoodsCateController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Request $request)
     {
         $sellerid = session('user')->id;
