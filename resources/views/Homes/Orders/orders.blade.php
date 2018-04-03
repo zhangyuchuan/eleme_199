@@ -1,5 +1,7 @@
 
+
 @extends('Homes.layout')
+
 
 
 @section('title','饿了么-网上订餐_外卖_饿了么订餐官网')
@@ -19,7 +21,9 @@
                     </a>
                     <div class="toolbar-separator">
                     </div>
+
                     <a class="toolbar-cartbtn icon-cart toolbar-open" href="JavaScript:" template="cart"
+
                     class="{&#39;focus&#39;: (activeTemplate === &#39;cart&#39; &amp;&amp; isSidebarOpen), &#39;toolbar-cartbtn-shownum&#39;: foodCount.count}"
                     ubt-click="390">
                         购物车
@@ -36,6 +40,7 @@
                 <div class="toolbar-tabs-bottom">
                     <div class="toolbar-btn icon-QR-code">
                         <div class="dropbox toolbar-tabs-dropbox">
+
 
                             <a href="/eleme/desktop/mobile/index.html"
 
@@ -76,6 +81,7 @@
                         </span>
                         <span class="location-current">
 
+
                            <a class="inherit ng-binding" ng-href="/place/wx4spk2hgfer" ubt-click="401"
                               ng-bind="place.name || place.address" href="https://www.ele.me/place/wx4spk2hgfer">
                                 昌平区204县道(北京市育荣教育园区西)
@@ -83,6 +89,7 @@
                         </span>
                         <span class="location-change location-hashistory" ng-class="{ &#39;location-hashistory&#39;: user.username &amp;&amp; userPlaces &amp;&amp; userPlaces.length &gt; 0 }">
                             <a ng-href="/home" ubt-click="400" hardjump="" href="https://www.ele.me/home">
+
 
                                 [切换地址]
                             </a>
@@ -92,10 +99,12 @@
                                 <!-- ngRepeat: userPlace in userPlaces | filter:filterPlace | limitTo:
                                 4 -->
 
+
                                 <li ng-repeat="userPlace in userPlaces | filter:filterPlace | limitTo: 4"
                                     class="ng-scope">
                                     <a class="inherit ng-binding" ng-href="/place/wx4spk2jk0db?latitude=40.102375&amp;longitude=116.334404"
                                        ng-bind="userPlace.name" ubt-click="399" href="/place/wx4spk2jk0db?latitude=40.102375&amp;longitude=116.334404">
+
 
                                         昌平区204县道(北京市育荣教育园区西)
                                     </a>
@@ -104,7 +113,9 @@
                                 4 -->
                                 <li class="changelocation">
 
+
                                     <a ng-href="/home" hardjump="" href="/home">
+
 
                                         修改收货地址
                                         <span class="icon-location">
@@ -130,7 +141,9 @@
                             <i class="icon-line-home">
                             </i>
 
+
                             <a href="/center">
+
 
                                 个人中心
                             </a>
@@ -146,23 +159,8 @@
                             <li class="{ active: pageName === &#39;order&#39; }" class="active">
 
                                 <a href="/orders">
+                                    近期订单
 
-                                    近三个月订单
-                                </a>
-                            </li>
-                            <li class="{ active: pageName === &#39;order-unrated&#39; }">
-
-                                <a href="/orders">
-
-                                    待评价订单
-                                    <!-- ngIf: unratedNumber -->
-                                </a>
-                            </li>
-                            <li class="{ active: pageName === &#39;order-refunding&#39; }">
-
-                                <a href="/orders">
-
-                                    退单记录
                                 </a>
                             </li>
                         </ul>
@@ -175,17 +173,20 @@
                         </h2>
                         <ul>
 
+
                             <li ng-class="{ active: pageName === &#39;balance&#39; }" class="active">
                                 <a href="/hongbao">
                                     个人红包
                                 </a>
                             </li>
                             <li ng-class="{ active: pageName === &#39;balance&#39; }" class="active">
+
                                 <a href="/balance">
                                     账户余额
                                 </a>
                             </li>
-                            <li ng-class="{ active: pageName === &#39;points&#39; }">
+
+                            <li class="{ active: pageName === &#39;points&#39; }">
                                 <a href="/integral">
 
                                     我的积分
@@ -201,23 +202,27 @@
                         </h2>
                         <ul>
 
-                            <li class="{ active: pageName === 'info' }">
-                                <a href="/data">
+                            <li class="{ active: pageName === &#39;info&#39; }">
+                                <a href="/center">
                                     个人资料
                                 </a>
                             </li>
-                            <li class="{ active: pageName === 'address' }">
+                            <li class="{ active: pageName === &#39;address&#39; }">
+
                                 <a href="/add">
                                     地址管理
                                 </a>
                             </li>
-                            <li class="{ active: pageName === 'security-center' }">
+
+                            <li class="{ active: pageName === &#39;security-center&#39; }">
+
                                 <a href="/safety">
                                     安全中心
                                 </a>
                             </li>
-                            <li class="{ active: pageName === 'changepassword' }">
-                                <a href="/password">
+
+                            <li class="{ active: pageName === &#39;changepassword&#39; }">
+                                <a href="javascript:;">
 
                                     修改密码
                                 </a>
@@ -251,11 +256,11 @@
                             <img src="/home/img/takeout.408a87.png">
                         </div>
                         <div class="order-extra scope">
-                            <a href="https://www.ele.me/support/question/hotissue" target="_blank">
+
+                            <a href="javascript:;">
                                 热门问题
                             </a>
-
-                            <a href="/eleme/desktop/mobile/index.html"
+                            <a href="javascript:;"
 
                             target="_blank">
                                 随时关注订单状态
@@ -267,7 +272,7 @@
                             <p class="nodata-container binding" bind-html="content | toTrusted">
                                 暂无记录，现在就去
 
-                                <a href="/place">
+                                <a href="/lists">
 
                                     订餐
                                 </a>

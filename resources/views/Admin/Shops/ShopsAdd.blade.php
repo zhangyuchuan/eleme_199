@@ -20,13 +20,8 @@
                     <select name="pid" lay-filter="">
                         <option value=""></option>
                         @foreach($cateone as $v)
-<<<<<<< HEAD
+                  <option value="{{ $v->id }}">{{ $v->catename }}</option>
 
-                            <option value="{{ $v->id }}" >{{ $v->catename }}</option>
-
-=======
-                            <option value="{{ $v->id }}">{{ $v->catename }}</option>
->>>>>>> origin/zongze
                         @endforeach
                     </select>
                 </div>

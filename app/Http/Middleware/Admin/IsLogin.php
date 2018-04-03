@@ -17,6 +17,7 @@ class IsLogin
     {
         if (session('user')){
 
+
             if(session('user')->auth==2){
                 return redirect('/lists');
             }

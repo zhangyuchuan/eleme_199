@@ -48,16 +48,20 @@
     <script src="/home/js/vendor.6b3834.js" type="text/javascript">
     </script>
 
+
     <script src="/home/js/jquery.min.js">    </script>
+
 
     <script src="/home/js/222.js" type="text/javascript">
     </script>
     <!--<base href="/">s-->
     <base href=".">
 
+
     <meta name="mobile-agent" content="format=html5;url=https://h5.ele.me/shop/#id=1195106">
     <meta name="description" content="田老师红烧肉（怀柔青春路店）位于北京市怀柔区青春路15号一层的住所南起第三间门店，主要美食有单个狮子头、烤肠(根)、单份米饭、卤蛋(个)、红烧肉+番茄鸡蛋等，了解更多美食外卖，上饿了么网上订餐">
     <meta name="keywords" content="田老师红烧肉（怀柔青春路店）外卖，田老师红烧肉（怀柔青春路店）菜单，田老师红烧肉（怀柔青春路店）电话">
+
 
 </head>
 
@@ -70,12 +74,15 @@
         <header class="topbar shoptopbar" role="navigation" ng-class="{shoptopbar: state.type === &#39;shop&#39;}">
             <div class="container clearfix">
                 <h1>
-                    <a href="https://www.ele.me/" hardjump="" class="topbar-logo icon-logo">
+
+                    <a href="/lists" hardjump="" class="topbar-logo icon-logo">
+
                                 <span>
                                     饿了么
                                 </span>
                     </a>
                 </h1>
+
                 <a href="https://www.ele.me/" hardjump="" class="topbar-item topbar-homepage"
                    ng-class="{&#39;focus&#39;: $root.locationpath[0] === &#39;place&#39;}">
                     首页
@@ -94,7 +101,9 @@
                         </i>
                         服务中心
                     </a>
-                    <a href="https://www.ele.me/support/rules/default" hardjump="" class="topbar-nav-link"
+
+                    <a href="javascript:;" hardjump="" class="topbar-nav-link"
+
                        target="_blank">
                         规则中心
                     </a>
@@ -115,8 +124,9 @@
                             <span class="topbar-profilebox-avatar icon-profile" ng-show="!$root.user.username">
                                     </span>
                             <span ng-show="!$root.user.username" class="">
-                                        <a ng-href="//h5.ele.me//login/#redirect=https%3A%2F%2Fwww.ele.me%2Fshop%2F1195106"
-                                           target="_blank" href="https://h5.ele.me//login/#redirect=https%3A%2F%2Fwww.ele.me%2Fshop%2F1195106">
+
+                                        <a ng-href="javascript:;" href="javascript:;">
+
                                             登录/注册
                                         </a>
                                     </span>
@@ -130,16 +140,18 @@
                                         </span>
                                 <!-- end ngIf: $root.topbarType !==' checkout' -->
                                         <div class="dropbox topbar-profilebox-dropbox">
-                                            <a class="icon-profile" href="https://www.ele.me/profile" hardjump="">
+
+                                            <a class="icon-profile" href="/center" hardjump="">
                                                 个人中心
                                             </a>
-                                            <a class="icon-star" href="https://www.ele.me/profile/favor" hardjump="">
+                                            <a class="icon-star" href="/collect" hardjump="">
                                                 我的收藏
                                             </a>
-                                            <a class="icon-location" href="https://www.ele.me/profile/address" hardjump="">
+                                            <a class="icon-location" href="/add" hardjump="">
                                                 我的地址
                                             </a>
-                                            <a class="icon-setting" href="https://www.ele.me/profile/security" hardjump="">
+                                            <a class="icon-setting" href="/safety" hardjump="">
+
                                                 安全设置
                                             </a>
                                             <a class="icon-logout" href="JavaScript:" ng-click="logout()">
@@ -160,7 +172,9 @@
 <div class="sidebar ng-hide" role="complementary" ng-hide="layoutState &amp;&amp; layoutState.hideSidebar">
     <div class="sidebar-tabs">
         <div class="toolbar-tabs-middle">
-            <a class="toolbar-btn icon-order toolbar-close" href="https://www.ele.me/profile/order"
+
+            <a class="toolbar-btn icon-order toolbar-close" href="/orders"
+
                hardjump="" tooltip="我的订单" tooltip-placement="left" ubt-click="toolbar_order">
                 <!-- ngIf: sidebarCount.uncompletedOrder> 0 -->
             </a>
@@ -183,7 +197,9 @@
         <div class="toolbar-tabs-bottom">
             <div class="toolbar-btn icon-QR-code">
                 <div class="dropbox toolbar-tabs-dropbox">
-                    <a href="http://static11.elemecdn.com/eleme/desktop/mobile/index.html"
+
+                    <a href="javascript:;"
+
                        target="_blank">
                         <img src="/home/elm/appqc.95e532.png" alt="下载手机应用">
                         <p>
@@ -217,6 +233,7 @@
                 <meta itemprop="url" content="https://www.ele.me/shop/1195106">
                 <img ng-src="//fuss10.elemecdn.com/3/bf/43ba71d180d43fb084348a40a428fjpeg.jpeg?imageMogr2/thumbnail/95x95/format/webp/quality/85"
 
+
                      alt="{{ $shopinfo->name }}" itemprop="image" src="{{ $shopinfo->logo }}">
                 <div class="shopguide-info-wrapper">
                     <div>
@@ -226,6 +243,7 @@
                         </h1>
                         <!-- ngIf: shop.tip -->
                         <a ng-href="/shop/1195106/info" href="/shop/{{ $shopinfo->id }}/info">
+
 
                             <!-- ngIf: cityId===6 7 -->
                         </a>
@@ -239,7 +257,9 @@
                     </div>
                     (
 
+
                     <a ng-href="/shop/1195106/rate" class="ng-binding" href="/shop/{{ $shopinfo->id }}/rate">
+
 
                         456
                     </a>
@@ -307,7 +327,9 @@
                         <li class="shopguide-extra-item ng-binding ng-scope" ng-if="shop.description"
                             itemprop="description">
 
+
                             {{ $shopinfo->shopdesc }}
+
 
 
                         </li>
@@ -319,7 +341,9 @@
                                         </span>
                                 <span class="ng-binding">
 
+
                                            {{ $shopinfo->address }}
+
 
                                         </span>
                                 <meta itemprop="telephone" content="010-61604876 15001072754">
@@ -329,6 +353,7 @@
                                             营业时间：
                                         </span>
                                 <span itemprop="openingHours" class="ng-binding">
+
 
                                             {{ $shopinfo->time }}
 
@@ -340,7 +365,9 @@
                                 由
                                 <span class="ng-binding">
 
+
                                             {{ $shopinfo->name }}
+
 
                                         </span>
                                 提供配送服务
@@ -356,7 +383,9 @@
                             </em>
                             <em class="shopguide-server-value ng-binding">
 
+
                                 {{ $shopinfo->fsmoney }}元
+
 
                             </em>
                         </span>
@@ -365,6 +394,7 @@
                                 配送费
                             </em>
                             <em class="shopguide-server-value ng-binding">
+
 
                                 配送费¥{{ $shopinfo ->sendmoney }}
 
@@ -376,6 +406,7 @@
                                 平均送达速度
                             </em>
                             <em class="shopguide-server-value ng-binding">
+
 
                                {{ $shopinfo->finishtime }}分钟
 
@@ -402,6 +433,7 @@
         <div class="shopnav">
             <div class="container clearfix">
                 <div class="shopnav-left">
+
                   <a class="shopnav-tab active" href="/shop/{{ $shopinfo->id }}" ng-class="{active: shop.tab === &#39;index&#39;}">
                         所有商品
                     </a>
@@ -448,6 +480,7 @@
                 </div>
                 <div class="shopnav-search">
 
+
                     <form class="place-search ng-pristine ng-valid" role="search" action="/shop/17" method="get">
 
                         <button class="place-search-btn icon-search" ubt-click="403" ng-attr-ubt-data-keyword=""
@@ -476,6 +509,7 @@
                 <!-- ngIf: type==='normal' -->
                 正在载入数据...
             </div>
+
 
             <div class="shopmenu-nav ng-isolate-scope " id="gcate" >
                 @foreach($gcate as $v)
@@ -526,10 +560,12 @@
                             <span class="col-1 ng-scope" ng-if="food.image_path">
                                         <a href="javascript:" onclick="ginfo('{{ $vv->id }}')" >
                                             <img  alt="{{ $vv->gname }}的图片" src="/uploads/{{ $vv->gpic }}">
+
                                         </a>
                                     </span>
                             <!-- end ngIf: food.image_path -->
                             <div class="col-2 shopmenu-food-main">
+
 
 
                                 <h3 class="shopmenu-food-name ui-ellipsis ng-binding">
@@ -552,6 +588,7 @@
                                                 (29)
                                             </span>
                                 <span class="color-mute ng-binding">
+
                                                 月售{{ $vv->salecnt }}份
                                             </span>
                                 </p>
@@ -563,6 +600,7 @@
                                         </small>
                                     </span></div>
 
+
                             <span class="col-4">
                                         <div shop-cartbutton="" food="food" ng-hide="shop.id == &#39;656683&#39;"
                                              class="ng-isolate-scope">
@@ -570,7 +608,9 @@
                                             <div ng-if="!menuFood.hasSpec" class="ng-scope">
                                                 <!-- ngIf: !cartItem.quantity && menuFood.stock -->
 
+
                                                 <button class="shop-cartbutton ng-binding ng-scope" onclick="addcart(this,'{{ $vv->id }}')" gid="{{ $vv->id }}">
+
 
                                                     加入购物车
                                                 </button>
@@ -583,6 +623,7 @@
                                         </div>
                                     </span>
                         </div>
+
 
                         @endforeach
                         <!-- end ngRepeat: food in category.foods -->
@@ -764,6 +805,7 @@
                                 <a href="javascript:" ng-click="closeCartHelper()">
                                     [ 关闭 ]
                                 </a>
+
                             </div>
                             <div class="shopcarthelper-container ui-scrollbar-light">
                                 <!-- ngRepeat: item in group track by $index -->
@@ -804,6 +846,7 @@
                                                             ¥
                                                         </span>
 
+
                                                         <span class="price ng-binding">
 
                                                         </span>
@@ -837,6 +880,7 @@
                         商家公告
                     </h3>
                     <p class="shopbulletin-content ng-binding">
+
 
                         {{ $shopinfo->content }}
 
@@ -905,6 +949,7 @@
     </div>
 </div>
 
+
 <div id="backg" style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0.5; background: rgb(0, 0, 0); z-index: 1018; display: none;"></div>
 <div class="dialog" role="dialog" id="ginfo" dialog="ITEMINFO" style="z-index: 1019; left: 213px; top: 100px;  display: none;">
     <div onclick="xiaoshi()" class="dialog-close icon-close"></div>
@@ -967,16 +1012,19 @@
     </div>
 </div>
 
+
 <footer class="footer" role="contentinfo">
     <div class="container clearfix">
         <div class="footer-link">
             <h3 class="footer-link-title">
                 用户帮助
             </h3>
+
             <a class="footer-link-item" href="https://www.ele.me/support/center" target="_blank">
                 服务中心
             </a>
             <a class="footer-link-item" href="https://www.ele.me/support/question/default"
+
                target="_blank">
                 常见问题
             </a>
@@ -988,6 +1036,7 @@
             <h3 class="footer-link-title">
                 商务合作
             </h3>
+
             <a class="footer-link-item" href="https://kaidian.ele.me/" target="_blank">
                 我要开店
             </a>
@@ -1007,6 +1056,7 @@
             <h3 class="footer-link-title">
                 关于我们
             </h3>
+
             <a class="footer-link-item" href="https://www.ele.me/support/about" target="_blank">
                 饿了么介绍
             </a>
@@ -1018,6 +1068,7 @@
                 联系我们
             </a>
             <a class="footer-link-item" href="https://www.ele.me/support/rules/default"
+
                target="_blank">
                 规则中心
             </a>
@@ -1025,13 +1076,17 @@
         <div class="footer-contect">
             <div class="footer-contect-item">
                 24小时客服热线 :
+
                 <a class="inherit" href="tel:10105757">
+
                     10105757
                 </a>
             </div>
             <div class="footer-contect-item">
                 意见反馈 :
+
                 <a class="inherit" href="mailto:feedback@ele.me">
+
                     feedback@ele.me
                 </a>
             </div>
@@ -1053,7 +1108,9 @@
             </div>
         </div>
         <div class="footer-mobile">
-            <a href="https://h.ele.me/landing" target="_blank">
+
+            <a href="javascript:;" target="_blank">
+
                 <img src="/home/elm/appqc.95e532.png" class="footer-mobile-icon" alt="扫一扫下载饿了么手机 App">
             </a>
             <div class="footer-mobile-content">
@@ -1071,6 +1128,7 @@
             </h5>
             <p>
                 增值电信业务许可证 :
+
                 <a href="http://www.shca.gov.cn/" target="_blank">
                     沪B2-20150033
                 </a>
@@ -1080,6 +1138,7 @@
                 </a>
                 |
                 <a href="http://www.sgs.gov.cn/lz/licenseLink.do?method=licenceView&amp;entyId=20120305173227823"
+
                    target="_blank">
                     上海工商行政管理
                 </a>
@@ -1087,7 +1146,9 @@
             </p>
         </div>
         <div class="footer-police container">
-            <a href="http://www.zx110.org/picp/?sn=310100103568" rel="nofollow" target="_blank">
+
+            <a href="javascript:;" rel="nofollow" target="_blank">
+
                 <img alt="已通过沪公网备案，备案号 310100103568" src="/home/elm/picp_bg.e373b3.jpg" height="30">
             </a>
         </div>

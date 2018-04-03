@@ -5,6 +5,7 @@
         <form class="layui-form" >
             <div class="layui-form-item">
 
+
                 {{csrf_field()}}
 
                 <label for="username" class="layui-form-label">
@@ -26,6 +27,7 @@
                     <input type="text" id="phone" name="phone" required="" lay-verify="phone"
                            autocomplete="off" class="layui-input">
                 </div>
+
 
                 <div class="layui-form-mid layui-word-aux">
                     <span class="x-red">*</span>不能为空
@@ -104,8 +106,10 @@
         form.verify({
             username: [/^[\S]{4,16}$/,'用户名必须4到16位，且不能出现空格'],
 
+
             // email:[/^\w{3,12}@\w{1,12}\.(com|cn|net)$/,'邮箱格式不正确'],
             pass: [/^[\S]{4,16}$/,'密码必须4到16位，且不能出现空格'],
+
 
             repass: function(value){
                     if(jQuery('#L_pass').val()!=jQuery('#L_repass').val()){

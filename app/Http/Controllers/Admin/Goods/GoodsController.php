@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Goods;
 use App\Model\Goods;
 use App\Model\GoodsCate;
 
+
 use App\Model\ShopInfo;
 
 use Illuminate\Http\Request;
@@ -21,6 +22,7 @@ class GoodsController extends Controller
     {
 
 
+
         $good = Goods::orderBy('id','asc')
             ->where(function($query) use($request){
                 //检测关键字
@@ -35,6 +37,7 @@ class GoodsController extends Controller
                     $query->where('sid',$sid);
                 }
             })->get();
+
 
 //         多条件并分页
         $goods = Goods::orderBy('id','asc')
@@ -54,6 +57,7 @@ class GoodsController extends Controller
             ->paginate($request->input('num', 5));
 
 
+
         //商品栏位
         $goodscate = GoodsCate::pluck('category','id');
         //商家
@@ -63,6 +67,7 @@ class GoodsController extends Controller
             'shops'=>$shops]);
 
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -185,6 +190,7 @@ class GoodsController extends Controller
     public function destroy($id)
     {
 
+
         $goods = Goods::find($id);
         $res = $goods -> delete();
         if($res){
@@ -219,6 +225,7 @@ class GoodsController extends Controller
             ];
         }
         return $arr;
+
 
 
     }

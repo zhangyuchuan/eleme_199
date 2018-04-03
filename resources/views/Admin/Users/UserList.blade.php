@@ -5,6 +5,7 @@
     <div class="x-body">
         <div class="layui-row">
 
+
             <form class="layui-form layui-col-md12 x-so" action="/admin/users/users" method="get">
                 <div class="layui-input-inline">
                     <select name="num">
@@ -27,9 +28,11 @@
                 <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
             </form>
 
+
         </div>
         <xblock>
             <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
+
 
 
             <span class="x-right" style="line-height:40px">共有数据：{{count($users)}} 条</span>
@@ -69,6 +72,7 @@
                 @endif
                 <td class="td-manage">
 
+
                     <a onclick="member_stop(this,'{{ $v->id }}')" href="javascript:;" status="{{ $v->status }}" title="启用">
 
                         <i class="layui-icon">&#xe601;</i>
@@ -93,7 +97,9 @@
             <div>
                 {{--        {{ $users->appends(['username' => $username])->links() }}--}}
 
+
                 {!! $users->appends($request->all())->render() !!}
+
 
             </div>
         </div>
@@ -189,6 +195,7 @@
         function delAll (argument) {
 
 
+
             layer.confirm('确认要删除吗？',function(index){
                 var ids = [];
                 $('.layui-form-checked').not('.header').each(function(i,v){
@@ -204,6 +211,7 @@
                     }
                 })
                 //捉到所有被选中的，发异步进行删除
+
 
 
             });

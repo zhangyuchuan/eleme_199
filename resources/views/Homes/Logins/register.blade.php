@@ -1,4 +1,5 @@
 
+
 <html class="no-js" lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link class="usemin" rel="stylesheet" href="/home/register_files/global_rebuild.a739f3af.css">
     <link class="usemin" rel="stylesheet" href="/home/register_files/account_rebuild.54cf8909.css">
     <title>注册</title>
@@ -23,6 +24,7 @@
         <div class="panel-hd clrfix">
             <h2 class="title">注册</h2>
         </div>
+
 
         <div class="alert alert-danger">
             @if (count($errors) > 0)
@@ -63,7 +65,9 @@
                     <a class="g-link" href="http://waimai.com/agreement" target="_blank">使用条款和协议</a>
                 </div>
 
+
                 <button id="btn" lay-filter="add" class="g-btn g-btn-l g-btn-submit" lay-submit="">同意协议并注册</button>
+
 
             </form>
         </div>
@@ -71,7 +75,10 @@
             <div class="g-oauth">
             </div>
 
+
             <a class="g-link" href="{{url('home/login')}}">登录</a>
+
+
         </div>
     </div>
 </div>
@@ -81,6 +88,7 @@
         <p class="sfooter-line"> <a class="sfooter-link" href="http://kaidian.ele.me/">我要开店</a> | <a class="sfooter-link" href="http://waimai.com/register">联系我们</a> | <a class="sfooter-link" href="http://waimai.com/register">服务条款和协议</a> | <a class="sfooter-link" href="http://waimai.com/">站点地图</a>
         </p></div>
 </footer>
+
 
 <script>
     //生成验证码

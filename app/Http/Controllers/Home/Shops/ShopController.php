@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home\Shops;
 
 
+
 use App\Model\Goods;
 
 
@@ -16,11 +17,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 
 
+
 class ShopController extends Controller
 {
     //商品列表
     public function lists()
     {
+
 
 
         //获得全部一级分类
@@ -174,6 +177,7 @@ class ShopController extends Controller
         $gcate = GoodsCate::where('sid',$id)->get();
         return view('Homes.Shops.rate',compact('shopinfo','gcate'));
     }
+
 
 
 }

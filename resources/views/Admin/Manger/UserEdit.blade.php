@@ -25,6 +25,7 @@
                            autocomplete="off" class="layui-input" value="{{$user->phone}}">
                 </div>
 
+
                 <div class="layui-form-mid layui-word-aux">
                     <span class="x-red">*</span>不能为空
                 </div>
@@ -103,7 +104,9 @@
 
                             })
 
+
                         }else {
+
 
                             layer.alert(data.msg,{icon:6,time:2000},function(){
                                 //关闭弹层，刷新父页面

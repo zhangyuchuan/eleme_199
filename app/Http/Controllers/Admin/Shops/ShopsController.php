@@ -20,6 +20,7 @@ class ShopsController extends Controller
 
 
 
+
         return view('Admin.Shops.ShopsList', compact('cates', 'count'));
 
 
@@ -34,8 +35,10 @@ class ShopsController extends Controller
     {
         //获得父分类
 
+
         $cateone = ShopCategory::where('pid', '0')->get();
         return view('Admin.Shops.ShopsAdd', compact('cateone'));
+
 
 
     }
@@ -54,10 +57,12 @@ class ShopsController extends Controller
         //结果判断
 
 
+
         if ($res) {
             return redirect('admin/shops')->with('msg', '添加成功');
         } else {
             return back()->with('error', '添加失败');
+
 
 
         }
@@ -78,6 +83,7 @@ class ShopsController extends Controller
         //获取所有符合条件的店铺数量
 
 
+
         $count = count(ShopInfo::whereIn('cateid', $arr)->whereIn('status', [0, 1])->get());
         //获得所有符合条件的店铺详情
         $details = ShopInfo::whereIn('cateid', $arr)->whereIn('status', [0, 1])->paginate(5);
@@ -89,14 +95,14 @@ class ShopsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-
-     * @return \Illuminate\Http\Response
+inate\Http\Response
      */
     public function edit($id)
     {
         $cateone = ShopCategory::find($id);
 
 //        dd($cateone);
+
 
 
         return view('Admin.Shops.ShopsEdit', compact('cateone'));
@@ -112,6 +118,7 @@ class ShopsController extends Controller
     public function update(Request $request, $id)
     {
         $input = $request->except('id');
+
 
 
         $ptn = '/\D{1,}/';
@@ -133,6 +140,7 @@ class ShopsController extends Controller
                 'status' => 1,
                 'msg' => '修改失败'
 
+
             ];
         }
         return $data;
@@ -141,11 +149,13 @@ class ShopsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-e\Http\Response
+
+
      */
     public function destroy($id)
     {
         //判断一级分类是否含有子分类
+
 
 
         $cate = ShopCategory::where('pid', $id)->get();
@@ -160,12 +170,14 @@ e\Http\Response
                 'msg' => '该分类下不为空不能删除'
 
 
+
             ];
             return $data;
         }
         //执行删除
         $res = ShopCategory::destroy($id);
         //结果返回
+
 
 
         if ($res) {
@@ -179,6 +191,7 @@ e\Http\Response
                 'msg' => '删除失败'
 
 
+
             ];
         }
         return $data;
@@ -187,17 +200,16 @@ e\Http\Response
 
 
 
+
+
     /**
      * 修改排序
      *
-     * @param  int $id
-
 
      * @return \Illuminate\Http\Response
      */
     public function changeorder(Request $request)
     {
-
 
         $input = $request->all();
         //判断输入的值
@@ -222,10 +234,12 @@ e\Http\Response
                 'msg' => '排序失败'
 
 
+
             ];
         }
         return $data;
     }
+
 
 
 
@@ -243,6 +257,7 @@ e\Http\Response
         $id = $request->input('id');
         //获得状态
         $status = $request->input('status');
+
 
 
         if ($status == 0 || $status == 1) {
@@ -266,24 +281,15 @@ e\Http\Response
                 'msg' => '更新失败'
 
 
+
             ];
         }
         return $data;
     }
 
-    /**
-     * 删除店铺
-     *
-     * @param  int  $id
 
-     * @return \Illuminate\Http\Response
-     */
     public function deleteshop($id)
     {
-
-
-
-
         $res = ShopInfo::destroy($id);
         if ($res) {
             $data = [
@@ -296,10 +302,12 @@ e\Http\Response
                 'msg' => '删除失败'
 
 
+
             ];
         }
         return $data;
     }
+
 
 
 

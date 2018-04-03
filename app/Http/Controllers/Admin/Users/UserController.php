@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin\Users;
 use App\Model\User;
 
 
+
 use App\Model\UserInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 
 
 class UserController extends Controller
@@ -15,7 +17,9 @@ class UserController extends Controller
 //    public function list()
 //    {
 
+
 //        return view('Admin.Users.UserList');
+
 
 //    }
 //
@@ -30,6 +34,7 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
+
 
 
         // 搜索条件下获取
@@ -48,6 +53,7 @@ class UserController extends Controller
                 }
             })
             ->paginate($request->input('num', 3));
+
 
 
 
@@ -153,6 +159,7 @@ class UserController extends Controller
     }
 
 
+
     public function show($id){
 
     }
@@ -209,6 +216,7 @@ class UserController extends Controller
 
         return $arr;
     }
+
 
 
 

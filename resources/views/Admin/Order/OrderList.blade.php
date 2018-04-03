@@ -1,6 +1,7 @@
 @extends('Admin.Common.Common')
 @section('content')
 
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="x-body">
         <div class="layui-row">
@@ -9,10 +10,12 @@
                 <input type="text" name="username" value="{{$request->sid}}" placeholder="请输入店铺名" autocomplete="off" class="layui-input">
 
 
+
                 <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
             </form>
         </div>
         <xblock>
+
 
             {{--<button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>--}}
 
@@ -72,12 +75,15 @@
 
             @endforeach
 
+
             </tbody>
         </table>
         <div class="page">
             <div>
 
+
                 {!! $order->appends($request->all())->render() !!}
+
 
             </div>
         </div>
@@ -97,6 +103,7 @@
                 elem: '#end' //指定元素
             });
         });
+
 
 
         /*用户-下单*/
@@ -154,11 +161,13 @@
             }
 
 
+
         }
 
         /*用户-删除*/
         function member_del(obj,id){
             layer.confirm('确认要删除吗？',function(index){
+
 
                 $.post("{{ url('admin/order/order') }}/"+id,{'_token':"{{csrf_token()}}",'_method':'delete'},function(data){
                     //如果删除成功
@@ -169,8 +178,11 @@
                     }
                 });
 
+
             });
         }
+
+
 
 
 

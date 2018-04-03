@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Order;
 
 
+
 use App\Model\Order;
 use App\Model\OrderInfo;
 
@@ -16,6 +17,7 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
 
 
 //    public function index(Request $request)
@@ -46,6 +48,7 @@ class OrdersController extends Controller
 //    {
 //        return view('Admin.Order.OrderDel');
 //    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -110,6 +113,7 @@ class OrdersController extends Controller
      */
     public function destroy($id)
     {
+
 
         $order = order::find($id);
 
@@ -185,6 +189,7 @@ class OrdersController extends Controller
 
 //
         return view('Admin.Order.OrdersInfo',['ordersinfo'=>$orderinfo,'request'=> $request]);
+
 
 
 

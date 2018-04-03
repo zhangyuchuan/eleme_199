@@ -42,8 +42,10 @@
                 <th>性别</th>
                 <th>手机</th>
 
+
                 <th>邮箱</th>
                 <th>地址</th>
+
 
                 <th>状态</th>
                 <th>操作</th></tr>
@@ -58,9 +60,9 @@
                 <td>{{$v->username}}</td>
                 <td>{{$v->sex}}</td>
                 <td>{{$v->phone}}</td>
-
                 <td>{{$v->email}}</td>
                 <td>{{$v->address}}</td>
+
 
                 <td class="td-status">
                     @if($v->status=='0')

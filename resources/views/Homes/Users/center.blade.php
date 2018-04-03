@@ -1,5 +1,7 @@
 
+
 @extends('Homes.Users.public.public')
+
 
 
 
@@ -21,13 +23,13 @@
                         </span>
                         <span class="location-current">
 
-                           <a class="inherit ng-binding" ng-href="/place/wx4spk2hgfer" ubt-click="401"
-                              ng-bind="place.name || place.address" href="https://www.ele.me/place/wx4spk2hgfer">
+                            <a class="inherit binding" href="javascript:;" ubt-click="401"
+                            bind="place.name || place.address" href="javascript:;">
                                 昌平区204县道(北京市育荣教育园区西)
                             </a>
                         </span>
-                        <span class="location-change location-hashistory" ng-class="{ &#39;location-hashistory&#39;: user.username &amp;&amp; userPlaces &amp;&amp; userPlaces.length &gt; 0 }">
-                            <a ng-href="/home" ubt-click="400" hardjump="" href="https://www.ele.me/home">
+                        <span class="location-change location-hashistory" class="{ 'location-hashistory': user.username &amp;&amp; userPlaces &amp;&amp; userPlaces.length &gt; 0 }">
+                            <a href="javascript:;" ubt-click="400" hardjump="" href="javascript:;">
 
                                 [切换地址]
                             </a>
@@ -36,11 +38,11 @@
                                 </li>
                                 <!-- ngRepeat: userPlace in userPlaces | filter:filterPlace | limitTo:
                                 4 -->
-<
-                                <li ng-repeat="userPlace in userPlaces | filter:filterPlace | limitTo: 4"
-                                    class="ng-scope">
-                                    <a class="inherit ng-binding" ng-href="/place/wx4spk2jk0db?latitude=40.102375&amp;longitude=116.334404"
-                                       ng-bind="userPlace.name" ubt-click="399" href="/place/wx4spk2jk0db?latitude=40.102375&amp;longitude=116.334404">
+
+                                <li repeat="userPlace in userPlaces | filter:filterPlace | limitTo: 4"
+                                class="scope">
+                                    <a class="inherit binding" href="javascript:;"
+                                    bind="userPlace.name" ubt-click="399" href="javascript:;">
 
                                         昌平区204县道(北京市育荣教育园区西)
                                     </a>
@@ -48,6 +50,7 @@
                                 <!-- end ngRepeat: userPlace in userPlaces | filter:filterPlace | limitTo:
                                 4 -->
                                 <li class="changelocation">
+
 
                                     <a ng-href="/home" hardjump="" href="/home">
 
@@ -75,7 +78,9 @@
                             <i class="icon-line-home">
                             </i>
 
+
                             <a href="/center">
+
 
                                 个人中心
                             </a>
@@ -89,11 +94,14 @@
                         </h2>
                         <ul>
 
+
                             <li class="{ active: pageName === &#39;order&#39; }" class="active">
+
                                 <a href="/orders">
                                     近三个月订单
                                 </a>
                             </li>
+
                             <li class="{ active: pageName === &#39;order-unrated&#39; }">
                                 <a href="/orders">
 
@@ -101,6 +109,7 @@
                                     <!-- ngIf: unratedNumber -->
                                 </a>
                             </li>
+
 
                             <li class="{ active: pageName === &#39;order-refunding&#39; }">
                                 <a href="/orders">
@@ -126,12 +135,15 @@
                             <li class="{ active: pageName === 'balance' }">
                                 <a href="/balance">
 
+
                                     账户余额
                                 </a>
                             </li>
                             <li class="{ active: pageName === 'points' }">
 
+
                                 <a href="/integral">
+
 
                                     我的积分
                                 </a>
@@ -147,19 +159,24 @@
                         <ul>
                             <li class="{ active: pageName === 'info' }">
 
+
                                 <a href="/data">
+
 
                                     个人资料
                                 </a>
                             </li>
                             <li class="{ active: pageName === 'address' }">
 
+
                                 <a href="/add">
+
 
                                     地址管理
                                 </a>
                             </li>
                             <li class="{ active: pageName === 'security-center' }">
+
 
                                 <a href="/safety">
 
@@ -167,6 +184,7 @@
                                 </a>
                             </li>
                             <li class="{ active: pageName === 'changepassword' }">
+
 
                                 <a href="/password">
 
@@ -178,7 +196,9 @@
                     <li class="profile-sidebar-section">
                         <h2 class="profile-sidebar-sectiontitle" class="{ active: pageName === 'favor' }">
 
+
                             <a href="/collect">
+
 
                                 <i class="icon-order-favor">
                                 </i>
@@ -198,18 +218,18 @@
                                     alt="seeklegend的头像" class="profile-avatar" src="/home/img/517c48e40061040af3a2b6a96bf94jpeg(1).jpeg"
                                     />
 
-
-
-                                    <a href="/profile/info" class="profile-edit">
+                                    <a href="/data">
 
                                         编辑资料
                                     </a>
                                 </div>
                                 <div class="profile-perosondata">
                                     <h3 class="profile-name binding">
-                                        夜已深，
+
+                                       夜已深,
                                         <strong class="binding">
-                                            seeklegend
+                                            {{ $all->username }}
+
                                         </strong>
                                     </h3>
                                     <p class="profile-tips binding" bind="timeSection.tipText">
@@ -223,9 +243,7 @@
                                             高
                                         </span>
 
-                                        <a href="">
-
-                                        <a href="https://www.ele.me/profile/security" bind="levelTip" class="binding">
+                                        <a href="/safety" bind="levelTip" class="binding">
 
                                             查看详情
                                         </a>
@@ -233,7 +251,7 @@
                                     <p class="profile-othermessage">
                                         <!-- ngIf: user.is_mobile_valid -->
 
-                                        <a href="" class="icon mobile icon-profile-phone scope"
+                                        <a href="javascript:;" class="icon mobile icon-profile-phone scope"
 
                                         if="user.is_mobile_valid">
                                         </a>
@@ -242,7 +260,7 @@
                                         <!-- ngIf: !user.is_mobile_valid -->
                                         <!-- ngIf: !user.is_email_valid -->
 
-                                        <a href="" class="icon email icon-profile-email none scope"
+                                        <a href="javascript:;" class="icon email icon-profile-email none scope"
 
                                         if="!user.is_email_valid" tooltip="未绑定邮箱">
                                         </a>
@@ -252,14 +270,7 @@
                             </div>
                             <div class="profile-infoitem">
 
-                                <a class="inherit" href="https://www.ele.me/profile/hongbao">
-
-
-
-                                </div>
-                            </div>
-                            <div class="profile-infoitem">
-                                <a class="inherit" href="/hongbao">
+                                <a class="inherit" href="javascript:;">
 
                                     <p>
                                         我的红包
@@ -267,7 +278,7 @@
                                     <p class="profile-infoitem-number hongbao">
                                         <span class="number binding" bind="hongbaocount">
 
-                                            1
+                                            0
 
                                         </span>
                                         个
@@ -275,7 +286,6 @@
                                 </a>
                             </div>
                             <div class="profile-infoitem">
-
 
                                 <a class="inherit" href="/integral">
 
@@ -285,7 +295,9 @@
                                     <p class="profile-infoitem-number score">
                                         <span class="number binding" bind="user.point">
 
+
                                              {{$userinfo['score']}}
+
 
                                         </span>
                                         分
@@ -293,9 +305,6 @@
                                 </a>
                             </div>
                             <div class="profile-infoitem">
-
-
-
 
                                 <a class="inherit" href="/balance">
 
@@ -305,7 +314,9 @@
                                     <p class="profile-infoitem-number balance">
                                         <span class="number binding" bind="user.balance| number : 2">
 
+
                                             {{$userinfo['money']}}
+
 
                                         </span>
                                         元
@@ -313,36 +324,92 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="profile-order scope">
+
+                        <div class="profile-order scope" >
+
                             <div class="tabnavigation">
                                 <a class="tabnavigation-navitem active">
                                     最近订单
                                 </a>
 
-
-
                                 <a class="tabnavigation-rightitem profile-allorder" href="/orders">
-
                                     查看全部订单&gt;
                                 </a>
                             </div>
-                            <div class="profile-order-content">
+                            <div class="profile-order-content" style="height: auto;">
 
-                                <!-- ngRepeat: order in recentOrder -->
-                                <!-- ngIf: !recentOrder.length && !orderLoading -->
+                                @if(!empty($all->Orders))
+                                    @foreach($all->Orders as $v)
+                                <div class="orderblock ng-isolate-scope" ng-repeat="order in recentOrder"
+                                     data="{ $order: order }">
+                                    <div class="orderblock-item orderblock-rstinfo clearfix">
+                                        @foreach($shops as $vv)
+                                            @if($vv->id == $v ->sid)
+                                        <a class="logo" ng-href="/shop/155134506" href="https://www.ele.me/shop/155134506">
+                                            <img ng-src="//fuss10.elemecdn.com/7/0f/dc0d6b2380e1902263efdf43cfbd2jpeg.jpeg?imageMogr2/thumbnail/70x70/format/webp/quality/85"
+                                                 alt="商家 LOGO" src="{{ $vv->logo }}">
+                                        </a>
+                                        <h3 class="name">
+                                            <a class="inherit ng-binding" ng-bind="order.restaurant_name" ng-href="/shop/155134506"
+                                               href="https://www.ele.me/shop/155134506">
+                                                {{ $vv->name }}
+                                            </a>
+                                        </h3>
+                                            @endif
+                                        @endforeach
+                                        <p class="product ng-binding" ng-bind="order.product">
+                                            新疆羊肉串(5串/份)1份 / 疙瘩汤1份
+                                        </p>
+                                        <a class="productnum" ng-href="order/id/1217606784916104398" href="https://www.ele.me/profile/order/id/1217606784916104398">
+                                            共
+                                            <i class="count ng-binding" ng-bind="order.productnum">
+                                                6
+                                            </i>
+                                            个菜品&gt;
+                                        </a>
+                                    </div>
+                                    <div class="orderblock-item orderblock-time ng-binding">
+                                        {{ $v->ordertime }}
+                                        <br>
+                                    </div>
+                                    <div class="orderblock-item orderblock-price">
+                                        <p class="total ng-binding" ng-bind="&#39;¥&#39; + (order.total_amount | number:2)">
+                                            ¥{{ $v->totalprice }}
+                                        </p>
+                                        <span class="ng-binding">
+                                        </span>
+                                    </div>
+                                    <div class="orderblock-item orderblock-status">
+                                        <p class="status ng-binding end" ng-class="{&#39;waitpay&#39;: (order.realStatus === 4),&#39;end&#39;: (order.realStatus === 5)}"
+                                           ng-bind="order.statusText">
+                                            订单已完成
+                                        </p>
+                                        <a class="statuslink ng-binding" ng-href="order/id/1217606784916104398"
+                                           ng-bind="order.realStatus === 4 ? &#39;立即评价&#39; : &#39;订单详情&#39;" href="/orderdata/{{ $v->oid }}">
+                                            订单详情
+                                        </a>
+                                    </div>
+                                </div>
+                                    @endforeach
+                                @else
+
+
                                 <div class="nodata isolate-scope" if="!recentOrder.length &amp;&amp; !orderLoading"
                                 nodatatip="" content="你最近没有下过单哦，现在就去&lt;a href='/place'&gt;订餐&lt;/a&gt;吧~">
                                     <p class="nodata-container binding" bind-html="content | toTrusted">
                                         你最近没有下过单哦，现在就去
 
-                                        <a href="/place">
+                                        <a href="/lists">
 
                                             订餐
                                         </a>
                                         吧~
                                     </p>
                                 </div>
-                                <!-- end ngIf: !recentOrder.length && !orderLoading -->
+
+                                    @endif
+
+
                             </div>
                         </div>
                         <div class="profile-footprint scope">
@@ -368,15 +435,18 @@
                                 {{--<p class="nodata-container binding" bind-html="content | toTrusted">--}}
                                     {{--你最近没有下过单哦，现在就去--}}
 
+
                                         {{--订餐--}}
                                     {{--</a>--}}
                                     {{--吧~--}}
                                 {{--</p>--}}
                                 <!-- ngRepeat: restaurant in restaurantContext.pageData -->
                                 <a class="noline rstblock isolate-scope" data-rst-id="305969" class="{'rstblock-closed': !restaurant.is_opening || restaurant.in_delivery_area === false}"
+
                                 href="/shop/305969" data-bidding="" target="_blank" repeat="restaurant in restaurantContext.pageData"
 
                                 data="{ $restaurant: restaurant }" href="https://www.ele.me/shop/305969">
+
 
                                     <div class="rstblock-logo">
                                         <img width="70" height="70" class="rstblock-logo-icon" src="//fuss10.elemecdn.com/4/37/c63265e6d69161383973eb8eef609png.png?imageMogr2/thumbnail/70x70"

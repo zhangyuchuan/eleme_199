@@ -19,9 +19,11 @@ class GoodsCate extends Model
     public $guarded = [];
 
 
+
     public function goods()
     {
         return $this -> hasMany('App\Model\Goods','gcid','id');
     }
+
 
 }

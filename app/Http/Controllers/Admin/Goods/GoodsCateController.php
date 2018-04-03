@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Admin\Goods;
 
+<<<<<<< HEAD
 
 use App\Model\Goods;
 use App\Model\GoodsCate;
 use App\Model\ShopInfo;
 
+=======
+use App\Model\GoodsCate;
+>>>>>>> origin/hwd
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,6 +23,7 @@ class GoodsCateController extends Controller
      */
     public function index(Request $request)
     {
+<<<<<<< HEAD
 
         $shops = ShopInfo::pluck('name','id');
         $count = $goodscate = GoodsCate::orderBy('id','asc')
@@ -31,6 +36,8 @@ class GoodsCateController extends Controller
                 }
             })->count();
 
+=======
+>>>>>>> origin/hwd
         //多条件并分页
         $goodscate = GoodsCate::orderBy('id','asc')
             ->where(function($query) use($request){
@@ -43,9 +50,13 @@ class GoodsCateController extends Controller
             })
             ->paginate($request->input('num', 5));
         //显示列表页
+<<<<<<< HEAD
 
         return view('Admin.Goods.GoodsCateList',['goodscate'=>$goodscate,'request'=>$request,'count'=>$count,'shops'=>$shops]);
 
+=======
+        return view('Admin.Goods.GoodsCateList',['goodscate'=>$goodscate,'request'=>$request]);
+>>>>>>> origin/hwd
     }
 
     /**
@@ -111,6 +122,7 @@ class GoodsCateController extends Controller
      */
     public function destroy($id)
     {
+<<<<<<< HEAD
 
         $goods = Goods::where('gcid',$id)->first();
         if (!$goods){
@@ -139,6 +151,9 @@ class GoodsCateController extends Controller
 
         return $arr;
 
+=======
+        //
+>>>>>>> origin/hwd
     }
 
     public function statusup(Request $request)
@@ -168,6 +183,7 @@ class GoodsCateController extends Controller
             return 0;
         }
     }
+<<<<<<< HEAD
 
 
     //批量删除
@@ -200,4 +216,6 @@ class GoodsCateController extends Controller
 
     }
 
+=======
+>>>>>>> origin/hwd
 }

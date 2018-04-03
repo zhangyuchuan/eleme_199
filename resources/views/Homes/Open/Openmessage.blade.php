@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hans">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,6 +15,7 @@
         <header data-v-71da85cd="" data-v-74e89070="" class="topbar">
             <div data-v-71da85cd="" class="container">
                 <div data-v-71da85cd="" class="topbar-left">
+
                     <span data-v-71da85cd="">饿了么商户中心</span>
                     <span data-v-71da85cd="">点击查看《廉正告知书》</span>
                     <span data-v-71da85cd="" style="position:absolute;right:100px;top:16px"><a href="/lists" style="text-decoration:none;color:#fff;font-size:20px">网站首页</a></span>
@@ -23,6 +25,7 @@
                 <div class="kw-modal-container modal-large" style="display: none;">
                     <div class="kw-modal-header">
                                 <span>廉正事项告知书</span>
+
                         <i class="modal-close kwicon-c-close-for-message">
                         </i>
                     </div>
@@ -51,9 +54,11 @@
             </div>
         </header>
         <div data-v-74e89070="" class="steps-content">
+
             <iframe data-v-74e89070="" src="/storeform" frameborder="0"></iframe>
         </div>
     </div>
 </div>
 </body>
+
 </html>

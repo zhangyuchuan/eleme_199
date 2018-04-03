@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home\Logins;
 
 
+
 use App\Model\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -69,11 +70,13 @@ class LoginController extends Controller
     }
 
 
+
     //注册
     public function register()
     {
         return view('Homes.Logins.register');
     }
+
 
     //注册验证
     public function doregister(Request $request)
@@ -133,5 +136,6 @@ class LoginController extends Controller
         }
     }
 }
+
 
 

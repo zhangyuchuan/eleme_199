@@ -24,7 +24,9 @@
         <xblock>
             <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
 
+
             <span class="x-right" style="line-height:40px">共有数据：{{ $count }} 条</span>
+
 
         </xblock>
         <table class="layui-table">
@@ -45,14 +47,18 @@
             <tr>
                 <td>
 
+
                     <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='{{ $v->id }}'><i class="layui-icon">&#xe605;</i></div>
+
 
                 </td>
                 <td>{{ $v->id }}</td>
                 <td>{{ $v->category }}</td>
                 <td>{{ $v->gcontent }}</td>
 
+
                 <td>{{ $shops[$v->sid] }}</td>
+
 
                 <td class="td-status">
                     @if($v->status == 1)
@@ -60,7 +66,9 @@
                 </td>
                 <td class="td-manage">
 
+
                     <a onclick="member_stop(this,'{{ $v->id }}') " href="javascript:;"  title="停用">
+
 
                         <i class="layui-icon">&#xe62f;</i>
                     </a>
@@ -69,11 +77,13 @@
                 </td>
                 <td class="td-manage">
 
+
                     <a onclick="member_stop(this,'{{ $v->id }}') " href="javascript:;"  title="启用">
                         <i class="layui-icon">&#xe601;</i>
                     </a>
                     @endif
                     <a title="删除" onclick="member_del(this,'{{ $v->id }}')" href="javascript:;">
+
 
                         <i class="layui-icon">&#xe640;</i>
                     </a>
@@ -153,6 +163,7 @@
         }
 
 
+
         /*栏位-删除*/
         function member_del(obj,id){
 
@@ -175,6 +186,7 @@
             });
 
 
+
         }
 
 
@@ -184,6 +196,7 @@
             var data = tableCheck.getData();
 
             layer.confirm('确认要删除吗？'+data,function(index){
+
                 // layer.confirm('确认要删除吗？',function(index){
                 $.post('/admin/goodscate/delall',{'_token':"{{csrf_token()}}",'ids':data},function(data){
                     // console.log(data);

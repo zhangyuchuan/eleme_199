@@ -1,6 +1,7 @@
 @extends('Admin.Common.Common')
 @section('content')
 
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="x-body">
         <div class="layui-row">
@@ -8,11 +9,13 @@
                 <input type="text" name="keywords1" value="{{$request->keywords1}}" placeholder="请输入用户名" autocomplete="off" class="layui-input">
                 <input type="text" name="keywords2" value="{{$request->keywords2}}" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
 
+
                 <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
             </form>
         </div>
         <xblock>
             <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
+
 
             <span class="x-right" style="line-height:40px">此页共有数据：{{count($users)}} 条</span>
 
@@ -31,10 +34,13 @@
                 <th>邮箱</th>
                 <th>地址</th>
 
+
+
                 <th>状态</th>
                 <th>操作</th></tr>
             </thead>
             <tbody>
+
 
             @foreach($users as $v)
             <tr>
@@ -55,10 +61,12 @@
                     </a>
                     <a title="删除" onclick="member_del(this,'{{$v->id}}')" href="javascript:;">
 
+
                         <i class="layui-icon">&#xe640;</i>
                     </a>
                 </td>
             </tr>
+
 
             @endforeach
             </tbody>
@@ -66,6 +74,7 @@
         <div class="page">
             {{--        {{ $users->appends(['username' => $username])->links() }}--}}
             {!! $users->appends($request->all())->render() !!}
+
 
         </div>
 
@@ -87,6 +96,7 @@
 
         /*用户-停用*/
         function member_stop(obj,id){
+
 
             //获取要改变状态的用户的id
 
@@ -120,6 +130,7 @@
 
 
 
+
                 }else{
                     $(obj).attr('title','启用')
                     $(obj).find('i').html('&#xe601;');
@@ -133,6 +144,7 @@
 
         /*用户-删除*/
         function member_del(obj,id){
+
 
             //获取用户ID
 
@@ -153,8 +165,10 @@
                 });
 
 
+
             });
         }
+
 
 
 
@@ -182,6 +196,7 @@
                         layer.msg('删除失败', {icon: 2});
                     }
                 })
+
 
 
             });

@@ -34,8 +34,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
 
 
 
+
 //后台路由组
 Route::group(['middleware'=>'adminIslogin'],function() {
+
 
     // 退出登录
     Route::get('/admin/logout', 'Admin\Login\LoginController@logout');
@@ -60,6 +62,7 @@ Route::group(['middleware'=>'adminIslogin'],function() {
     Route::post('/admin/shops/delete/{id}', 'Admin\Shops\ShopsController@deleteshop');
 
 
+
     //商铺审核
     Route::get('/admin/shops/judgeshop', 'Admin\Shops\ShopsController@judgeShop');
 
@@ -74,11 +77,12 @@ Route::group(['middleware'=>'adminIslogin'],function() {
     //后台商品分类路由
     Route::post('/admin/goodscate/delall','Admin\Goods\GoodsCateController@delall');
 
+
     Route::post('/admin/goodscate/statusup', 'Admin\Goods\GoodsCateController@statusup');
     Route::post('/admin/goodscate/statusdown', 'Admin\Goods\GoodsCateController@statusdown');
     Route::resource('/admin/goodscate', 'Admin\Goods\GoodsCateController');
 
-//<<<<<<< HEAD
+
 //    //后台普通用户路由
 //    Route::get('/admin/users/users/grade','Admin\Users\UserController@grade');
 //    Route::get('/admin/users/users/audit','Admin\Users\UserController@audit');
@@ -118,13 +122,18 @@ Route::group(['middleware'=>'adminIslogin'],function() {
 
 
 
+
     //后台网站配置
     //批量修改网站配置项
     Route::post('/admin/config/changecontent','Admin\Config\ConfigController@changeContent');
+
     Route::resource('/admin/config','Admin\Config\ConfigController');
 
     //店家后台个人信息
 //    Admin\Seller\SellerController
+    Route::get('/admin/seller/sellers/repass/{id}', 'Admin\Seller\SellerController@repass');
+    Route::resource('admin/seller/sellers', 'Admin\Seller\SellerController');
+
     //店家后台我的店铺
 //    Admin\Seller\ShopsController
     Route::get('admin/seller/shops/changecontent', 'Admin\Seller\ShopsController@changecontent');
@@ -169,6 +178,10 @@ Route::group(['middleware'=>'homeIslogin'],function(){
     //商品订单
     Route::get('/orders','Home\Orders\OrderController@orders');
 
+
+    Route::post('/admin/config/upload','Admin\Config\ConfigController@upload');
+    Route::resource('/admin/config','Admin\Config\ConfigController');
+
     //个人中心
     Route::get('/center','Home\Users\UserController@center');
     //安全中心
@@ -183,10 +196,9 @@ Route::group(['middleware'=>'homeIslogin'],function(){
     Route::get('/integral','Home\Users\UserController@integral');
     //用户收藏
     Route::get('/collect','Home\Users\UserController@collect');
+
     //账户余额
     Route::get('/balance','Home\Users\UserController@balance');
-
-
 
     //开店申请1
     Route::get('/opendata','Home\Shops\OpenShopController@opendata');
@@ -245,11 +257,17 @@ Route::group(['middleware'=>'homeIslogin'],function(){
 
     //商品订单
     Route::get('/orders','Home\Orders\OrderController@orders');
-
     //用户红包
     Route::get('/hongbao','Home\Users\UserController@hongbao');
     //订单完成
     Route::get('/overorder','Home\Orders\OrderController@overorder');
+    //删除用户收藏
+    Route::get('/delete/{id}','Home\Users\UserController@delete');
+    //账户余额
+    Route::get('/balance','Home\Users\UserController@balance');
+    //订单详情
+    Route::get('/orderdata/{id}','Home\Orders\OrderController@orderdata');
 
-
+    //前台网站配置
+    Route::resource('/home/config','Home\Config\ConfigController');
 

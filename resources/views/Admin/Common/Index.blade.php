@@ -24,7 +24,9 @@
                     <dd><a onclick="x_admin_show('个人信息','http://www.baidu.com')">个人信息</a></dd>
                     <dd><a onclick="x_admin_show('切换帐号','http://www.baidu.com')">切换帐号</a></dd>
 
+
                     <dd><a href="{{url('admin/logout')}}">退出</a></dd>
+
 
                 </dl>
             </li>
@@ -141,7 +143,9 @@
                         <li>
 
 
+
                             <a _href="/admin/shops/judgeshop" target="_blank">
+
 
 
                                 <i class="iconfont">&#xe6a7;</i>
@@ -175,6 +179,8 @@
                         </li >
 
                     </ul>
+
+
 
 
                 </li>
@@ -252,7 +258,9 @@
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a _href="" target="_blank">
+
+                                <a _href="{{ url('admin/seller/sellers') }}" target="_blank">
+
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>个人信息</cite>
                                 </a>
@@ -298,9 +306,11 @@
                         <ul class="sub-menu">
                             <li>
 
+
                                 <a _href="/admin/seller/goodscate" target="_blank">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>商品栏位</cite>
+
 
                                 </a>
                             </li >
@@ -308,11 +318,13 @@
                         </ul>
                         <ul class="sub-menu">
                             <li>
+
 
                                 <a _href="/admin/seller/goods" target="_blank">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>商品列表</cite>
 
+
                                 </a>
                             </li >
 
@@ -320,9 +332,11 @@
                         <ul class="sub-menu">
                             <li>
 
+
                                 <a _href="/admin/seller/goods/create" target="_blank">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>商品添加</cite>
+
 
                                 </a>
                             </li >

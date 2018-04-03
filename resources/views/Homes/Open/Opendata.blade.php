@@ -132,7 +132,9 @@
                             商户LOGO
                         </h2>
                         <div data-v-121ca9e0="">
+
                             <img data-v-121ca9e0="" src="/home/img/index.png"
+
                                  alt="">
                             <span data-v-121ca9e0="">
                                         示例
@@ -198,11 +200,13 @@
                         <!---->
                     </button>
                     </a>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 
 </body>

@@ -23,7 +23,9 @@
         <xblock>
             <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
 
+
             <span class="x-right" style="line-height:40px">共有数据：{{ count($good) }}条</span>
+
 
         </xblock>
         <table class="layui-table">
@@ -49,6 +51,7 @@
             <tr>
                 <td>
 
+
                     <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='{{ $v->id }}'><i class="layui-icon">&#xe605;</i></div>
                 </td>
                 <td>{{ $v->id }}</td>
@@ -58,10 +61,12 @@
                 <td>{{ $goodscate[$v->gcid] }}</td>
                 <td>{{ $shops[$v->sid] }}</td>
 
+
                 <td>{{ $v->gdesc }}</td>
                 <td>{{ $v->salecnt }}</td>
                 <td>{{ $v->gscore }}</td>
                 <td class="td-status">
+
 
                     <span class="layui-btn layui-btn-normal layui-btn-mini layui-btn-disabled">
                         @if($v->status== 1)
@@ -76,6 +81,7 @@
                     </span></td>
                 <td class="td-manage">
                     <a title="删除" onclick="member_del(this,'{{$v->id}}')" href="javascript:;">
+
 
                         <i class="layui-icon">&#xe640;</i>
                     </a>
@@ -103,6 +109,7 @@
                 elem: '#end' //指定元素
             });
         });
+
 
 
 
@@ -148,6 +155,7 @@
                     }
                 })
                 //捉到所有被选中的，发异步进行删除
+
 
             });
         }

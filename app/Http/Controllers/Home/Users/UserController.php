@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home\Users;
 
 
+
 use App\Model\User;
 
 use App\Model\UserInfo;
@@ -10,84 +11,73 @@ use App\Model\UserInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Model\Collect;
+use App\Model\Orders;
+use App\Model\ShopInfo;
+
+use DB;
+
+
 class UserController extends Controller
 {
     //个人中心
     public function center()
     {
 
-        $userinfo = UserInfo::find(2);
-        return view('Homes.Users.center',compact('userinfo'));
-
-    }
-
-    //安全中心
-    public function safety()
-    {
-        return view('Homes.Users.safety');
-    }
-
-    //用户地址
-    public function add()
-    {
-        return view('Homes.Users.add');
-    }
-
-    //用户密码
-    public function password()
-    {
-        return view('Homes.Users.password');
-    }
-
-    //用户数据资料
-    public function data()
-    {
-        return view('Homes.Users.data');
 
 
-//        //获取数据
-//        $users  = User::get();
-//        return view('Homes.Users.data',['users'=>$users]);
+        $all=User::with('Orders')->where('id',6)->first();
+//        dd($all);
+        $sids = [];
+        foreach($all->Orders as $v){
+            $sids[] = $v->sid;
+        }
+//        dd($sids);
+        $shops = ShopInfo::whereIn('id',$sids)->get();
+//        dd($shops);
+        return view('Homes.Users.center',compact('all','shops'));
 
-
-    }
-
-    //用户积分
-    public function integral()
-    {
-        $userinfo = UserInfo::find(2);
-        return view('Homes.Users.integral',compact('userinfo'));
 
     }
 
     //用户收藏
     public function collect()
     {
-        return view('Homes.Users.collect');
-    }
 
-    //账户余额
-    public function balance()
+        //假设一个用户
+        $uid = 24;
+
+        //获取用户收藏的店铺id
+        $collect = Collect::where('uid',$uid)->get();
+        $arr = [];
+        if(!empty($collect)) {
+            foreach ($collect as $v) {
+                $arr[] = $v->sid;
+            }
+        }
+//        dd($arr);
+            //获取店铺信息
+            $shop_data = ShopInfo::whereIn('id',$arr)->get();
+
+//        dd($shop_data);
+
+        return view('Homes.Users.collect',compact('shop_data'));
+    }
+    //删除收藏
+    public function delete($id)
     {
+//        dd($id);
+        $cid = Collect::where('sid',$id)->first();
+//        dd($cid);
+        $res= $cid->delete();
+//        dd($res);
+        if($res) {
+            return redirect('/collect');
 
-        $userinfo = UserInfo::find(2);
-
-
-        return view('Homes.Users.balance',compact('userinfo'));
-
+        }else{
+            return back();
+        }
     }
 
-    //加盟合作
-    public function join()
-    {
-        return view('Homes.Users.join');
-    }
-
-
-    //个人红包
-    public function hongbao()
-    {
-        return view('Homes.Users.hongbao');
-    }
 }
 

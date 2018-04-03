@@ -80,6 +80,7 @@ class MangerController extends Controller
             'pass'=>'required|between:4,16',
             'phone'=>'required',
 
+
             'repass'=>'required',
             'address'=>'required',
             'email'=>'required'
@@ -92,9 +93,11 @@ class MangerController extends Controller
             'pass.between'=>'密码必须4到16位，且不能出现空格',
             'phone.required'=>'手机号格式不正确',
 
+
             'repass.required'=>'两次密码不一致',
             'address.required'=>'地址不能为空',
             'email.required'=>'邮箱不能为空'
+
 
         ];
 
@@ -108,12 +111,14 @@ class MangerController extends Controller
         }
         //检查用户是否存在
 
+
         //检查用户名
         $user = User::where('username',$input['username'])->first();
         //检查手机号
         $phone = User::where('phone',$input['phone'])->first();
         //检查邮箱
         $email = User::where('email',$input['email'])->first();
+
 
         if ($user){
             $arr = [
@@ -122,6 +127,7 @@ class MangerController extends Controller
             ];
             return $arr;
         }
+
 
         if ($phone){
             $arr = [
@@ -138,6 +144,7 @@ class MangerController extends Controller
             return $arr;
         }
 
+
 //        //密码加密
         $pass = Crypt::encrypt($input['pass']);
 //
@@ -150,6 +157,7 @@ class MangerController extends Controller
 
             'email'=>$input['email'],
             'address'=>$input['address'],
+
 
             'auth'=>'0'
         ]);
@@ -203,6 +211,7 @@ class MangerController extends Controller
     public function update(Request $request, $id)
     {
 
+
         $input = $request->all();
         //检查用户是否已经存在
         //检查用户是否存在
@@ -234,6 +243,7 @@ class MangerController extends Controller
             ];
             return $arr;
         }
+
 
         $res  = User::find($id)->update($request->except('id'));
         if($res) {
