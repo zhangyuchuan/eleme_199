@@ -39,14 +39,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
 
 //后台路由组
 Route::group(['middleware'=>'adminIslogin'],function() {
-
-
-
     // 退出登录
     Route::get('/admin/logout', 'Admin\Login\LoginController@logout');
     //后台首页路由
     Route::get('/admin/index', 'Admin\Login\LoginController@index');
-
 
     //后台管理员路由
     //Admin\Users\MangerController
@@ -64,15 +60,9 @@ Route::group(['middleware'=>'adminIslogin'],function() {
     Route::post('/admin/shops/changestatus', 'Admin\Shops\ShopsController@changestatus');
     //管理员删除店铺
     Route::post('/admin/shops/delete/{id}', 'Admin\Shops\ShopsController@deleteshop');
-
-
-
-
     //商铺审核
     Route::get('/admin/shops/judgeshop', 'Admin\Shops\ShopsController@judgeShop');
-
     Route::resource('/admin/shops', 'Admin\Shops\ShopsController');
-
 
     //后台商品路由 Admin\Goods\GoodController
 
@@ -83,13 +73,9 @@ Route::group(['middleware'=>'adminIslogin'],function() {
     //后台商品分类路由
     Route::post('/admin/goodscate/delall','Admin\Goods\GoodsCateController@delall');
 
-
-
     Route::post('/admin/goodscate/statusup', 'Admin\Goods\GoodsCateController@statusup');
     Route::post('/admin/goodscate/statusdown', 'Admin\Goods\GoodsCateController@statusdown');
     Route::resource('/admin/goodscate', 'Admin\Goods\GoodsCateController');
-
-
 
 //    //后台普通用户路由
 //    Route::get('/admin/users/users/grade','Admin\Users\UserController@grade');
@@ -112,7 +98,6 @@ Route::group(['middleware'=>'adminIslogin'],function() {
     Route::get('/admin/biz/biz/audit','Admin\Biz\MerchantController@audit');
 
 
-
     //后台普通用户路由
     Route::post('/admin/users/users/changestatus','Admin\Users\UserController@changestatus');
     Route::get('/admin/users/users/info','Admin\Users\UserController@info');
@@ -129,8 +114,6 @@ Route::group(['middleware'=>'adminIslogin'],function() {
     Route::get('/admin/order/order/list','Admin\Order\OrdersController@List');
     Route::post('/admin/order/order/changestatus','Admin\Order\OrdersController@changestatus');
     Route::resource('/admin/order/order','Admin\Order\OrdersController');
-
-
 
 
     //后台网站配置
