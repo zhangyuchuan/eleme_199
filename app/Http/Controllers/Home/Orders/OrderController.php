@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Home\Orders;
 
-<<<<<<< HEAD
+
 
 
 use App\Model\Goods;
@@ -16,16 +16,11 @@ use App\Model\Ordersinfo;
 use App\Model\User;
 
 use DB;
-=======
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
->>>>>>> origin/zcs
+
 
 class OrderController extends Controller
 {
     //结算
-<<<<<<< HEAD
-
     public function jiesuan($id)
     {
         $shopinfo = ShopInfo::find($id);
@@ -38,15 +33,6 @@ class OrderController extends Controller
         }
 //        dd($sum);
         return view('Homes.Orders.jiesuan',compact('sum','sbnt','shopinfo'));
-
-
-
-
-=======
-    public function jiesuan()
-    {
-        return view('Homes.Orders.jiesuan');
->>>>>>> origin/zcs
     }
 
     //商品订单
@@ -54,7 +40,6 @@ class OrderController extends Controller
     {
         return view('Homes.Orders.orders');
     }
-<<<<<<< HEAD
 
 
 
@@ -85,6 +70,4 @@ class OrderController extends Controller
         return view('Homes.Orders.orderdata',compact('all','shop_all','shop'));
     }
 
-=======
->>>>>>> origin/zcs
 }

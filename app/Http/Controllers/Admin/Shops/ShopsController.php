@@ -18,12 +18,7 @@ class ShopsController extends Controller
     {
         $cates = ShopCategory::tree();
 
-
-
-
-
         return view('Admin.Shops.ShopsList', compact('cates', 'count'));
-
 
     }
 
@@ -35,15 +30,8 @@ class ShopsController extends Controller
     public function create()
     {
         //获得父分类
-
-
-
         $cateone = ShopCategory::where('pid', '0')->get();
         return view('Admin.Shops.ShopsAdd', compact('cateone'));
-
-
-
-
     }
 
     /**
@@ -58,17 +46,10 @@ class ShopsController extends Controller
         //执行存储
         $res = ShopCategory::create($input);
         //结果判断
-
-
-
-
         if ($res) {
             return redirect('admin/shops')->with('msg', '添加成功');
         } else {
             return back()->with('error', '添加失败');
-
-
-
         }
 
     }
@@ -85,10 +66,6 @@ class ShopsController extends Controller
         //判断是否是一级分类,获取一级分类的id和所有子分类的id
         $arr = ShopCategory::getId($id);
         //获取所有符合条件的店铺数量
-
-
-
-
         $count = count(ShopInfo::whereIn('cateid', $arr)->whereIn('status', [0, 1])->get());
         //获得所有符合条件的店铺详情
         $details = ShopInfo::whereIn('cateid', $arr)->whereIn('status', [0, 1])->paginate(5);
