@@ -36,7 +36,7 @@
                                 修改
                             </button>
                             <button class="desktop-addressblock-button" ng-click="showMask = true">
-                                <a href="/delete/{{$v->id}}">
+                                <a href="/deletedizhi/{{$v->id}}">
 
                                 删除
                             </button>
@@ -87,6 +87,9 @@
                         <i class="icon-plus">
                         </i>
                         添加新地址
+
+
+
                     </button>
 
 

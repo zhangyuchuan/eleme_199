@@ -21,6 +21,7 @@ use DB;
 class OrderController extends Controller
 {
 
+
     public function jiesuan($id)
     {
         $shopinfo = ShopInfo::find($id);
@@ -75,5 +76,6 @@ class OrderController extends Controller
 
         return view('Homes.Orders.orderdata',compact('all','shop_all','shop'));
     }
+
 
 }
