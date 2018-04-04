@@ -118,7 +118,7 @@ class LoginController extends Controller
         //将原密码进行解密 和输入的密码进行对比
         $input['password']=encrypt( $input['password']);
         //执行存储
-        $res = User::create(['username'=>$username ,'password'=>$input['password'],'status'=>0,'auth'=>2]);
+        $res = User::create(['username'=>$username ,'password'=>$input['password'],'status'=>'0','auth'=>'2']);
 
         if($res){
             $path = !empty(session('paths'))?session('paths'):'/lists';

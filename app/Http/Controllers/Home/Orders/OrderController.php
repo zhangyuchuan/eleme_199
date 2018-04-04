@@ -39,11 +39,43 @@ class OrderController extends Controller
     //商品订单
     public function orders()
     {
-        return view('Homes.Orders.orders');
+        //假设一个用户id   韩伟栋
+        $id=6;
+
+        $all=User::with('Orders')->where('id',$id)->first();
+//        dd($all);
+        //商家id
+        $sids = [];
+        //订单id
+        $oids = [];
+        foreach($all->Orders as $v){
+            $sids[] = $v->sid;
+            $oids[] = $v->oid;
+        }
+//        dd($oids);
+        $shops = ShopInfo::whereIn('id',$sids)->get();
+
+        foreach($oids as $k=>$v){
+            $goodsname[] = Ordersinfo::with('goods')->where('oid',$v)->get()->toArray();
+        }
+//        dd($goodsname);
+        $n = [];
+        $sum = [];
+        foreach($goodsname as $k=>$v){
+            $m = 0; $sun =0;
+            foreach($v as $vv){
+                $m+= $vv['bcnt'];
+                $sun += $vv['bcnt']*$vv['bprice'];
+            }
+            $n[] = $m;
+            $sum[] = $sun;
+        }
+
+        return view('Homes.Orders.orders',compact('n','sum','all','shops','users','goodsname'));
     }
 
 
-
+    //
     public function overorder()
     {
         return view('Homes.Orders.overorder');
