@@ -161,6 +161,9 @@ Route::group(['prefix'=>'home','namespace'=>'Home'],function(){
     Route::get('/login','Logins\LoginController@login');
     //登陆验证
     Route::post('/dologin','Logins\LoginController@dologin');
+
+    //退出登陆
+    Route::get('/logout','Logins\LoginController@logout');
     //注册
     Route::get('/register','Logins\LoginController@register');
     Route::post('/doregister','Logins\LoginController@doregister');
