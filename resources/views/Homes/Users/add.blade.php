@@ -33,12 +33,12 @@
                         <div class="desktop-addressblock-buttons">
                             <button class="desktop-addressblock-button" ng-click="editAddress(address)">
                                 <a href="/modify/{{$v->id}}">
-                                修改
+                                    修改</a>
                             </button>
                             <button class="desktop-addressblock-button" ng-click="showMask = true">
                                 <a href="/deletedizhi/{{$v->id}}">
 
-                                删除
+                                    删除</a>
                             </button>
                         </div>
                         <div class="desktop-addressblock-name ng-binding">

@@ -346,6 +346,7 @@
                 </script>
                 <!-- ngRepeat: basket in cart.vm.group -->
                 <!-- ngIf: basket.length -->
+
                 <dl if="basket.length" repeat="basket in cart.vm.group" class="checkoutcart-group scope">
                     <!-- ngRepeat: item in basket -->
                     <dd repeat="item in basket" class="scope" id="cparent">
@@ -425,37 +426,54 @@
         <!-- end ngIf: !loading && !nofood -->
         <!-- ngIf: !loading && !nofood -->
         <div if="!loading &amp;&amp; !nofood" class="checkout-content scope">
+            <form action="/shop/{{ $shopinfo->id }}/finish" method="post">
+                {{ csrf_field() }}
             <div class="checkout-select isolate-scope" checkout-address="" checkout-data="checkoutData"
                  address-list="addressList" address="address" isbaisheng="isBaishengRst">
                 <h2>
                     收货地址
-                    <a show="addressList.length" class="checkout-addaddress hide" href="javascript:"
+                    <a show="addressList.length" class="checkout-addaddress " href="javascript:"
                        click="addAddress()">
                         添加新地址
                     </a>
                 </h2>
+                @if(!empty($users->useraddr))
+                <select name="addrid" id="" style="width: 700px;height: 50px">
+                    @foreach($users->useraddr as $v)
+                    <option value="{{ $v->id }}" >
+                        {{--张 先生 18410100203 贵都大酒店广安门内大街217号--}}
+                        {{ $v->rec  }} &nbsp;&nbsp;&nbsp;&nbsp; {{ $v->sex  }}&nbsp;&nbsp;&nbsp; {{ $v->tel  }} &nbsp;&nbsp;&nbsp;{{ $v->addr  }}
+                        {{--<ul ng-hide="!addressList.length" class="checkout-address-list" ng-class="{ showmore: showMoreAddress, showfirst: noInitAddress }">--}}
+                            {{--<!-- ngRepeat: item in addressList -->--}}
+                            {{--<li class="checkout-address ng-scope active" ng-repeat="item in addressList" ng-click="selectAddress($event, item)" ng-class="{active: address.id === item.id}" ng-mouseenter="selectAddress($event, item)">--}}
+                                {{--<i class="checkout-address-icon icon-location-line"></i>--}}
+                                {{--<div class="checkout-address-info">--}}
+                                    {{--<p ng-bind="item.name + [' ', ' 先生 ', ' 女士 '][item.sex] + item.phone" class="ng-binding">张 先生 18410100203</p>--}}
+                                    {{--<p class="color-weak ng-binding" ng-bind="item.address + item.address_detail">贵都大酒店广安门内大街217号</p></div>--}}
+                                {{--<div class="checkout-address-edit" style="float: right" >--}}
+                                    {{--<a href="javascript:">修改</a>--}}
+                                {{--</div>--}}
+                                {{--<!-- ngIf: !item.st_geohash -->--}}
+                                {{--<!-- ngIf: !item.is_deliverable -->--}}
+                                {{--<!-- ngIf: item.st_geohash && item.poi_type===1 && isbaisheng --></li>--}}
+                            {{--<!-- end ngRepeat: item in addressList -->--}}
+                            {{--<a class="checout-showmoreaddress ng-hide" href="javascript:" ng-click="showMoreAddress = true" ng-show="!showMoreAddress &amp;&amp; addressList.length > 1">显示更多地址--}}
+                                {{--<i class="icon-arrow-down"></i></a>--}}
+                            {{--<a class="checout-showmoreaddress ng-hide" href="javascript:" ng-click="showMoreAddress = false" ng-show="showMoreAddress &amp;&amp; addressList.length > 1">收起--}}
+                                {{--<i class="icon-arrow-up"></i></a>--}}
+                        {{--</ul>--}}
+                    </option>
+                    @endforeach
+                </select>
+                @else
                 <!-- ngIf: !addressList.length -->
                 <a class="checkout-noaddress scope" if="!addressList.length" href="javascript:"
                    click="addAddress()">
                     + 添加新地址
                 </a>
+                @endif
                 <!-- end ngIf: !addressList.length -->
-                <ul hide="!addressList.length" class="checkout-address-list hide showfirst"
-                    class="{ showmore: showMoreAddress, showfirst: noInitAddress }">
-                    <!-- ngRepeat: item in addressList -->
-                    <a class="checout-showmoreaddress hide" href="javascript:" click="showMoreAddress = true"
-                       show="!showMoreAddress &amp;&amp; addressList.length &gt; 1">
-                        显示更多地址
-                        <i class="icon-arrow-down">
-                        </i>
-                    </a>
-                    <a class="checout-showmoreaddress hide" href="javascript:" click="showMoreAddress = false"
-                       show="showMoreAddress &amp;&amp; addressList.length &gt; 1">
-                        收起
-                        <i class="icon-arrow-up">
-                        </i>
-                    </a>
-                </ul>
+
             </div>
             <div class="checkout-select">
                 <h2 class="checkout-title">
@@ -552,7 +570,7 @@
                                 订单备注
                             </span>
                     <span>
-                                <input class="checkout-input pristine valid" model="note" change="updateDescription(note)">
+                                <input class="checkout-input pristine valid" model="note" change="updateDescription(note)" name="umsg">
                             </span>
                 </div>
             </div>
@@ -578,7 +596,9 @@
                     <img src="/home/jiesuan_files/appqc.95e532.png" alt="扫一扫下载饿了么手机 App">
                 </div>
             </div>
+            </form>
         </div>
+
         <!-- end ngIf: !loading && !nofood -->
     </div>
 

@@ -231,10 +231,13 @@ Route::group(['middleware'=>'homeIslogin'],function(){
     Route::get('/home/addgcart','Home\Shops\ShopController@addgcart');
     //结算
     Route::get('/shop/{id}/jiesuan','Home\Orders\OrderController@jiesuan');
+    //提交生成订单
+    Route::post('/shop/{id}/finish','Home\Orders\OrderController@finish');
 
 
 
-    //商家资质
+
+//商家资质
     Route::get('/shopzizhi','Home\Sellers\SellerController@shopzizhi');
     //用户评价
     Route::get('/evaluate','Home\Users\UserController@evaluate');
