@@ -109,6 +109,7 @@
         <div class="place-rstbox clearfix " id="shoplistdiv">
         </div>
     </div>
+    <script src="/home/js/jquery-1.8.3.min.js"></script>
     <script>
         $(function(){
             getShop(0)

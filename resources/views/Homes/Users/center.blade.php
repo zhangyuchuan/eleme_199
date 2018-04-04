@@ -105,46 +105,55 @@
             <div class="profile-order-content" style="height: auto;">
 
                 @if(!empty($all->Orders))
-                    @foreach($all->Orders as $v)
+                    @foreach($all->Orders as $k=>$v)
                         <div class="orderblock ng-isolate-scope" ng-repeat="order in recentOrder"
                              data="{ $order: order }">
                             <div class="orderblock-item orderblock-rstinfo clearfix">
                                 @foreach($shops as $vv)
                                     @if($vv->id == $v ->sid)
-                                        <a class="logo" ng-href="/shop/155134506" href="https://www.ele.me/shop/155134506">
+                                        <a class="logo" ng-href="/shop/155134506" href="">
                                             <img ng-src="//fuss10.elemecdn.com/7/0f/dc0d6b2380e1902263efdf43cfbd2jpeg.jpeg?imageMogr2/thumbnail/70x70/format/webp/quality/85"
                                                  alt="商家 LOGO" src="{{ $vv->logo }}">
                                         </a>
                                         <h3 class="name">
                                             <a class="inherit ng-binding" ng-bind="order.restaurant_name" ng-href="/shop/155134506"
-                                               href="https://www.ele.me/shop/155134506">
+                                               href="">
                                                 {{ $vv->name }}
                                             </a>
                                         </h3>
                                     @endif
                                 @endforeach
-                                <p class="product ng-binding" ng-bind="order.product">
-                                    新疆羊肉串(5串/份)1份 / 疙瘩汤1份
-                                </p>
-                                <a class="productnum" ng-href="order/id/1217606784916104398" href="https://www.ele.me/profile/order/id/1217606784916104398">
-                                    共
-                                    <i class="count ng-binding" ng-bind="order.productnum">
-                                        6
-                                    </i>
-                                    个菜品&gt;
-                                </a>
+
+                                    {{--{{dd($goodsname)}}--}}
+                                    @if(count($goodsname[$k]!=1))
+                                        @foreach($goodsname[$k] as $kkk=>$vvv)
+                                        <p class="product ng-binding" ng-bind="order.product">
+                                            {{--{{dd($vvv)}}--}}
+                                            {{ $vvv['goods']['gname'] }}{{$n[$k]}}份
+                                        </p>
+                                        @endforeach
+                                            <a class="productnum" ng-href="order/id/1217606784916104398" href="https://www.ele.me/profile/order/id/1217606784916104398">
+                                                共
+                                                <i class="count ng-binding" ng-bind="order.productnum">
+                                                    {{$n[$k]}}
+                                                </i>
+                                                个菜品&gt;
+                                            </a>
                             </div>
                             <div class="orderblock-item orderblock-time ng-binding">
                                 {{ $v->ordertime }}
                                 <br>
                             </div>
                             <div class="orderblock-item orderblock-price">
+
                                 <p class="total ng-binding" ng-bind="&#39;¥&#39; + (order.total_amount | number:2)">
-                                    ¥{{ $v->totalprice }}
+                                    ¥{{ $sum[$k] }}
                                 </p>
                                 <span class="ng-binding">
                                         </span>
                             </div>
+
+                            @endif
                             <div class="orderblock-item orderblock-status">
                                 <p class="status ng-binding end" ng-class="{&#39;waitpay&#39;: (order.realStatus === 4),&#39;end&#39;: (order.realStatus === 5)}"
                                    ng-bind="order.statusText">
