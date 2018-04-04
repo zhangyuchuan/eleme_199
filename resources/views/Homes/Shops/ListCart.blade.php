@@ -1,7 +1,7 @@
 <div class="sidebar" id="sidebar" role="complementary" hide="layoutState && layoutState.hideSidebar">
     <div class="sidebar-tabs">
         <div class="toolbar-tabs-middle">
-            <a class="toolbar-btn icon-order toolbar-close" href="/profile/order"
+            <a class="toolbar-btn icon-order toolbar-close" href=""
                hardjump="" tooltip="我的订单" tooltip-placement="left" ubt-click="toolbar_order">
             </a>
             <div class="toolbar-separator">
@@ -63,9 +63,9 @@
                         <!-- ngIf: basket.length -->
                         <dl ng-if="basket.length" ng-repeat="basket in cart" class="ng-scope">
                             <dt>
-            <span ng-bind="$index + 1 + '号购物车'" class="ng-binding">
-                1号购物车
-            </span>
+                            <span ng-bind="$index + 1 + '号购物车'" class="ng-binding">
+                                1号购物车
+                            </span>
                                 <!-- ngIf: basket.length -->
                                 <a ng-if="basket.length" ng-click="clearGroup($index, $event)" href="JavaScript:"
                                    class="sidebarcart-clear ng-scope">
@@ -117,7 +117,7 @@
                         0
                     </span>
                         </p>
-                        <button ng-click="settle()" class="sidebarcart-submit ng-binding sidebarcart-hasagio"
+                        <button ng-click="settle()" style="background:#fa5858;" class="sidebarcart-submit ng-binding sidebarcart-hasagio"
                                 ng-class="{ 'sidebarcart-hasagio': submitButton.disabled }" ng-bind="submitButton.text"
                                 ubt-click="391">
                             去结算

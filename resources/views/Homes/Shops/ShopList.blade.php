@@ -1,6 +1,6 @@
 <style>
     #clearfix{
-        height:1400px;
+        height:840px;
         overflow:hidden;
     }
 </style>
@@ -10,7 +10,7 @@
         @if(!$shops->isEmpty())
             @foreach($shops as $k=>$v)
                 @if($v->status==1)
-                <a class="rstblock" href="/shop/152185819" data-rst-id="152185819" data-bidding=""target="_blank">
+                <a class="rstblock" href="/shop/{{$v->id}}" data-rst-id="152185819" data-bidding=""target="_blank">
                     <div class="rstblock-logo" style="opacity:0.4">
                         <img class="rstblock-logo-icon" src="{{$v->logo}}"
                              alt="" width="70" height="70">
@@ -21,7 +21,7 @@
 
                     <div class="rstblock-content"  style="opacity:0.4">
                         @elseif($v->status==0)
-                            <a class="rstblock" href="/shop/152185819" data-rst-id="152185819" data-bidding=""target="_blank">
+                            <a class="rstblock" href="/shop/{{$v->id}}" data-rst-id="152185819" data-bidding=""target="_blank">
                                 <div class="rstblock-logo" >
                                     <img class="rstblock-logo-icon" src="{{$v->logo}}"
                                          alt="" width="70" height="70">
@@ -87,12 +87,10 @@
 
         var height = parseInt($('#clearfix').css('height'));
         if(height<lineheight){
-            height = height + 700;
+            height = height + 420;
         }else{
             $('#fetchMoreRst').html('已加载全部');
         }
         $('#clearfix').css('height',height);
-
-
     })
 </script>
