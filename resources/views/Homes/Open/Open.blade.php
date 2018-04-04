@@ -60,9 +60,9 @@
         .kw-modal-container.fade-in-down-enter-active{animation: fadeInDown .3s
         ease}
     </style>
-    <style type="text/css">
-        .amap-container{cursor:url(https://webapi.amap.com/theme/v1.3/openhand.cur),default;}.amap-drag{cursor:url(https://webapi.amap.com/theme/v1.3/closedhand.cur),default;}
-    </style>
+    {{--<style type="text/css">--}}
+        {{--.amap-container{cursor:url(https://webapi.amap.com/theme/v1.3/openhand.cur),default;}.amap-drag{cursor:url(https://webapi.amap.com/theme/v1.3/closedhand.cur),default;}--}}
+    {{--</style>--}}
 </head>
 
 <body>
@@ -147,15 +147,17 @@
                 </ul>
                 <div data-v-868d222c="" data-v-04dec436="">
                     <div data-v-868d222c="" class="index-buttons">
+                        <a href="{{ url('/opendata') }}" style="text-decoration:none">
                         <button data-v-868d222c="" type="button" class="kw-btn btn-primary btn-medium"
                                 ubt-click="102258">
                             <!---->
                             <!---->
-                            <a href="{{ url('/opendata') }}"><span class="inner">
+                            <span class="inner">
                                         我要开店
-                                    </span></a>
+                                    </span>
                             <!---->
                         </button>
+                        </a>
                         <p data-v-868d222c="">
                                     <span data-v-868d222c="" ubt-click="102259">
                                         查看开店记录
@@ -335,8 +337,8 @@
         </div>
         <!---->
         <div data-v-0ec1c706="" data-v-04dec436="" class="bottom-links">
-            <div data-v-0ec1c706="" class="container">
-                <ul data-v-0ec1c706="" class="bottom-links-nav">
+            <div data-v-0ec1c706="" class="container" >
+                <ul data-v-0ec1c706="" class="bottom-links-nav" style="width:685px">
                     <li data-v-0ec1c706="">
                         <p data-v-0ec1c706="">
                             用户帮助
@@ -421,8 +423,8 @@
                             </li>
                         </ul>
                     </li>
-                </ul>
-                <div data-v-0ec1c706="" class="bottom-links-service">
+                </ul >
+                <div data-v-0ec1c706="" class="bottom-links-service" >
                     <p data-v-0ec1c706="">
                         服务热线: 021-80203777
                         <br data-v-0ec1c706="">

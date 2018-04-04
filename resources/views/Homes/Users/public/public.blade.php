@@ -150,53 +150,53 @@
 <div class="importantnotification container" role="banner">
 </div>
 <!-- <eleme-importantnotification></eleme-importantnotification> -->
-<div class="sidebar" role="complementary" hide="layoutState && layoutState.hideSidebar">
-    <div class="sidebar-tabs">
-        <div class="toolbar-tabs-middle">
-            <a class="toolbar-btn icon-order toolbar-close" href="/profile/order"
-               hardjump="" tooltip="我的订单" tooltip-placement="left" ubt-click="toolbar_order">
-            </a>
-            <div class="toolbar-separator">
-            </div>
-            <a class="toolbar-cartbtn icon-cart toolbar-open" href="JavaScript:" template="cart"
-               class="{'focus': (activeTemplate === 'cart' && isSidebarOpen), 'toolbar-cartbtn-shownum': foodCount.count}"
-               ubt-click="390">
-                购物车
-            </a>
-            <div class="toolbar-separator">
-            </div>
-            <a class="toolbar-btn icon-notice toolbar-open modal-hide" href="JavaScript:"
-               template="message" class="{'focus': (activeTemplate === 'message' && isSidebarOpen), 'toolbar-open': user, 'modal-hide': user}"
-               tooltip="我的信息" tooltip-placement="left" ubt-click="392">
-            </a>
-        </div>
-        <div class="toolbar-tabs-bottom">
-            <div class="toolbar-btn icon-QR-code">
-                <div class="dropbox toolbar-tabs-dropbox">
-                    <a href="http://static11.elemecdn.com/eleme/desktop/mobile/index.html"
-                       target="_blank">
-                        <img src="/home/img/appqc.95e532.png" alt="下载手机应用">
-                        <p>
-                            下载手机应用
-                        </p>
-                        <p class="icon-QR-code-bonus">
-                            即可参加分享红包活动
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <a id="live800iconlink" class="toolbar-btn icon-service" online-service=""
-               tooltip="在线客服" title="在线客服" tooltip-placement="left" target="_blank" href="JavaScript:"
-               style="visibility: hidden;">
-            </a>
-            <a class="toolbar-btn sidebar-btn-backtop icon-top" tooltip="回到顶部" title="回到顶部"
-               href="JavaScript:" tooltip-placement="left" style="visibility: hidden;">
-            </a>
-        </div>
-    </div>
-    <div class="sidebar-content">
-    </div>
-</div>
+{{--<div class="sidebar" role="complementary" hide="layoutState && layoutState.hideSidebar">--}}
+    {{--<div class="sidebar-tabs">--}}
+        {{--<div class="toolbar-tabs-middle">--}}
+            {{--<a class="toolbar-btn icon-order toolbar-close" href="/profile/order"--}}
+               {{--hardjump="" tooltip="我的订单" tooltip-placement="left" ubt-click="toolbar_order">--}}
+            {{--</a>--}}
+            {{--<div class="toolbar-separator">--}}
+            {{--</div>--}}
+            {{--<a class="toolbar-cartbtn icon-cart toolbar-open" href="JavaScript:" template="cart"--}}
+               {{--class="{'focus': (activeTemplate === 'cart' && isSidebarOpen), 'toolbar-cartbtn-shownum': foodCount.count}"--}}
+               {{--ubt-click="390">--}}
+                {{--购物车--}}
+            {{--</a>--}}
+            {{--<div class="toolbar-separator">--}}
+            {{--</div>--}}
+            {{--<a class="toolbar-btn icon-notice toolbar-open modal-hide" href="JavaScript:"--}}
+               {{--template="message" class="{'focus': (activeTemplate === 'message' && isSidebarOpen), 'toolbar-open': user, 'modal-hide': user}"--}}
+               {{--tooltip="我的信息" tooltip-placement="left" ubt-click="392">--}}
+            {{--</a>--}}
+        {{--</div>--}}
+        {{--<div class="toolbar-tabs-bottom">--}}
+            {{--<div class="toolbar-btn icon-QR-code">--}}
+                {{--<div class="dropbox toolbar-tabs-dropbox">--}}
+                    {{--<a href="http://static11.elemecdn.com/eleme/desktop/mobile/index.html"--}}
+                       {{--target="_blank">--}}
+                        {{--<img src="/home/img/appqc.95e532.png" alt="下载手机应用">--}}
+                        {{--<p>--}}
+                            {{--下载手机应用--}}
+                        {{--</p>--}}
+                        {{--<p class="icon-QR-code-bonus">--}}
+                            {{--即可参加分享红包活动--}}
+                        {{--</p>--}}
+                    {{--</a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<a id="live800iconlink" class="toolbar-btn icon-service" online-service=""--}}
+               {{--tooltip="在线客服" title="在线客服" tooltip-placement="left" target="_blank" href="JavaScript:"--}}
+               {{--style="visibility: hidden;">--}}
+            {{--</a>--}}
+            {{--<a class="toolbar-btn sidebar-btn-backtop icon-top" tooltip="回到顶部" title="回到顶部"--}}
+               {{--href="JavaScript:" tooltip-placement="left" style="visibility: hidden;">--}}
+            {{--</a>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+    {{--<div class="sidebar-content">--}}
+    {{--</div>--}}
+{{--</div>--}}
 <!-- <eleme-sidebar hide="layoutState && layoutState.hideSidebar"></eleme-sidebar> -->
 <!-- <div view role="main"></div> -->
 <link href="/home/css/vendor.eb86f5.css" rel="stylesheet">
