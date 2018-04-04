@@ -65,16 +65,16 @@
         <header class="topbar" role="navigation" class="{shoptopbar: state.type === 'shop'}">
             <div class="container clearfix">
                 <h1>
-                    <a class="topbar-logo icon-logo" href="/" hardjump="">
+                    <a class="topbar-logo icon-logo" href="/lists" hardjump="">
                                 <span>
                                     饿了么
                                 </span>
                     </a>
                 </h1>
-                <a class="topbar-item topbar-homepage focus" href="/" hardjump="">
+                <a class="topbar-item topbar-homepage focus" href="/lists" hardjump="">
                     首页
                 </a>
-                <a class="topbar-item" href="/profile/order" hardjump="" class="{'focus': $root.locationpath[1] === 'order'}">
+                <a class="topbar-item" href="orders" hardjump="" class="{'focus': $root.locationpath[1] === 'order'}">
                     我的订单
                 </a>
                 <a class="topbar-item cooperation" href="//h5.ele.me/service/cooperation/"
@@ -82,12 +82,12 @@
                     加盟合作
                 </a>
                 <nav class="topbar-nav">
-                    <a class="topbar-nav-link" href="/support/center" hardjump="" target="_blank">
+                    <a class="topbar-nav-link" href="" hardjump="">
                         <i class="topbar-nav-icon icon-service">
                         </i>
                         服务中心
                     </a>
-                    <a class="topbar-nav-link" href="/support/rules/default" hardjump="" target="_blank">
+                    <a class="topbar-nav-link" href="" hardjump="">
                         规则中心
                     </a>
                     <div class="topbar-nav-link">
@@ -117,16 +117,16 @@
                                         <span class="topbar-profilebox-btn icon-arrow-down scope" if="$root.topbarType !== 'checkout'">
                                         </span>
                                         <div class="dropbox topbar-profilebox-dropbox">
-                                            <a class="icon-profile" href="/profile" hardjump="">
+                                            <a class="icon-profile" href="/center" hardjump="">
                                                 个人中心
                                             </a>
-                                            <a class="icon-star" href="/profile/favor" hardjump="">
+                                            <a class="icon-star" href="/collect" hardjump="">
                                                 我的收藏
                                             </a>
-                                            <a class="icon-location" href="/profile/address" hardjump="">
+                                            <a class="icon-location" href="/add" hardjump="">
                                                 我的地址
                                             </a>
-                                            <a class="icon-setting" href="/profile/security" hardjump="">
+                                            <a class="icon-setting" href="/safety" hardjump="">
                                                 安全设置
                                             </a>
                                             <a class="icon-logout" href="JavaScript:" click="logout()">
