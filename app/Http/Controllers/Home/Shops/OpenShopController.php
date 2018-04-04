@@ -71,8 +71,8 @@ class OpenShopController extends Controller
         $status= 3;
         //判断用户状态并将用户好好状态设置为1商家权限
         $user = User::where('id',$uid)->first();
-        if($user->auth==2){
-            $user->auth = 1;
+        if($user->auth=='2'){
+            $user->auth = '1';
         }
         //执行存储
         $shop = new ShopInfo;

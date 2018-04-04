@@ -1,5 +1,11 @@
-    <div class="clearfix" id="clearfix" data="filteredRestaurants = (rstStream.restaurants | filter: rstStream.filter | filter: otherFilter | orderBy: [ '-is_opening', rstStream.orderBy || 'index' ])"
-         style="height: 1600px;">
+<style>
+    #clearfix{
+        height:1400px;
+        overflow:hidden;
+    }
+</style>
+<div class="clearfix" id="clearfix" data="filteredRestaurants = (rstStream.restaurants | filter: rstStream.filter | filter: otherFilter | orderBy: [ '-is_opening', rstStream.orderBy || 'index' ])"
+        >
         {{--商家列表--}}
         @if(!$shops->isEmpty())
             @foreach($shops as $k=>$v)
@@ -68,3 +74,25 @@
     </div>
     @endif
     </div>
+
+<script>
+    $('#fetchMoreRst').click(function(){
+        //店铺的数量
+        var count =  $('.rstblock').length;
+        //所需的行数
+        var lines = Math.ceil(count/4);
+        //所需的高度
+        var lineheight = lines*140;
+        // console.log(lineheight);
+
+        var height = parseInt($('#clearfix').css('height'));
+        if(height<lineheight){
+            height = height + 700;
+        }else{
+            $('#fetchMoreRst').html('已加载全部');
+        }
+        $('#clearfix').css('height',height);
+
+
+    })
+</script>

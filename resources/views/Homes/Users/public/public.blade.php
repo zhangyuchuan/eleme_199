@@ -77,23 +77,23 @@
                                 </span>
                     </a>
                 </h1>
-                <a class="topbar-item topbar-homepage focus" href="/" hardjump="">
+                <a class="topbar-item topbar-homepage " href="/lists" hardjump="">
                     首页
                 </a>
-                <a class="topbar-item" href="/profile/order" hardjump="" class="{'focus': $root.locationpath[1] === 'order'}">
+                <a class="topbar-item focus" href="/center" hardjump="" class="{'focus': $root.locationpath[1] === 'order'}">
                     我的订单
                 </a>
-                <a class="topbar-item cooperation" href="//h5.ele.me/service/cooperation/"
+                <a class="topbar-item cooperation" href="/home/openshop/"
                    target="_blank">
                     加盟合作
                 </a>
                 <nav class="topbar-nav">
-                    <a class="topbar-nav-link" href="/support/center" hardjump="" target="_blank">
+                    <a class="topbar-nav-link" href="" hardjump="" target="_blank">
                         <i class="topbar-nav-icon icon-service">
                         </i>
                         服务中心
                     </a>
-                    <a class="topbar-nav-link" href="/support/rules/default" hardjump="" target="_blank">
+                    <a class="topbar-nav-link" href="" hardjump="" target="_blank">
                         规则中心
                     </a>
                     <div class="topbar-nav-link">
@@ -112,10 +112,14 @@
                                     <span class="topbar-profilebox-avatar icon-profile" show="!$root.user.username">
                                     </span>
                             <span class="" show="!$root.user.username">
-                                        <a href="//h5.ele.me//login/#redirect=https%3A%2F%2Fwww.ele.me%2F"
-                                           target="_blank" href="//h5.ele.me//login/#redirect=https%3A%2F%2Fwww.ele.me%2F">
+                                    @if(session('user'))
+                                    {{session('user')->username}}
+                                    @else
+                                        <a href="/home/login"
+                                           target="_blank" >
                                             登录/注册
                                         </a>
+                                        @endif
                                     </span>
                             <span class="topbar-profilebox-wrapper hide" show="$root.user.username">
                                         <span class="topbar-profilebox-username binding">
