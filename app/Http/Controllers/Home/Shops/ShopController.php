@@ -33,7 +33,7 @@ class ShopController extends Controller
         }else{
             $gcart = [];
         }
-//        dd($gcart);
+
 
         return view('Homes.Shops.lists',compact('cateone','gcart'));
     }
