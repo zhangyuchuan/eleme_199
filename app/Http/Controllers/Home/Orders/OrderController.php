@@ -27,7 +27,11 @@ class OrderController extends Controller
     {
         $users = User::with('useraddr')->find(1);
         $shopinfo = ShopInfo::find($id);
-        $carts = session()->get('gcarts');
+        if (empty(session()->get('gcarts'))){
+            $carts = [];
+        }else{
+            $carts = session()->get('gcarts');
+        }
         $sum = 0;
         $sbnt = 0;
         foreach ($carts as $v){
@@ -49,7 +53,9 @@ class OrderController extends Controller
         $data['uid']= $user['id'];
 
         $data['sid'] = $id;
-        $data['umsg'] = $input['umsg'];
+        if(!empty($input['umsg'])){
+            $data['umsg'] = $input['umsg'];
+        }
         $data['addrid'] = $input['addrid'];
         $carts = session()->get('gcarts');
         $sum = 0;
@@ -71,10 +77,10 @@ class OrderController extends Controller
         if ($res && $flag){
             DB::commit();
             session()->forget('gcarts');
-            return 'OK';
+            return redirect();
         }else{
             DB::rollBack();
-            return 'NO';
+            return back();
         }
 
 //        return  $goods;
