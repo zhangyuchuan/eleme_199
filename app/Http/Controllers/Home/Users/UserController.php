@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home\Users;
 
 
 
+use App\Model\Ordersinfo;
 use App\Model\User;
 
 use App\Model\UserInfo;
@@ -32,22 +33,45 @@ class UserController extends Controller
 
         $all=User::with('Orders')->where('id',$id)->first();
 //        dd($all);
+        //商家id
         $sids = [];
+        //订单id
+        $oids = [];
         foreach($all->Orders as $v){
             $sids[] = $v->sid;
+            $oids[] = $v->oid;
         }
-//        dd($sids);
+//        dd($oids);
         $shops = ShopInfo::whereIn('id',$sids)->get();
+
+        foreach($oids as $k=>$v){
+            $goodsname[] = Ordersinfo::with('goods')->where('oid',$v)->get()->toArray();
+        }
+//        dd($goodsname);
+        $n = [];
+        $sum = [];
+        foreach($goodsname as $k=>$v){
+            $m = 0; $sun =0;
+            foreach($v as $vv){
+                $m+= $vv['bcnt'];
+                $sun += $vv['bcnt']*$vv['bprice'];
+            }
+            $n[] = $m;
+            $sum[] = $sun;
+        }
 //        dd($shops);
 
         //获取用户积分    //获取用户余额
         $users = UserInfo::where('id',$id)->first();
-
-
-//        $balance = UserInfo::where('id',$id)->first();
-//
 //        dd($users);
-        return view('Homes.Users.center',compact('all','shops','users'));
+
+
+//        $price = Ordersinfo::where('oid',$id)->get();
+
+//
+//        dd($price);
+
+        return view('Homes.Users.center',compact('n','sum','all','shops','users','goodsname'));
 
 
     }
