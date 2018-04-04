@@ -70,9 +70,6 @@ class ShopsController extends Controller
         //获得所有符合条件的店铺详情
         $details = ShopInfo::whereIn('cateid', $arr)->whereIn('status', [0, 1])->paginate(5);
         return view('Admin.Shops.ShopsDetails', compact('details', 'count'));
-
-
-
     }
 
     /**

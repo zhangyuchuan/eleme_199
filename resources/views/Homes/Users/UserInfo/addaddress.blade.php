@@ -73,6 +73,23 @@
             </div>
             <div class="addressdialog-header">
                 添加新地址
+
+                {{--错误提示信息--}}
+                @if (count($errors) > 0)
+                <div style="color: red" class="alert alert-danger">
+                <ul>
+                @if(is_object($errors))
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+                @else
+                <li>{{ $errors }}</li>
+                @endif
+                </ul>
+                </div>
+                @endif
+
+
             </div>
             <form class="forms" action="{{url('store')}}" method='post'">
                 {{csrf_field()}}

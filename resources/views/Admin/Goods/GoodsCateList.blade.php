@@ -47,51 +47,29 @@
             @foreach($goodscate as $v)
             <tr>
                 <td>
-
-
-
                     <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='{{ $v->id }}'><i class="layui-icon">&#xe605;</i></div>
-
-
-
                 </td>
                 <td>{{ $v->id }}</td>
                 <td>{{ $v->category }}</td>
                 <td>{{ $v->gcontent }}</td>
-
-
-
                 <td>{{ $shops[$v->sid] }}</td>
-
-
-
                 <td class="td-status">
                     @if($v->status == 1)
                         <span class="layui-btn layui-btn-normal layui-btn-mini">已启用 </span>
                 </td>
                 <td class="td-manage">
-
-
-
                     <a onclick="member_stop(this,'{{ $v->id }}') " href="javascript:;"  title="停用">
-
-
-
                         <i class="layui-icon">&#xe62f;</i>
                     </a>
                     @else
                         <span class="layui-btn layui-btn-normal layui-btn-mini layui-btn-disabled">已停用 </span>
                 </td>
                 <td class="td-manage">
-
-
-
                     <a onclick="member_stop(this,'{{ $v->id }}') " href="javascript:;"  title="启用">
                         <i class="layui-icon">&#xe601;</i>
                     </a>
                     @endif
                     <a title="删除" onclick="member_del(this,'{{ $v->id }}')" href="javascript:;">
-
 
                         <i class="layui-icon">&#xe640;</i>
                     </a>

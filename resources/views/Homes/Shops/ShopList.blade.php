@@ -49,9 +49,9 @@
 
             @endforeach
     </div>
-    <div class="loading ng-binding ng-isolate-scope ng-hide" ng-show="rstStream.status === 'LOADING'"
+    <div class="loading ng-binding ng-isolate-scope ng-hide" style="display:none" ng-show="rstStream.status === 'LOADING'"
          loading="" content="正在载入更多商家..." type="normal">
-        <img class="normal ng-scope" ng-if="type==='normal'" src="/home/img/loading.0e7b2e.gif"
+        <img class="normal ng-scope"  ng-if="type==='normal'" src="/home/img/loading.0e7b2e.gif"
              alt="正在加载">
         正在载入更多商家...
     </div>

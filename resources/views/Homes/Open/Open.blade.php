@@ -60,9 +60,9 @@
         .kw-modal-container.fade-in-down-enter-active{animation: fadeInDown .3s
         ease}
     </style>
-    <style type="text/css">
-        .amap-container{cursor:url(https://webapi.amap.com/theme/v1.3/openhand.cur),default;}.amap-drag{cursor:url(https://webapi.amap.com/theme/v1.3/closedhand.cur),default;}
-    </style>
+    {{--<style type="text/css">--}}
+        {{--.amap-container{cursor:url(https://webapi.amap.com/theme/v1.3/openhand.cur),default;}.amap-drag{cursor:url(https://webapi.amap.com/theme/v1.3/closedhand.cur),default;}--}}
+    {{--</style>--}}
 </head>
 
 <body>
@@ -147,13 +147,18 @@
                 </ul>
                 <div data-v-868d222c="" data-v-04dec436="">
                     <div data-v-868d222c="" class="index-buttons">
+
+                        <a href="{{ url('/opendata') }}" style="text-decoration:none">
+
                         <button data-v-868d222c="" type="button" class="kw-btn btn-primary btn-medium"
                                 ubt-click="102258">
                             <!---->
                             <!---->
-                            <a href="{{ url('/opendata') }}"><span class="inner">
+
+                            <span class="inner">
                                         我要开店
-                                    </span></a>
+                                    </span>
+
                             <!---->
                         </button>
                         <p data-v-868d222c="">
@@ -335,8 +340,8 @@
         </div>
         <!---->
         <div data-v-0ec1c706="" data-v-04dec436="" class="bottom-links">
-            <div data-v-0ec1c706="" class="container">
-                <ul data-v-0ec1c706="" class="bottom-links-nav">
+            <div data-v-0ec1c706="" class="container" >
+                <ul data-v-0ec1c706="" class="bottom-links-nav" style="width:685px">
                     <li data-v-0ec1c706="">
                         <p data-v-0ec1c706="">
                             用户帮助
@@ -421,8 +426,8 @@
                             </li>
                         </ul>
                     </li>
-                </ul>
-                <div data-v-0ec1c706="" class="bottom-links-service">
+                </ul >
+                <div data-v-0ec1c706="" class="bottom-links-service" >
                     <p data-v-0ec1c706="">
                         服务热线: 021-80203777
                         <br data-v-0ec1c706="">
@@ -447,105 +452,8 @@
         </div>
     </div>
 </div>
-<script>
-    window.$ENV = 'faas_production'
-</script>
-<script>
-    function ajax(url, cb) {
-        var xhr = new XMLHttpRequest() xhr.onreadystatechange = function() {
-            if (xhr.readyState === xhr.DONE && xhr.status === 200) {
-                var response = JSON.parse(xhr.response) cb(response)
-            }
-        }
-        xhr.open('get', url, true) xhr.send(null)
-    }
 
-    function createLink(src, preload, asType) {
-        var link = document.createElement('link') link.href = src link.rel = preload ? 'preload': 'stylesheet'
-        if (asType) {
-            link.as = asType
-        }
-        document.head.appendChild(link)
-    }
 
-    function createScript(src) {
-        var script = document.createElement('script') script.async = false script.src = src document.body.appendChild(script)
-    }
-
-    function bootstrapNew(files) {
-        var app = document.querySelector('ui-view') app.remove()
-
-        var urls = {
-            'faas_testing': 'https://cdn.faas.elenet.me/napos-kaidian-test-alpha/',
-            'faas_production': 'https://shadow.elemecdn.com/faas/napos-kaidian/'
-        }
-        var baseUri = urls[window.$ENV] || urls['faas_testing']
-
-        ajax(baseUri + 'manifest.json?timeStamp=' + new Date().getTime(),
-            function(response) {
-                createLink(baseUri + response['app.css'])
-
-                var arr = ['manifest.js', 'vendor.js', 'app.js']
-                var appJs = arr.map(function(item) {
-                    return baseUri + response[item]
-                }) files.map(function(item) {
-                    return item[1]
-                }).concat(appJs).forEach(createScript)
-
-                var loading = document.getElementById('loading') loading.remove()
-            })
-    }
-
-    function bootstrapOld(files) {
-        document.body.setAttribute('ng-app', 'nevermore') var app = document.getElementById('app') app.remove()
-
-        files.forEach(function(item) {
-            if (item[0] === 'style') {
-                createLink(item[1])
-            } else {
-                createScript(item[1])
-            }
-        })
-
-        var loading = document.getElementById('loading') loading.remove()
-    }
-
-    (function() {
-        var oldFiles = [['style', '/home/jc/app.73972d6.css'], ['style', 'home/jc/app.0fd86d1.css'], ['script', 'https://webapi.amap.com/maps?v=1.3&key=4a1d1ee27380c38faea1e11487dc4122&&plugin=AMap.ToolBar,AMap.PlaceSearch,AMap.Geocoder,AMap.PolyEditor,AMap.MouseTool,AMap.Scale,AMap.Walking'], ['script', '/home/jc/vendor.699a643.js'], ['script', '/home/jc/app.699a643.js']]
-
-        var newFiles = [['script', 'https://webapi.amap.com/maps?v=1.3&key=4a1d1ee27380c38faea1e11487dc4122&&plugin=AMap.ToolBar,AMap.PlaceSearch,AMap.Geocoder,AMap.PolyEditor,AMap.MouseTool,AMap.Scale,AMap.Walking'], ['script', '/home/jc/ubt.min.js'], ['script', '/home/jc/vue.min.js'], ['script', '/home/jc/vue-router.min.js']]
-
-        oldFiles.concat(newFiles).forEach(function(item) {
-            createLink(item[1], true, item[0])
-        }) ajax('/runshop-svr/webapi/setup/authorized/isGrayScaleRange',
-            function(response) {
-                // window.localStorage.setItem('kaidian_gray', Number(response.reconsitutionGray))
-                if (response.reconsitutionGray) {
-                    bootstrapNew(newFiles)
-                } else {
-                    bootstrapOld(oldFiles)
-                }
-            })
-
-        // var isGray = window.localStorage.getItem('kaidian_gray')
-        // if (!isGray) {
-        //   ajax('/runshop-svr/webapi/setup/authorized/isGrayScaleRange', function(response) {
-        //     window.localStorage.setItem('kaidian_gray', Number(response.reconsitutionGray))
-        //     if (response.reconsitutionGray) {
-        //       bootstrapNew(newFiles)
-        //     } else {
-        //       bootstrapOld(oldFiles)
-        //     }
-        //   })
-        // } else {
-        //   if (Number(isGray) === 1) {
-        //     bootstrapNew(newFiles)
-        //   } else {
-        //     bootstrapOld(oldFiles)
-        //   }
-        // }
-    })()
-</script>
 
 </body>
 

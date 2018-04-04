@@ -20,7 +20,7 @@ use DB;
 
 class OrderController extends Controller
 {
-    //结算
+
     public function jiesuan($id)
     {
         $shopinfo = ShopInfo::find($id);
@@ -33,6 +33,7 @@ class OrderController extends Controller
         }
 //        dd($sum);
         return view('Homes.Orders.jiesuan',compact('sum','sbnt','shopinfo'));
+
     }
 
     //商品订单

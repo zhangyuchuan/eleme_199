@@ -24,13 +24,13 @@ use DB;
 
 class UserController extends Controller
 {
-    //个人中心
+    //个人中心  韩伟栋
     public function center()
     {
+        //假设一个用户id   韩伟栋
+        $id=6;
 
-
-
-        $all=User::with('Orders')->where('id',6)->first();
+        $all=User::with('Orders')->where('id',$id)->first();
 //        dd($all);
         $sids = [];
         foreach($all->Orders as $v){
@@ -39,16 +39,24 @@ class UserController extends Controller
 //        dd($sids);
         $shops = ShopInfo::whereIn('id',$sids)->get();
 //        dd($shops);
-        return view('Homes.Users.center',compact('all','shops'));
+
+        //获取用户积分    //获取用户余额
+        $users = UserInfo::where('id',$id)->first();
+
+
+//        $balance = UserInfo::where('id',$id)->first();
+//
+//        dd($users);
+        return view('Homes.Users.center',compact('all','shops','users'));
 
 
     }
 
-    //用户收藏
+    //用户收藏  韩伟栋
     public function collect()
     {
 
-        //假设一个用户
+        //假设一个用户   韩伟栋
         $uid = 24;
 
         //获取用户收藏的店铺id
@@ -65,10 +73,12 @@ class UserController extends Controller
 
 //        dd($shop_data);
 
+
+
         return view('Homes.Users.collect',compact('shop_data'));
     }
-    //删除收藏
-    public function delete($id)
+    //删除收藏 韩伟栋
+    public function del($id)
     {
 //        dd($id);
         $cid = Collect::where('sid', $id)->first();
@@ -80,6 +90,37 @@ class UserController extends Controller
 
         }
     }
+
+    //个人红包
+    public function hongbao()
+    {
+        return view('Homes.Users.hongbao');
+    }
+
+    //用户积分
+    public function integral()
+    {
+        //假设用户id   韩伟栋
+        $id = 6;
+
+        $users = UserInfo::where('id',$id)->first();
+
+//        dd($users);
+        return view('Homes.Users.integral',compact('users'));
+    }
+
+    //账户余额
+    public function balance()
+    {
+        //假设用户id  韩伟栋
+        $id = 6;
+        $balance = UserInfo::where('id',$id)->first();
+
+//        dd($balance);
+        return view('Homes.Users.balance',compact('balance'));
+    }
+
+
 
 
 
@@ -104,7 +145,9 @@ class UserController extends Controller
     //添加地址
     public function create()
     {
-        $address = Address::find(1);
+        //这个id是死的   张晨思
+        $id=1;
+        $address = Address::find($id);
        return view('Homes.Users.UserInfo.addaddress', ['address' => $address]);
         //return view('Homes.Users.UserInfo.addaddress');
     }
@@ -115,20 +158,18 @@ class UserController extends Controller
         $input = $request->except('_token');
 //  dd($input);
         //表单验证
-//        $rule = [
-//            'phone' => 'required'
-//        ];
-//        $msg = [
-//            'phone.required' => '手机号格式不正确'
-//        ];
-//        $validator = Validator::make($input, $rule, $msg);
-//        if ($validator->fails()) {
-//            $arr = [
-//                'status' => 1,
-//                'msg' => '添加失败'
-//            ];
-//            return $arr;
-//        }
+
+        $rule = [
+            'tel' => 'regex:/^1[34578][0-9]{9}$/'
+        ];
+        $msg = [
+            'tel.regex' => '手机号格式不正确'
+        ];
+        $validator = Validator::make($input, $rule, $msg);
+        if ($validator->fails()) {
+                 return redirect('/create')->with('errors','手机号格式不正确');
+                 }
+
         //执行添加 DB::table('users')->insert   Address::create
         $res = Address::create([
             'uid'=>1,
@@ -138,35 +179,41 @@ class UserController extends Controller
             'sex'=>$input['sex'],
 //            'auth'=>tel
         ]);
+//        if($res) {
+//            $arr = [
+//                'status' => 0,
+//                'msg' => '添加成功'
+//            ];
+//
+//        }else{
+//            $arr = [
+//                'status'=>1,
+//                'msg'=>'添加失败'
+//            ];
+//        }
         if($res) {
-            $arr = [
-                'status' => 0,
-                'msg' => '添加成功'
-            ];
+            return redirect('/add');
 
         }else{
-            $arr = [
-                'status'=>1,
-                'msg'=>'添加失败'
-            ];
+            return back();
         }
 
       //  return $arr;
-        return view('Homes.Users.add');
+       // return view('Homes.Users.add');
     }
 
-//    //删除地址
-//    public function delete($id)
-//    {
-//        $res= Address::destroy($id);
-//
-//        if($res) {
-//            return redirect('/add');
-//
-//        }else{
-//            return back();
-//        }
-//    }
+    //删除地址
+    public function deletedizhi($id)
+    {
+        $res= Address::destroy($id);
+
+        if($res) {
+            return redirect('/add');
+
+        }else{
+            return back();
+        }
+    }
 
     //修改地址
     public function modify($id)
@@ -207,14 +254,19 @@ class UserController extends Controller
     //用户密码
     public function password()
     {
-        $users  = User::find(1);
+        //这个id是死的  张晨思
+        $id=1;
+        $users  = User::find($id);
 
         return view('Homes.Users.password',['user'=>$users]);
     }
     //修改密码
     public function repass(Request $request)
     {
-        $users  = User::find(1);
+        //这个id是死的  张晨思
+        $id=1;
+
+        $users  = User::find($id);
         $oldpass = $users->password;
         // dd($oldpass);
         //判断原密码是否正确
@@ -246,7 +298,8 @@ class UserController extends Controller
         $users->password = $newpass;
         $res = $users->save();
         if($res){
-            return redirect('/center');
+            //跳转路径错误   张晨思
+            return redirect('/lists');
         }else{
 
             return back();
@@ -258,9 +311,11 @@ class UserController extends Controller
     //用户数据资料
     public function data()
     {
+        //这个id是死的   张晨思
+        $id = 1;
        // return view('Homes.Users.data');
         //获取数据
-        $users  = User::find(1);
+        $users  = User::find($id);
         //dd($users);
        // dd(session());
         return view('Homes.Users.data',['users'=>$users]);
