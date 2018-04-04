@@ -30,7 +30,7 @@
   <script src="/home/js/perf.js" type="text/javascript" crossorigin="anonymous"></script> 
   <script src="/home/js/vendor.0df01e.js" type="text/javascript" crossorigin="anonymous"></script> 
   <script src="/home/js/home.2adc74.js" type="text/javascript" crossorigin="anonymous"></script>
-  <script type="text/javascript" src='/home/js/jquery-1.8.3.min.js'></script>
+  <script type="text/javascript" src='/home/js/jquery.min.js'></script>
   <style type="text/css">
     .shouye{
       display: none;
@@ -73,8 +73,8 @@
            </div> 
           </div> 
           <script type="text/javascript">
-              $(.mapcity-current).onclick(function(){
-                $(.mapcity-dialog).css("display","block");
+              $('.mapcity-current').onclick(function(){
+                $('.mapcity-dialog').css("display","block");
               });
           </script>
           <!-- ngIf: mapCity.groups.$resolved --> 

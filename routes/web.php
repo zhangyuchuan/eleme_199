@@ -14,8 +14,13 @@
 //网站首页
 
 Route::get('/', function () {
-    return view('welcome');
+
+
+    return view('index');
+
+
 });
+Route::post('/doMap','Shouye\ShouyeController@doMap');
 //后台登陆
 Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
     //登录首页
@@ -171,6 +176,8 @@ Route::group(['middleware'=>'homeIslogin'],function(){
     Route::get('/home/openlast','Home\Shops\OpenShopController@openlast');
     //结算
     Route::get('/shop/{id}/jiesuan','Home\Orders\OrderController@jiesuan');
+    //提交生成订单
+    Route::post('/shop/{id}/finish','Home\Orders\OrderController@finish');
     //商品订单
     Route::get('/orders','Home\Orders\OrderController@orders');
     //订单完成
@@ -224,7 +231,7 @@ Route::group(['middleware'=>'homeIslogin'],function(){
     Route::get('/home/delgcart','Home\Shops\ShopController@delgcart');
     //加购物车的商品的数量
     Route::get('/home/addgcart','Home\Shops\ShopController@addgcart');
-    //商家资质
+
     Route::get('/shopzizhi','Home\Sellers\SellerController@shopzizhi');
     //公共左
     Route::get('/public','Home\Users\UserController@public');
