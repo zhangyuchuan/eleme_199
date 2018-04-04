@@ -25,12 +25,17 @@ class ShopController extends Controller
     //商品列表
     public function lists()
     {
-
-
-
         //获得全部一级分类
         $cateone = ShopCategory::where('pid',0)->get();
-        return view('Homes.Shops.lists',compact('cateone'));
+        //判断购物车是为空
+        if(session()->exists('gcarts')){
+            $gcart = session('gcarts');
+        }else{
+            $gcart = [];
+        }
+//        dd($gcart);
+
+        return view('Homes.Shops.lists',compact('cateone','gcart'));
     }
     //获得二级分类
     public function getCate(Request $request)
@@ -39,8 +44,6 @@ class ShopController extends Controller
         $id = $request->input('id');
         //获取子分类
         $catesecond = ShopCategory::where('pid',$id)->get();
-
-
         return view('Homes.Shops.ShopCate',compact('catesecond'));
     }
     //获得任何分类下的店铺
@@ -135,9 +138,6 @@ class ShopController extends Controller
                 'goods'=>$goods
             ];
         }
-
-
-
         return $arr;
 
     }

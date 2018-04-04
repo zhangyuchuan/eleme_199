@@ -21,10 +21,6 @@ class GoodsController extends Controller
      */
     public function index(Request $request)
     {
-
-
-
-
         $good = Goods::orderBy('id','asc')
             ->where(function($query) use($request){
                 //检测关键字
@@ -39,8 +35,6 @@ class GoodsController extends Controller
                     $query->where('sid',$sid);
                 }
             })->get();
-
-
 
 //         多条件并分页
         $goods = Goods::orderBy('id','asc')
@@ -58,10 +52,6 @@ class GoodsController extends Controller
                 }
             })
             ->paginate($request->input('num', 5));
-
-
-
-
         //商品栏位
         $goodscate = GoodsCate::pluck('category','id');
         //商家
@@ -71,8 +61,6 @@ class GoodsController extends Controller
             'shops'=>$shops]);
 
     }
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -95,8 +83,6 @@ class GoodsController extends Controller
 //            1. 将文件上传到本地服务器
             //将文件从临时目录移动到制定目录
            $path = $file->move(public_path().'/uploads',$newfile);
-
-
                return $newfile;
 
         }

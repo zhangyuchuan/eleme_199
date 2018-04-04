@@ -24,7 +24,7 @@
                     <td>{{$v->id}}</td>
                     <td>{{$v->name}}</td>
                     <td style="width:220px">{{$v->address}}</td>
-                    <td><img src="/uploads/201803250257203124.jpg" alt="" style="width:80px"></td>
+                    <td><img src="{{$v->logo}} " alt="" style="width:80px"></td>
                     <td>{{$v->sailcount}}</td>
                     <td>{{$v->score}}</td>
                     <td>{{$v->order}}</td>

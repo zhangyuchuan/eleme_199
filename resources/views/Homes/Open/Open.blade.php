@@ -60,9 +60,9 @@
         .kw-modal-container.fade-in-down-enter-active{animation: fadeInDown .3s
         ease}
     </style>
-    <style type="text/css">
-        .amap-container{cursor:url(https://webapi.amap.com/theme/v1.3/openhand.cur),default;}.amap-drag{cursor:url(https://webapi.amap.com/theme/v1.3/closedhand.cur),default;}
-    </style>
+    {{--<style type="text/css">--}}
+        {{--.amap-container{cursor:url(https://webapi.amap.com/theme/v1.3/openhand.cur),default;}.amap-drag{cursor:url(https://webapi.amap.com/theme/v1.3/closedhand.cur),default;}--}}
+    {{--</style>--}}
 </head>
 
 <body>
@@ -72,7 +72,7 @@
             <div data-v-04dec436="" class="container">
                 <div data-v-04dec436="" class="index-header-topbar">
                     <div data-v-04dec436="" class="index-header-topbar-left">
-                        <img data-v-04dec436="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGgAAAAaCAMAAABsKOlZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACalBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AAADEw/drAAAAzHRSTlMAHnew3vL668aRRAMmVSxQDisVQFMbAU5NBrP93WcCo1qyde/sD6FY9KIIaoh5BIbLJKXmqpUttHjwOhlC+bHaCrrMw/w9uBS3u+fbMp8aid+sjuoFvYVbyjWk0mRpQY2t9eASkh/Ih/43myAiBxeKvhhmehOgqyMulhzjKuk8fbVJHfi/17lu85AMCRGomuTHT/d8KHNU2MInDYEQSxbxYWg7bS+vi7x/hAupNug5RWvtXJddxNlywYzNJTQ4MeJiKfZX4Xb7MF9jUmXFqMB+AAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAABCxJREFUSMetlvtfE0cQwDcoqMRQCBoKiYiPq4qKBGMCFoRaBCNqVVBURIVaDRpbmrZQEdEWbavGB/gWLfX9ti209f2obbWP+aM6s7t32TuCHz6fdn652d2Z/e7NzM0eY1JsCcOGJyaNGDkq2c4UGe1wpNDT/oaDSypLczicLH3MWObKcAyQNzPZ6yUlyw26eMZlxxbGA2TRM00u5rAJABPZJJis2SCOvCX9pkwFmEZK7vQZM2bqZ8+b5TZZ53sNUAHAbJ9vjs1vgAIAhawIYO7b8UAe4VZcAlDkp0jMw8lS+Z5l7wijyfPfLS3n2qQFCoikonJhcBFAVXCxAC0JVixl7wVVyV9Ghsu5lx8PUlJM2gqcq5bnrllJFkWreC602tU0SlwjQWsFqE4wC/EREI8BYg+SnUaq04PqOtLqUSlZLy020E4bK3UHV30DjhvfF6PFCQkJBUMCbaKzf8AjtBnVLaRlYIBCtdKgifKzwaW4bCTyVondFt7uJ9CHYYz2R+FwuFk8PrZwIujT0MT0tKylDdfQkT/RLShBPoXz6Wc8WKViNB2ghUCtIUvWQ5+bOOmY/fIMru7A1ZWU/radOpGknXLvjHnk7OL7FMipQoAAgfxglQ6V01qNM/X60aCKEqHV6UQuu3E0y3Cw7eGbNH6hTxDoy07YO7bEwun0Khy+5yimp4WXWSbV2D7NsPkKh3oUsr/+hvZw7z/AVBA7GM17fTEcQq95/KtsatBTdVgpbJIjWMsyjP6jopSblC04SMjgoDJMYH4ZaV4MYahLOkqilG58P6Gt7yRM9zEe1eza40MHaejn0G3cJ0ipRXbopGqEIT0ltK3EOX2G62kjYV+uCXQ22gLQc46DeqLRaKoFdF5o4fC39OyglJrPMxugVzTR77A9XBBRvEh2l1TQaFneyQTicjkeSApFEHaYX5s+Iz/XXFd8S+VkWyLOXlVBenmfN0Adg4OcVThxzW4GXce5G9YqYuOwRFJUUKvotqF0HeROGxTEW1CdZtmSjtrrtIJcVyq85mK4yXOUauToABsM5KJGvLNNjeQtH9ZFs9Hc48mQqy4G2kKFfVtdzwG4w9hdSvNV1/8GoptBdj0FVMTkNeGLXRNdPe3/AfQ9JfMHFg/EmxL8uILXntaXj7M2FVQh1RYDdMwCcsZAdLdCv2X9JwFiZc2ikKpX//yL+HmYY9jcA0hq3qOxyvvzkwRoGHZ7vLn7qf2xzBYPyi7+gZHUNJL7Io9ZegFG8OXMB+WmzvzwkQFK5xN++R1RU98tjR7T8hPdpUHcyHH/jEiy5H5PA7GL7dnzPOW1+2mqnf3Kb10qmbOnhdldWp0rfV78Jqzzfo/PORVr494/As9evKzevClZ+asjefVnJMfOXPgDKZtOdsdfkUikr4bHQvxX/m1c7M6+yED5pziX/Qt5BP0Tq/c/EwAAAABJRU5ErkJggg=="
+                        <img data-v-04dec436="" src=""
                              alt="">
                         <span data-v-04dec436="">
                                     商户中心
@@ -147,13 +147,21 @@
                 </ul>
                 <div data-v-868d222c="" data-v-04dec436="">
                     <div data-v-868d222c="" class="index-buttons">
+
+                        <a href="{{ url('/opendata') }}" style="text-decoration:none">
+
+
                         <button data-v-868d222c="" type="button" class="kw-btn btn-primary btn-medium"
                                 ubt-click="102258">
                             <!---->
                             <!---->
-                            <a href="{{ url('/opendata') }}"><span class="inner">
+
+
+                            <span class="inner">
                                         我要开店
-                                    </span></a>
+                                    </span>
+
+
                             <!---->
                         </button>
                         <p data-v-868d222c="">
@@ -335,8 +343,8 @@
         </div>
         <!---->
         <div data-v-0ec1c706="" data-v-04dec436="" class="bottom-links">
-            <div data-v-0ec1c706="" class="container">
-                <ul data-v-0ec1c706="" class="bottom-links-nav">
+            <div data-v-0ec1c706="" class="container" >
+                <ul data-v-0ec1c706="" class="bottom-links-nav" style="width:685px">
                     <li data-v-0ec1c706="">
                         <p data-v-0ec1c706="">
                             用户帮助
@@ -421,8 +429,8 @@
                             </li>
                         </ul>
                     </li>
-                </ul>
-                <div data-v-0ec1c706="" class="bottom-links-service">
+                </ul >
+                <div data-v-0ec1c706="" class="bottom-links-service" >
                     <p data-v-0ec1c706="">
                         服务热线: 021-80203777
                         <br data-v-0ec1c706="">
@@ -546,6 +554,7 @@
         // }
     })()
 </script>
+
 
 </body>
 

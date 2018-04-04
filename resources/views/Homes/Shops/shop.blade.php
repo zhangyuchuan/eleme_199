@@ -160,7 +160,7 @@
 <div class="importantnotification container" role="banner">
     <!-- ngIf: enable -->
 </div>
-<div class="sidebar ng-hide" role="complementary" ng-hide="layoutState &amp;&amp; layoutState.hideSidebar">
+<div class="sidebar ng-hide " style="display:none" role="complementary" ng-hide="layoutState &amp;&amp; layoutState.hideSidebar">
     <div class="sidebar-tabs">
         <div class="toolbar-tabs-middle">
             <a class="toolbar-btn icon-order toolbar-close" href="https://www.ele.me/profile/order"

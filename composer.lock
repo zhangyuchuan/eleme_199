@@ -826,6 +826,7 @@
             },
             "dist": {
                 "type": "zip",
+
                 "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/30e7d60937ee5f1320975ca9bc7bcdd44d500f07",
 
                 "reference": "30e7d60937ee5f1320975ca9bc7bcdd44d500f07",
