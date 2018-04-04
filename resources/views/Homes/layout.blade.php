@@ -65,7 +65,7 @@
         <header class="topbar" role="navigation" class="{shoptopbar: state.type === 'shop'}">
             <div class="container clearfix">
                 <h1>
-                    <a class="topbar-logo icon-logo" href="/" hardjump="">
+                    <a class="topbar-logo icon-logo" href="/lists" hardjump="">
                                 <span>
                                     饿了么
                                 </span>
@@ -74,7 +74,9 @@
                 <a class="topbar-item topbar-homepage focus" href="/lists" hardjump="">
                     首页
                 </a>
+
                 <a class="topbar-item" href="/center" hardjump="" class="{'focus': $root.locationpath[1] === 'order'}">
+
                     我的订单
                 </a>
                 <a class="topbar-item cooperation" href="/home/openshop"
@@ -82,12 +84,16 @@
                     加盟合作
                 </a>
                 <nav class="topbar-nav">
+
                     <a class="topbar-nav-link" href="" hardjump="" >
+
                         <i class="topbar-nav-icon icon-service">
                         </i>
                         服务中心
                     </a>
+
                     <a class="topbar-nav-link" href="" hardjump="" >
+
                         规则中心
                     </a>
                     <div class="topbar-nav-link">
@@ -123,10 +129,12 @@
                                             <a class="icon-profile" href="/center" hardjump="">
                                                 个人中心
                                             </a>
+
                                             <a class="icon-star" href="/center" hardjump="">
                                                 我的收藏
                                             </a>
                                             <a class="icon-location" href="/data" hardjump="">
+
                                                 我的地址
                                             </a>
                                             <a class="icon-setting" href="/safety" hardjump="">

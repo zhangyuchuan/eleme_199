@@ -51,9 +51,6 @@
             @foreach($goods as $v)
             <tr>
                 <td>
-
-
-
                     <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='{{ $v->id }}'><i class="layui-icon">&#xe605;</i></div>
                 </td>
                 <td>{{ $v->id }}</td>
@@ -62,16 +59,10 @@
                 <td>{{ $v->price }}</td>
                 <td>{{ $goodscate[$v->gcid] }}</td>
                 <td>{{ $shops[$v->sid] }}</td>
-
-
-
                 <td>{{ $v->gdesc }}</td>
                 <td>{{ $v->salecnt }}</td>
                 <td>{{ $v->gscore }}</td>
                 <td class="td-status">
-
-
-
                     <span class="layui-btn layui-btn-normal layui-btn-mini layui-btn-disabled">
                         @if($v->status== 1)
                         新品
