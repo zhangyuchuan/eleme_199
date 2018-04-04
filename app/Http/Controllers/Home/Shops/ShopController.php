@@ -90,7 +90,7 @@ class ShopController extends Controller
     public function shop($id)
     {
         $shopinfo = ShopInfo::find($id);
-        $gcate = GoodsCate::with('goods')->get();
+        $gcate = GoodsCate::with('goods')->where('sid',$id)->get();
         return view('Homes.Shops.shop',compact('shopinfo','gcate'));
     }
 

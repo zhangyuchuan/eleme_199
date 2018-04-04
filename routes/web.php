@@ -16,10 +16,11 @@
 Route::get('/', function () {
 
 
-    return view('welcome');
+    return view('index');
 
 
 });
+Route::post('/doMap','Shouye\ShouyeController@doMap');
 //后台登陆
 Route::group(['prefix'=>'admin','namespace'=>'Admin'],function(){
     //登录首页
