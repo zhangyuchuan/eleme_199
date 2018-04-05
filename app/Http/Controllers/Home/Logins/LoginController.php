@@ -23,6 +23,10 @@ class LoginController extends Controller
                     '/orders','/center','/safety',
                     '/add','/password','/data','/integral',
                     '/collect','/balance', '/opendata','/openmessage',
+                    '/home/openlast','/shop/{id}/jiesuan','/shop/{id}/finish',
+                    '/orders','/overorder','/hongbao','/del/{id}','/orderdata/{id}',
+                    '/data','/create','/modify/{id}','/safety','/password','/add',
+                    '/repass',
                 ];
         foreach($path as $k=>$v){
           $path[$k] ='http://'.$request->server('HTTP_HOST').$v;
