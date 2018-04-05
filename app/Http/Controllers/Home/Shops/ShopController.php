@@ -39,7 +39,7 @@ class ShopController extends Controller
             //发送经纬度
             $address = session('address');
         }else{
-            $address = '北京昌平回龙观育it兄弟连教育';
+            $address = ['address'=>'北京昌平回龙观育it兄弟连教育'];
         }
 
 
