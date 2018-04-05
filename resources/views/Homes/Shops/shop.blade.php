@@ -73,32 +73,32 @@
         <header class="topbar shoptopbar" role="navigation" ng-class="{shoptopbar: state.type === &#39;shop&#39;}">
             <div class="container clearfix">
                 <h1>
-                    <a href="https://www.ele.me/" hardjump="" class="topbar-logo icon-logo">
+                    <a href="/" hardjump="" class="topbar-logo icon-logo">
                                 <span>
                                     饿了么
                                 </span>
                     </a>
                 </h1>
-                <a href="https://www.ele.me/" hardjump="" class="topbar-item topbar-homepage"
+                <a href="/lists" hardjump="" class="topbar-item topbar-homepage"
                    ng-class="{&#39;focus&#39;: $root.locationpath[0] === &#39;place&#39;}">
                     首页
                 </a>
-                <a href="https://www.ele.me/profile/order" hardjump="" class="topbar-item"
+                <a href="/orders" hardjump="" class="topbar-item"
                    ng-class="{&#39;focus&#39;: $root.locationpath[1] === &#39;order&#39;}">
                     我的订单
                 </a>
-                <a href="https://h5.ele.me/service/cooperation/" target="_blank" class="topbar-item cooperation">
+                <a href="/home/openshop" target="_blank" class="topbar-item cooperation">
                     加盟合作
                 </a>
                 <nav class="topbar-nav">
-                    <a href="https://www.ele.me/support/center" hardjump="" class="topbar-nav-link"
-                       target="_blank">
+                    <a href="" hardjump="" class="topbar-nav-link"
+                       >
                         <i class="topbar-nav-icon icon-service">
                         </i>
                         服务中心
                     </a>
-                    <a href="https://www.ele.me/support/rules/default" hardjump="" class="topbar-nav-link"
-                       target="_blank">
+                    <a href="" hardjump="" class="topbar-nav-link"
+                      >
                         规则中心
                     </a>
                     <div class="topbar-nav-link">
@@ -118,10 +118,13 @@
                             <span class="topbar-profilebox-avatar icon-profile" ng-show="!$root.user.username">
                                     </span>
                             <span ng-show="!$root.user.username" class="">
-                                        <a ng-href="//h5.ele.me//login/#redirect=https%3A%2F%2Fwww.ele.me%2Fshop%2F1195106"
-                                           target="_blank" href="https://h5.ele.me//login/#redirect=https%3A%2F%2Fwww.ele.me%2Fshop%2F1195106">
+                                          @if(session('user'))
+                                    {{session('user')->username}}
+                                            @else
+                                    <a href="/home/login" target="_blank" >
                                             登录/注册
                                         </a>
+                                            @endif
                                     </span>
                             <span class="topbar-profilebox-wrapper ng-hide" ng-show="$root.user.username">
                                         <!-- ngIf: $root.topbarType===' checkout' -->
@@ -133,19 +136,19 @@
                                         </span>
                                 <!-- end ngIf: $root.topbarType !==' checkout' -->
                                         <div class="dropbox topbar-profilebox-dropbox">
-                                            <a class="icon-profile" href="https://www.ele.me/profile" hardjump="">
+                                            <a class="icon-profile" href="/center" hardjump="">
                                                 个人中心
                                             </a>
-                                            <a class="icon-star" href="https://www.ele.me/profile/favor" hardjump="">
+                                            <a class="icon-star" href="/center" hardjump="">
                                                 我的收藏
                                             </a>
-                                            <a class="icon-location" href="https://www.ele.me/profile/address" hardjump="">
+                                            <a class="icon-location" href="/center" hardjump="">
                                                 我的地址
                                             </a>
-                                            <a class="icon-setting" href="https://www.ele.me/profile/security" hardjump="">
+                                            <a class="icon-setting" href="" hardjump="">
                                                 安全设置
                                             </a>
-                                            <a class="icon-logout" href="JavaScript:" ng-click="logout()">
+                                            <a class="icon-logout" href="/home/logout" ng-click="logout()">
                                                 退出登录
                                             </a>
                                         </div>

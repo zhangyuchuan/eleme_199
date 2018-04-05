@@ -62,21 +62,16 @@
                     </div>
                     <div orderprogress-rstinfo="" link="orderReady" class="ng-isolate-scope">
                         <div class="orderprogress-rstinfo">
-                            @foreach($shop_all as $v)
-                            <a ng-href="/shop/155134506" href="https://www.ele.me/shop/155134506">
+                            <a ng-href="/shop/155134506" href="">
                                 <img class="orderprogress-rstimg" ng-src=""
                                      width="44" height="44" ng-alt="西域美食中国兰州牛肉面" src="{{ $shop['logo']}}">
                             </a>
-                            @endforeach
                             <div class="orderprogress-rstgrid">
                                 <h4 class="orderprogress-rstname">
-
-                                    @foreach($shop_all as $v)
                                     <a class="inherit ng-binding" ng-href="/shop/155134506" ng-bind="restaurant.name"
-                                       href="https://www.ele.me/shop/155134506">
+                                       href="">
                                         {{ $shop['name']}}
                                     </a>
-                                        @endforeach
                                 </h4>
                                 <div class="orderprogress-rstextra">
                                             <span ng-bind="&#39;订单号：&#39; + order.unique_id" class="ng-binding">
@@ -191,10 +186,10 @@
 
                                         <span class="cell price ng-binding" ng-bind="row.food.price * row.food.quantity | number:2">
 
-                                                {{ $v->goods['price'] * $v->bcnt }}
+                                                {{ $v->bprice * $v->bcnt }}
 
                                                 </span>
-                                        <?php $arr[] =  $v->goods['price'] * $v->bcnt  ?>
+                                        <?php $arr[] =  $v->bprice * $v->bcnt  ?>
 
                                     </div>
 

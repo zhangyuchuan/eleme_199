@@ -65,29 +65,35 @@
         <header class="topbar" role="navigation" class="{shoptopbar: state.type === 'shop'}">
             <div class="container clearfix">
                 <h1>
-                    <a class="topbar-logo icon-logo" href="/" hardjump="">
+                    <a class="topbar-logo icon-logo" href="/lists" hardjump="">
                                 <span>
                                     饿了么
                                 </span>
                     </a>
                 </h1>
-                <a class="topbar-item topbar-homepage focus" href="/" hardjump="">
+                <a class="topbar-item topbar-homepage focus" href="/lists" hardjump="">
                     首页
                 </a>
-                <a class="topbar-item" href="/profile/order" hardjump="" class="{'focus': $root.locationpath[1] === 'order'}">
+
+                <a class="topbar-item" href="/center" hardjump="" class="{'focus': $root.locationpath[1] === 'order'}">
+
                     我的订单
                 </a>
-                <a class="topbar-item cooperation" href="//h5.ele.me/service/cooperation/"
+                <a class="topbar-item cooperation" href="/home/openshop"
                    target="_blank">
                     加盟合作
                 </a>
                 <nav class="topbar-nav">
-                    <a class="topbar-nav-link" href="/support/center" hardjump="" target="_blank">
+
+                    <a class="topbar-nav-link" href="" hardjump="" >
+
                         <i class="topbar-nav-icon icon-service">
                         </i>
                         服务中心
                     </a>
-                    <a class="topbar-nav-link" href="/support/rules/default" hardjump="" target="_blank">
+
+                    <a class="topbar-nav-link" href="" hardjump="" >
+
                         规则中心
                     </a>
                     <div class="topbar-nav-link">
@@ -106,10 +112,13 @@
                                     <span class="topbar-profilebox-avatar icon-profile" show="!$root.user.username">
                                     </span>
                             <span class="" show="!$root.user.username">
-                                        <a href="//h5.ele.me//login/#redirect=https%3A%2F%2Fwww.ele.me%2F"
-                                           target="_blank" href="//h5.ele.me//login/#redirect=https%3A%2F%2Fwww.ele.me%2F">
+                                        @if(session('user'))
+                                    {{session('user')->username}}
+                                        @else
+                                        <a href="/home/login" target="_blank" >
                                             登录/注册
                                         </a>
+                                        @endif
                                     </span>
                             <span class="topbar-profilebox-wrapper hide" show="$root.user.username">
                                         <span class="topbar-profilebox-username binding">
@@ -117,19 +126,21 @@
                                         <span class="topbar-profilebox-btn icon-arrow-down scope" if="$root.topbarType !== 'checkout'">
                                         </span>
                                         <div class="dropbox topbar-profilebox-dropbox">
-                                            <a class="icon-profile" href="/profile" hardjump="">
+                                            <a class="icon-profile" href="/center" hardjump="">
                                                 个人中心
                                             </a>
-                                            <a class="icon-star" href="/profile/favor" hardjump="">
+
+                                            <a class="icon-star" href="/center" hardjump="">
                                                 我的收藏
                                             </a>
-                                            <a class="icon-location" href="/profile/address" hardjump="">
+                                            <a class="icon-location" href="/data" hardjump="">
+
                                                 我的地址
                                             </a>
-                                            <a class="icon-setting" href="/profile/security" hardjump="">
+                                            <a class="icon-setting" href="/safety" hardjump="">
                                                 安全设置
                                             </a>
-                                            <a class="icon-logout" href="JavaScript:" click="logout()">
+                                            <a class="icon-logout" href="/home/logout" click="logout()">
                                                 退出登录
                                             </a>
                                         </div>
@@ -148,13 +159,6 @@
 @show
 @section('content')
 
-
-
-
-
-
-
-
 @show
 
 <!-- <eleme-footer></eleme-footer> -->
@@ -164,10 +168,10 @@
             <h3 class="footer-link-title">
                 用户帮助
             </h3>
-            <a class="footer-link-item" href="/support/center" target="_blank">
+            <a class="footer-link-item" href="" >
                 服务中心
             </a>
-            <a class="footer-link-item" href="/support/question/default" target="_blank">
+            <a class="footer-link-item" href="" >
                 常见问题
             </a>
             <a class="footer-link-item" online-service="" href="javascript:" style="visibility: hidden;">
@@ -178,16 +182,16 @@
             <h3 class="footer-link-title">
                 商务合作
             </h3>
-            <a class="footer-link-item" href="//kaidian.ele.me" target="_blank">
+            <a class="footer-link-item" href="/home/openshop" >
                 我要开店
             </a>
-            <a class="footer-link-item" href="/support/about/jiameng" target="_blank">
+            <a class="footer-link-item" href="/home/openshop" >
                 加盟指南
             </a>
-            <a class="footer-link-item" href="/support/about/contact" target="_blank">
+            <a class="footer-link-item" href="" >
                 市场合作
             </a>
-            <a class="footer-link-item" href="http://openapi.eleme.io/" target="_blank">
+            <a class="footer-link-item" href="" >
                 开放平台
             </a>
         </div>
@@ -195,16 +199,16 @@
             <h3 class="footer-link-title">
                 关于我们
             </h3>
-            <a class="footer-link-item" href="/support/about" target="_blank">
+            <a class="footer-link-item" href="" >
                 饿了么介绍
             </a>
-            <a class="footer-link-item" href="http://jobs.ele.me/" target="_blank">
+            <a class="footer-link-item" href="" >
                 加入我们
             </a>
-            <a class="footer-link-item" href="/support/about/contact" target="_blank">
+            <a class="footer-link-item" href="" >
                 联系我们
             </a>
-            <a class="footer-link-item" href="/support/rules/default" target="_blank">
+            <a class="footer-link-item" href="" >
                 规则中心
             </a>
         </div>

@@ -18,20 +18,6 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        //定义路由组
-        $path = [
-                    '/orders','/center','/safety',
-                    '/add','/password','/data','/integral',
-                    '/collect','/balance', '/opendata','/openmessage',
-                ];
-        foreach($path as $k=>$v){
-          $path[$k] ='http://'.$request->server('HTTP_HOST').$v;
-
-        }
-        if(in_array(url()->previous(),$path)){
-            Session::put('paths',url()->previous());
-        }
-
 
         return view('Homes.Logins.login');
     }
@@ -67,10 +53,18 @@ class LoginController extends Controller
 
         //登陆成功跳转至后台首页
         $path = !empty(session('paths'))?session('paths'):'/lists';
+
+
         return redirect($path);
     }
 
-
+    //    退出登录
+    public function logout()
+    {
+        //清空登录数据
+        session()->forget('user');
+        return redirect('/lists');
+    }
 
 
     //注册
@@ -118,7 +112,7 @@ class LoginController extends Controller
         //将原密码进行解密 和输入的密码进行对比
         $input['password']=encrypt( $input['password']);
         //执行存储
-        $res = User::create(['username'=>$username ,'password'=>$input['password'],'status'=>0,'auth'=>2]);
+        $res = User::create(['username'=>$username ,'password'=>$input['password'],'status'=>'0','auth'=>'2']);
 
         if($res){
             $path = !empty(session('paths'))?session('paths'):'/lists';
