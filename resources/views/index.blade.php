@@ -9299,7 +9299,7 @@
          {{ csrf_field() }}
          <div id="l-map" style="display: none;"></div>
          <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
-         <div id="r-result" style="height: 56px;"><input placeholder="请输入你的收货地址（写字楼，小区，街道或者学校）" name="address" class="ng-pristine ng-valid" id="suggestId"/> </div>
+         <div id="r-result" style="height: 56px;"><input placeholder="请输入你的收货地址（写字楼，小区，街道或者学校）" name="address" class="ng-pristine ng-valid" required id="suggestId"/> </div>
          <button class="btn-stress" type="submit">搜 索</button>
          
         </form>

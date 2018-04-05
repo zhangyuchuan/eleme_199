@@ -77,7 +77,7 @@ class OrderController extends Controller
         if ($res && $flag){
             DB::commit();
             session()->forget('gcarts');
-            return redirect();
+            return redirect('/overorder');
         }else{
             DB::rollBack();
             return back();
