@@ -145,6 +145,7 @@
         function getShop(id,obj)
         {
             $.get('/home/getshop',{id:id},function(data){
+                
                 $('#shoplistdiv').empty();
                 $('#shoplistdiv').append($(data));
             })

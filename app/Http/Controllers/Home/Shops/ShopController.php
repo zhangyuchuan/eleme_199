@@ -39,10 +39,9 @@ class ShopController extends Controller
             //发送经纬度
             $address = session('address');
         }else{
-            $address = ['address'=>'北京昌平回龙观育it兄弟连教育'];
+            $address = ['address'=>'北京昌平回龙观it兄弟连教育'];
         }
-
-
+//        dd(session('address'));
         return view('Homes.Shops.lists',compact('cateone','gcart','address'));
     }
     //获得二级分类
@@ -64,12 +63,12 @@ class ShopController extends Controller
             $shops = ShopInfo::whereIn('status',['0','1'])
                                 ->orderBy('status')
                                 ->orderBy('score','desc')
-                                ->get();
+                                ->get()->toArray();
         }else{
             //判断是否有子类
             $ids=[];
             $ids[] = $id;
-            $catesecond = ShopCategory::where('pid',$id)->get();
+            $catesecond = ShopCategory::where('pid',$id)->get()->toArray();
             if($catesecond){
                 foreach($catesecond as $k=>$v){
                     $ids[] = $v->id;
@@ -79,8 +78,38 @@ class ShopController extends Controller
                                 ->whereIn('status',['0','1'])
                                 ->orderBy('status')
                                 ->orderBy('score','desc')
-                                ->get();
+                                ->get()->toArray();
         }
+//        dd($shops);
+        //进行位置判断
+        //遍历数组
+//        if(!empty($shops)){
+//            //从session中取出经纬度
+////            array:3 [
+////              "address" => "北京市东城区天安门"
+////              "lng" => 116.40384918664
+////              "lat" => 39.915446357114
+////                ]
+//            $session_lng = session('address')['lng'];
+//            $session_lat = session('address')['lat'];
+//
+//            $arr = [];
+//            foreach($shops as $k=>$v){
+//
+//                $v_lng = $v['lng'];
+//                $v_lat = $v['lat'];
+//                $distance = GetDistance($session_lat,$session_lng,$v_lat,$v_lng);
+//                if($distance<=5){
+//                    $arr[]=$v;
+//                }
+//
+//            }
+//
+//            $shops = $arr;
+//
+//        }
+
+
         return view('Homes.Shops.ShopList',compact('shops'));
     }
     //列表页搜索
