@@ -25,6 +25,7 @@ class ShopController extends Controller
     //商品列表
     public function lists()
     {
+//        dd(session('address'));
         //获得全部一级分类
         $cateone = ShopCategory::where('pid',0)->get();
         //判断购物车是为空
@@ -33,9 +34,16 @@ class ShopController extends Controller
         }else{
             $gcart = [];
         }
-//        dd($gcart);
 
-        return view('Homes.Shops.lists',compact('cateone','gcart'));
+        if(session('address')){
+            //发送经纬度
+            $address = session('address');
+        }else{
+            $address = '北京昌平回龙观育it兄弟连教育';
+        }
+
+
+        return view('Homes.Shops.lists',compact('cateone','gcart','address'));
     }
     //获得二级分类
     public function getCate(Request $request)

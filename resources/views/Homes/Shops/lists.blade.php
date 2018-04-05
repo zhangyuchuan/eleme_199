@@ -13,13 +13,13 @@
         当前位置:
         </span>
         <span class="location-current">
-            <a class="inherit binding" href="/place/wx4eyv2e1qf" ubt-click="401" bind="place.name || place.address"
-               href="/place/wx4eyv2e1qf">
-                昌平区回龙观村东区(龙域中街南70米)
+            <a class="inherit binding" href="/" ubt-click="401" bind="place.name || place.address"
+               href="/">
+                {{$address['address']}}
             </a>
         </span>
         <span class="location-change" class="{ 'location-hashistory': user.username && userPlaces && userPlaces.length > 0 }">
-            <a href="/home" ubt-click="400" hardjump="" href="/home">
+            <a href="/" ubt-click="400" hardjump="" >
                 [切换地址]
             </a>
             <ul class="dropbox location-dropbox" ubt-visit="398">
