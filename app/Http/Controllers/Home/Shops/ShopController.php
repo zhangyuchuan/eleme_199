@@ -40,7 +40,7 @@ class ShopController extends Controller
             //发送经纬度
             $address = session('address');
         }else{
-            $address = ['address'=>'北京昌平回龙观育it兄弟连教育'];
+            $address = ['address'=>'北京昌平回龙观it兄弟连教育'];
         }
 
 
@@ -58,6 +58,7 @@ class ShopController extends Controller
     //获得任何分类下的店铺
     public function getShop(Request $request)
     {
+
         //获取分类id
         $id = $request->input('id');
         if($id==0){
@@ -66,6 +67,7 @@ class ShopController extends Controller
                                 ->orderBy('status')
                                 ->orderBy('score','desc')
                                 ->get();
+
         }else{
             //判断是否有子类
             $ids=[];
