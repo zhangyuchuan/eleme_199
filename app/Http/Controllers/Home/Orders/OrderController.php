@@ -116,7 +116,7 @@ class OrderController extends Controller
         $id=6;
 
         $all=User::with('Orders')->where('id',$id)->first();
-//        dd($all);
+
         //商家id
         $sids = [];
         //订单id
@@ -125,13 +125,13 @@ class OrderController extends Controller
             $sids[] = $v->sid;
             $oids[] = $v->oid;
         }
-//        dd($oids);
-        $shops = ShopInfo::whereIn('id',$sids)->get();
 
+        $shops = ShopInfo::whereIn('id',$sids)->get();
+        $goodsname = [];
         foreach($oids as $k=>$v){
             $goodsname[] = Ordersinfo::with('goods')->where('oid',$v)->get()->toArray();
         }
-//        dd($goodsname);
+
         $n = [];
         $sum = [];
         foreach($goodsname as $k=>$v){

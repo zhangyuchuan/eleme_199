@@ -52,7 +52,23 @@
   <div ng-view="" role="main" > 
    <div class="map ng-scope" > 
     <div class="container mapcontainer"> 
-              <div class="map-header clearfix" map-header=""><h1><a href="/" ubt-click="1433"><img src="/home/image/map-logo.9a26ef.png" alt="eleme"></a></h1><!-- ngIf: user.user_id --> <!-- ngIf: !user.user_id --><span class="map-header-right ng-scope" ng-if="!user.user_id"><a  target="_blank" ubt-click="1430" href="">注册</a> <span>|</span> <a  href="//h5.ele.me/login/#redirect=https%3A%2F%2Fwww.ele.me%2Fhome%2F">登录</a> <a class="btn-security btn-sm" href="//kaidian.ele.me" target="_blank" ubt-click="1432">我要开店</a></span><!-- end ngIf: !user.user_id --></div>
+              <div class="map-header clearfix" map-header="">
+                  <h1>
+                         <a href="/" ubt-click="1433">
+                          <img src="/home/image/map-logo.9a26ef.png" alt="eleme">
+                         </a>
+                  </h1><!-- ngIf: user.user_id --> <!-- ngIf: !user.user_id -->
+                  <span class="map-header-right ng-scope" ng-if="!user.user_id">
+                      @if(empty(session('user')))
+                       <a  href="/home/register">注册</a>
+                            <span>|</span>
+                        <a  href="/home/login">登录</a>
+                      @else
+                          <a  href="/lists">{{session('user')->username}}</a>
+                      @endif
+                       <a class="btn-security btn-sm" href="/home/openshop" target="_blank" ubt-click="1432">我要开店</a>
+                  </span><!-- end ngIf: !user.user_id -->
+              </div>
      <div class="map-main ng-isolate-scope"> 
       <h2 class="map-logo"> <img src="/home/image/map-logo-center.4eb348.png" alt="eleme" /> </h2>
       <div class="map-navbar clearfix hasuserinfo" > 

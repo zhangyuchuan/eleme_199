@@ -10,7 +10,7 @@
         @if(!empty($shops))
             @foreach($shops as $k=>$v)
                 @if($v['status']==1)
-                <a class="rstblock" href="/shop/{{$v['id']}}" data-rst-id="152185819" data-bidding=""target="_blank">
+                <a class="rstblock" href="javascript:;"  onclick='alert("商家休息暂不接单,选点别的吧!")' data-rst-id="152185819" data-bidding=""target="_blank">
                     <div class="rstblock-logo" style="opacity:0.4">
                         <img class="rstblock-logo-icon" src="{{$v['logo']}}"
                              alt="" width="70" height="70">

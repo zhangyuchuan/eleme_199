@@ -43,7 +43,7 @@ class UserController extends Controller
         }
 //        dd($oids);
         $shops = ShopInfo::whereIn('id',$sids)->get();
-
+        $goodsname = [];
         foreach($oids as $k=>$v){
             $goodsname[] = Ordersinfo::with('goods')->where('oid',$v)->get()->toArray();
         }

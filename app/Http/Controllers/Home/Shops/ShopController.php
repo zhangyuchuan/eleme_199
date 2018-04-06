@@ -41,7 +41,7 @@ class ShopController extends Controller
         }else{
             $address = ['address'=>'北京昌平回龙观it兄弟连教育'];
         }
-//        dd(session('address'));
+
         return view('Homes.Shops.lists',compact('cateone','gcart','address'));
     }
     //获得二级分类
@@ -68,7 +68,7 @@ class ShopController extends Controller
             //判断是否有子类
             $ids=[];
             $ids[] = $id;
-            $catesecond = ShopCategory::where('pid',$id)->get()->toArray();
+            $catesecond = ShopCategory::where('pid',$id)->get();
             if($catesecond){
                 foreach($catesecond as $k=>$v){
                     $ids[] = $v->id;
@@ -83,33 +83,21 @@ class ShopController extends Controller
 //        dd($shops);
         //进行位置判断
         //遍历数组
-//        if(!empty($shops)){
-//            //从session中取出经纬度
-////            array:3 [
-////              "address" => "北京市东城区天安门"
-////              "lng" => 116.40384918664
-////              "lat" => 39.915446357114
-////                ]
-//            $session_lng = session('address')['lng'];
-//            $session_lat = session('address')['lat'];
-//
-//            $arr = [];
-//            foreach($shops as $k=>$v){
-//
-//                $v_lng = $v['lng'];
-//                $v_lat = $v['lat'];
-//                $distance = GetDistance($session_lat,$session_lng,$v_lat,$v_lng);
-//                if($distance<=5){
-//                    $arr[]=$v;
-//                }
-//
-//            }
-//
-//            $shops = $arr;
-//
-//        }
-
-
+        if(!empty($shops)){
+            //从session中取出经纬度
+            $session_lng = !empty(session('address'))?session('address')['lng']:'116.341315';
+            $session_lat = !empty(session('address'))?session('address')['lat']:'40.108366';
+            $arr = [];
+            foreach($shops as $k=>$v){
+                $v_lng = $v['lng'];
+                $v_lat = $v['lat'];
+                $distance = GetDistance($session_lat,$session_lng,$v_lat,$v_lng);
+                if($distance<=5){
+                    $arr[]=$v;
+                }
+            }
+            $shops = $arr;
+        }
         return view('Homes.Shops.ShopList',compact('shops'));
     }
     //列表页搜索
@@ -121,8 +109,15 @@ class ShopController extends Controller
         $shops =ShopInfo::with('goods')
                             ->where('name','like','%'.$keywords.'%')
                             ->get();
-//        dd($shops);
-        return view('Homes.Shops.listDoSearch',compact('keywords','shops'));
+
+        if(session('address')){
+            //发送经纬度
+            $address = session('address');
+        }else{
+            $address = ['address'=>'北京昌平回龙观it兄弟连教育'];
+        }
+
+        return view('Homes.Shops.listDoSearch',compact('keywords','shops','address'));
 
     }
 
