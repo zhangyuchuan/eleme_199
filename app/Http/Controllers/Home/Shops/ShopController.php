@@ -35,6 +35,7 @@ class ShopController extends Controller
             $gcart = [];
         }
 
+
         if(session('address')){
             //发送经纬度
             $address = session('address');
@@ -56,6 +57,7 @@ class ShopController extends Controller
     //获得任何分类下的店铺
     public function getShop(Request $request)
     {
+
         //获取分类id
         $id = $request->input('id');
         if($id==0){
@@ -63,7 +65,9 @@ class ShopController extends Controller
             $shops = ShopInfo::whereIn('status',['0','1'])
                                 ->orderBy('status')
                                 ->orderBy('score','desc')
+
                                 ->get()->toArray();
+
         }else{
             //判断是否有子类
             $ids=[];

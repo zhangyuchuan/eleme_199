@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home\Shops;
 
+use App\Map\Map;
 use App\Model\ShopCategory;
 use App\Model\ShopInfo;
 use App\Model\User;
@@ -74,6 +75,11 @@ class OpenShopController extends Controller
         if($user->auth=='2'){
             $user->auth = '1';
         }
+
+        //设置经纬度
+        $map = new Map();
+        $res = $map -> getLngLat($address);
+        $res= json_decode($res);
         //执行存储
         $shop = new ShopInfo;
         $shop->sellerid = $uid;
@@ -83,7 +89,9 @@ class OpenShopController extends Controller
         $shop->address =$address;
         $shop->logo =$logo;
         $shop->status =$status;
+        $shop->lnglat = $res->result->location->lng.','.$res->result->location->lat;
         $res = $shop->save();
+
         //跳转等待审核界面
         if($res){
             return redirect('/home/openlast');
