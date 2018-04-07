@@ -55,7 +55,7 @@
         </div>
     </div>
     <div ng-show="!outsideRstsVisible" class="container ng-scope">
-        @if(!$shops->isEmpty())
+        @if(!empty($shops))
         @foreach($shops as $k=>$v)
         <table ng-repeat="group in rstGroups | orderBy: [ &#39;-is_opening&#39;, &#39;status&#39; ] track by group.restaurant.id"
                class="typo-table search-foodtable ng-scope">

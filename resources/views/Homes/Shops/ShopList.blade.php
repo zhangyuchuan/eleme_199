@@ -42,7 +42,7 @@
 
                         </div>
                         <span class="rstblock-monthsales">
-                        月售{{$v['sailcount']}}单
+                        月售{{$v['ocount']}}单
                     </span>
                         <div class="rstblock-cost">
                             配送费¥{{$v['sendmoney']}}

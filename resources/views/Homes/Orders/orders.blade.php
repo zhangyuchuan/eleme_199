@@ -63,7 +63,7 @@
                             <tr class="timeline" order-timeline="" ng-repeat="item in orderList">
                                 <td class="ordertimeline-time">
                                     <p ng-bind="item.formatted_created_at | date:&#39;HH:mm&#39;" class="ng-binding">
-                                        {{ $v->ordertime }}
+                                        {{ date('Ymd',$v->ordertime) }}
                                     </p>
                                     <!-- ngIf: item.realStatus !==5 -->
                                     <!-- ngIf: item.realStatus===5 -->
@@ -136,7 +136,7 @@
                                     <!-- ngIf: statusText -->
                                 </td>
                                 <td class="ordertimeline-handle">
-                                    <a class="ordertimeline-handle-detail" ng-href="order/id/1217606784916104398"
+                                    <a class="ordertimeline-handle-detail"
                                        href="/orderdata/{{ $v->oid }}">
                                         订单详情
                                     </a>
@@ -161,5 +161,4 @@
                         </div>
                     </div>
                     @endif
-
 @endsection

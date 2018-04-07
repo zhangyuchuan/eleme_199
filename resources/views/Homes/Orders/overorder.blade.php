@@ -65,61 +65,9 @@
     <header class="carttopbar" switch-when="checkout" topbar-checkout=""
             state="state">
         <div class="carttopbar-nav container clearfix">
-                    <span class="carttopbar-nav-path">
-                        当前位置：
-                        <a href="/place/wx4fcp92ezh4" bind="$root.place.name || $root.place.address"
-                           class="binding" href="https://www.ele.me/place/wx4fcp92ezh4">
-                             .....
-                        </a>
-                        <i class="icon-arrow-right">
-                        </i>
-                        <a class="inherit binding" href="/shop/885293" bind="state.rstName"
-                           show="state.rstName" href="https://www.ele.me/shop/885293">
-                            88888
-                        </a>
-                        <i class="icon-arrow-right" show="state.rstName">
-                        </i>
-                        订单信息
-                    </span>
             <div topbar-profilebox="">
                 <div class="topbar-profilebox">
                     <!-- ngIf: $root.user.avatar && $root.topbarType !==' checkout' -->
-                    <span class="topbar-profilebox-avatar icon-profile hide" show="!$root.user.username">
-                            </span>
-                    <span show="!$root.user.username" class="hide">
-                                <a href="//h5.ele.me/login/#redirect=https%3A%2F%2Fwww.ele.me%2Fcart%2Fcheckout"
-                                   target="_blank" href="https://h5.ele.me/login/#redirect=https%3A%2F%2Fwww.ele.me%2Fcart%2Fcheckout">
-                                    登录/注册
-                                </a>
-                            </span>
-                    <span class="topbar-profilebox-wrapper" show="$root.user.username">
-                                <!-- ngIf: $root.topbarType===' checkout' -->
-                                <span class="topbar-profilebox-username binding">
-                                    888
-                                </span>
-                        <!-- ngIf: $root.topbarType===' checkout' -->
-                        <!-- ngIf: $root.topbarType !==' checkout' -->
-                                <span class="topbar-profilebox-btn icon-arrow-down scope" if="$root.topbarType !== &#39;checkout&#39;">
-                                </span>
-                        <!-- end ngIf: $root.topbarType !==' checkout' -->
-                                <div class="dropbox topbar-profilebox-dropbox">
-                                    <a class="icon-profile" href="https://www.ele.me/profile" hardjump="">
-                                        个人中心
-                                    </a>
-                                    <a class="icon-star" href="https://www.ele.me/profile/favor" hardjump="">
-                                        我的收藏
-                                    </a>
-                                    <a class="icon-location" href="https://www.ele.me/profile/address" hardjump="">
-                                        我的地址
-                                    </a>
-                                    <a class="icon-setting" href="https://www.ele.me/profile/security" hardjump="">
-                                        安全设置
-                                    </a>
-                                    <a class="icon-logout" href="JavaScript:" click="logout()">
-                                        退出登录
-                                    </a>
-                                </div>
-                            </span>
                 </div>
             </div>
         </div>
@@ -129,59 +77,7 @@
 <div class="importantnotification container" role="banner">
     <!-- ngIf: enable -->
 </div>
-<div class="sidebar hide" role="complementary" hide="layoutState &amp;&amp; layoutState.hideSidebar">
-    <div class="sidebar-tabs">
-        <div class="toolbar-tabs-middle">
-            <a class="toolbar-btn icon-order toolbar-close" href="https://www.ele.me/profile/order"
-               hardjump="" tooltip="我的订单" tooltip-placement="left" ubt-click="toolbar_order">
-                <!-- ngIf: sidebarCount.uncompletedOrder> 0 -->
-            </a>
-            <div class="toolbar-separator">
-            </div>
-            <a class="toolbar-cartbtn icon-cart toolbar-open toolbar-cartbtn-shownum"
-               href="JavaScript:" template="cart" class="{&#39;focus&#39;: (activeTemplate === &#39;cart&#39; &amp;&amp; isSidebarOpen), &#39;toolbar-cartbtn-shownum&#39;: foodCount.count}"
-               ubt-click="390">
-                购物车
-                <!-- ngIf: foodCount.count -->
-                <i class="toolbar-cartnum binding scope" if="foodCount.count"
-                   bind="foodCount.count">
-                    1
-                </i>
-                <!-- end ngIf: foodCount.count -->
-            </a>
-            <div class="toolbar-separator">
-            </div>
-            <a class="toolbar-btn icon-notice toolbar-open modal-hide" href="JavaScript:"
-               template="message" class="{&#39;focus&#39;: (activeTemplate === &#39;message&#39; &amp;&amp; isSidebarOpen), &#39;toolbar-open&#39;: user, &#39;modal-hide&#39;: user}"
-               tooltip="我的信息" tooltip-placement="left" ubt-click="392">
-                <!-- ngIf: messageCount.count -->
-            </a>
-        </div>
-        <div class="toolbar-tabs-bottom">
-            <div class="toolbar-btn icon-QR-code">
-                <div class="dropbox toolbar-tabs-dropbox">
-                    <a href="http://static11.elemecdn.com/eleme/desktop/mobile/index.html"
-                       target="_blank">
-                        <img src="/home/jiesuan_files/appqc.95e532.png" alt="下载手机应用">
-                        <p>
-                            下载手机应用
-                        </p>
-                        <p class="icon-QR-code-bonus">
-                            即可参加分享红包活动
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <a class="toolbar-btn sidebar-btn-backtop icon-top" tooltip="回到顶部" title="回到顶部"
-               href="JavaScript:" tooltip-placement="left" style="visibility: hidden;">
-            </a>
-        </div>
-    </div>
-    <div class="sidebar-content">
-        <!-- ngInclude: activeTemplate ? ('/common/page/_block/sidebar/sidebar-'+
-        activeTemplate + '/sidebar-'+ activeTemplate + '.html') : '' -->
-    </div>
-</div>
+
 <!-- ngView: -->
 <div view="" role="main" class="scope">
     <div class="checkoutguide isolate-scope" checkout-guide="" guide="guide">
@@ -235,31 +131,17 @@
                 <table class="order-table table table-striped">
                     <thead>
                     <tr>
-                        <th class="col-sub-total">订单编号</th>
+                        <th class="col-sub-total">订单编号:{{$oid}}</th>
+                        {{--<td class="col-sub-total"></td>--}}
                     </tr>
                     </thead>
-
-
-                        {{--@foreach($orders as $k=>$v)--}}
-                            {{--<thead>--}}
-                            {{--<tr>--}}
-                                {{--<td class="col-sub-total">{{ $v->oid }}</td>--}}
-
-                            {{--</tr>--}}
-                            {{--</thead>--}}
-                       {{--@endforeach--}}
-
-
                 </table>
-
             </div>
         </div>
 </div>
 <div>
     <div class="pagination"  style="height: 100px">
-
         <center><h1><b><image src="/uploads/999999999009.png" style="height: 50px"></image>&nbsp;&nbsp;&nbsp;饿单已成功提交并付款 , 请耐心等待你的外卖</b></h1></center>
-
     </div>
     <center><b><a href="/lists">3秒后系统会自动跳转首页，也可点击本处直接跳</a></b></center>
     <script>
@@ -350,35 +232,5 @@
 </footer>
 </div>
 
-{{--<script type="text/javascript">--}}
-    {{--var s = 0;--}}
-    {{--$('.order_details').on('click',function(){--}}
-        {{--if(s == 0){--}}
-            {{--s++;--}}
-            {{--var order = $(this).attr('order');--}}
-            {{--$.ajax({--}}
-                {{--url:"{{ url('home/order/detail') }}",--}}
-                {{--type:'post',--}}
-                {{--data:{'order_number':order,'_token':"{{ csrf_token() }}"},--}}
-                {{--success:function(data){--}}
-                    {{--var str = '<table border="1" style="margin:auto auto" cellpadding="10" cellspacing="0">';--}}
-                    {{--str += '<tr><th>食品名称</th><th>食品数量</th><th>食品价格</th></tr>';--}}
-                    {{--$.each(data,function(i,n){--}}
-                        {{--str += '<tr><td>'+n.name+'</td><td>'+n.food_num+'</td><td>'+n.price+'</td></tr>';--}}
-                    {{--});--}}
-                    {{--str += '</table>';--}}
-                    {{--//页面层--}}
-                    {{--layer.open({--}}
-                        {{--type: 1,--}}
-                        {{--skin: 'layui-layer-rim', //加上边框--}}
-                        {{--area: ['420px', '240px'], //宽高--}}
-                        {{--content: str--}}
-                    {{--});--}}
-                    {{--s = 0;--}}
-                {{--},--}}
-                {{--dataType:'json'--}}
-            {{--});--}}
-        {{--}--}}
-    {{--});--}}
-{{--</script>--}}
+
 @stop

@@ -66,17 +66,23 @@
                 <div class="security-type ng-scope" ng-repeat="item in securityType">
                             <span class="child security-type-icon">
                                 <i ng-class="item.status ? &#39;security-type-icon-ok icon-dot-check&#39; : &#39;security-type-icon-warn icon-dot-warning&#39;"
-                                   class="security-type-icon-ok icon-dot-check">
+                                   class="security-type-icon-warn icon-dot-warning">
+                                    {{--security-type-icon-ok icon-dot-check--}}
+
                                 </i>
                             </span>
-                    <span class="child security-type-name ng-binding" ng-class="item.status || &#39;security-type-name-weak&#39;"
+                    <span class="child security-type-name ng-binding " ng-class="item.status || &#39;security-type-name-weak&#39;"
                           ng-bind="item.name">
                                 手机验证
                             </span>
                     <div class="child security-type-tip">
                         <p ng-bind="item.text.text" class="ng-binding">
+                            @if($users->phone!='')
+                                已绑定手机 {{$users->phone}}
+                            @else
+                                手机号未添加
+                            @endif
 
-                            已绑定手机 {{$users->phone}}
 
                         </p>
                         <!-- ngIf: item.text.textMore -->
@@ -85,7 +91,11 @@
                                 <a class="security-type-link ng-binding btn-link" target="" ng-href="/profile/security/changemobile/"
                                    ng-class="item.status ? &#39;btn-link&#39; : &#39;btn-stress&#39;" ng-bind="item.text.link"
                                    href="">
-                                    更改手机
+                                    @if($users->phone!='')
+                                        更改号码
+                                    @else
+                                        添加号码
+                                    @endif
                                 </a>
                             </span>
                 </div>

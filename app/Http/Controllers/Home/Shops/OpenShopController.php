@@ -15,6 +15,7 @@ class OpenShopController extends Controller
     //开店首页
     public function  index()
     {
+
         return view('Homes.Open.Open');
     }
     //开店资质页
@@ -74,6 +75,7 @@ class OpenShopController extends Controller
         $user = User::where('id',$uid)->first();
         if($user->auth=='2'){
             $user->auth = '1';
+            $user->save();
         }
 
         //设置经纬度
@@ -89,7 +91,8 @@ class OpenShopController extends Controller
         $shop->address =$address;
         $shop->logo =$logo;
         $shop->status =$status;
-        $shop->lnglat = $res->result->location->lng.','.$res->result->location->lat;
+        $shop->lng = $res->result->location->lng;
+        $shop->lat = $res->result->location->lat;
         $res = $shop->save();
 
         //跳转等待审核界面

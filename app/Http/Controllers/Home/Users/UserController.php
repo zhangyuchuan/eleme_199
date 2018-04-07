@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home\Users;
 
 
 
+use App\Model\Order;
 use App\Model\Ordersinfo;
 use App\Model\User;
 
@@ -28,11 +29,17 @@ class UserController extends Controller
     //个人中心  韩伟栋
     public function center()
     {
+//        $oid = Orders::where('uid',33)->get();
+//
+//        foreach($oid as $k=>$v){
+//            var_dump(json_encode($v['oid']));
+//        }
+//        dd();
         //假设一个用户id   韩伟栋
-        $id=6;
-
+        $id=session('user')['id'];
         $all=User::with('Orders')->where('id',$id)->first();
-//        dd($all);
+//        dd($all->Orders);
+//        2147483647
         //商家id
         $sids = [];
         //订单id
@@ -41,13 +48,11 @@ class UserController extends Controller
             $sids[] = $v->sid;
             $oids[] = $v->oid;
         }
-//        dd($oids);
         $shops = ShopInfo::whereIn('id',$sids)->get();
         $goodsname = [];
         foreach($oids as $k=>$v){
             $goodsname[] = Ordersinfo::with('goods')->where('oid',$v)->get()->toArray();
         }
-//        dd($goodsname);
         $n = [];
         $sum = [];
         foreach($goodsname as $k=>$v){
@@ -59,18 +64,8 @@ class UserController extends Controller
             $n[] = $m;
             $sum[] = $sun;
         }
-//        dd($shops);
-
         //获取用户积分    //获取用户余额
         $users = UserInfo::where('id',$id)->first();
-//        dd($users);
-
-
-//        $price = Ordersinfo::where('oid',$id)->get();
-
-//
-//        dd($price);
-
         return view('Homes.Users.center',compact('n','sum','all','shops','users','goodsname'));
 
 
@@ -79,10 +74,8 @@ class UserController extends Controller
     //用户收藏  韩伟栋
     public function collect()
     {
-
         //假设一个用户   韩伟栋
-        $uid = 24;
-
+        $uid = session('user')['id'];
         //获取用户收藏的店铺id
         $collect = Collect::where('uid',$uid)->get();
         $arr = [];
@@ -91,27 +84,17 @@ class UserController extends Controller
                 $arr[] = $v->sid;
             }
         }
-//        dd($arr);
             //获取店铺信息
             $shop_data = ShopInfo::whereIn('id',$arr)->get();
-
-//        dd($shop_data);
-
-
-
         return view('Homes.Users.collect',compact('shop_data'));
     }
     //删除收藏 韩伟栋
     public function del($id)
     {
-//        dd($id);
         $cid = Collect::where('sid', $id)->first();
-//        dd($cid);
         $res = $cid->delete();
-//        dd($res);
         if ($res) {
             return redirect('/collect');
-
         }
     }
 
@@ -125,11 +108,8 @@ class UserController extends Controller
     public function integral()
     {
         //假设用户id   韩伟栋
-        $id = 6;
-
+        $id = session('user')['id'];
         $users = UserInfo::where('id',$id)->first();
-
-//        dd($users);
         return view('Homes.Users.integral',compact('users'));
     }
 
@@ -137,32 +117,23 @@ class UserController extends Controller
     public function balance()
     {
         //假设用户id  韩伟栋
-        $id = 6;
+        $id =session('user')['id'];
         $balance = UserInfo::where('id',$id)->first();
-
-//        dd($balance);
         return view('Homes.Users.balance',compact('balance'));
     }
-
-
-
-
-
-
     //安全中心
     public function safety()
     {
-        //return view('Homes.Users.safety');
-        $users = User::find(1);
+        $id =session('user')['id'];
+        $users = User::find($id);
         return view('Homes.Users.safety', ['users' => $users]);
     }
 
     //用户地址
     public function add()
     {
-        //return view('Homes.Users.add');
-        $users = User::with('useraddr')->find(1);
-//        dd($users->useraddr);
+        $id =session('user')['id'];
+        $users = User::with('useraddr')->find($id);
         return view('Homes.Users.add', ['users' => $users]);
     }
 
@@ -170,19 +141,16 @@ class UserController extends Controller
     public function create()
     {
         //这个id是死的   张晨思
-        $id=1;
+        $id =session('user')['id'];
         $address = Address::find($id);
        return view('Homes.Users.UserInfo.addaddress', ['address' => $address]);
-        //return view('Homes.Users.UserInfo.addaddress');
     }
 
     public function store(Request $request)
     {
         // 接收数据
         $input = $request->except('_token');
-//  dd($input);
         //表单验证
-
         $rule = [
             'tel' => 'regex:/^1[34578][0-9]{9}$/'
         ];
@@ -201,29 +169,13 @@ class UserController extends Controller
             'addr'=>$input['address1'].$input['address2'],
             'tel'=>$input['tel'],
             'sex'=>$input['sex'],
-//            'auth'=>tel
         ]);
-//        if($res) {
-//            $arr = [
-//                'status' => 0,
-//                'msg' => '添加成功'
-//            ];
-//
-//        }else{
-//            $arr = [
-//                'status'=>1,
-//                'msg'=>'添加失败'
-//            ];
-//        }
         if($res) {
             return redirect('/add');
 
         }else{
             return back();
         }
-
-      //  return $arr;
-       // return view('Homes.Users.add');
     }
 
     //删除地址
@@ -244,7 +196,6 @@ class UserController extends Controller
     {
         $address = Address::find($id);
         return view('Homes.Users.UserInfo.modify', ['address' => $address]);
-        //return view('Homes.Users.UserInfo.addaddress');
     }
     public function storemodify(Request $request,$id)
     {
@@ -252,18 +203,11 @@ class UserController extends Controller
         // 1.根据id获取要修改的用户
         $user = Address::find($id);
         // 接收数据
-
         $input = $request->except('_token');
- // dd($input);
-
-
         $user->rec=$input['rec'];
-
         $user->addr=$input['addr'];
         $user->tel=$input['tel'];
         $user->sex=$input['sex'];
-//            'auth'=>tel
-
         $res= $user->save();
         if($res) {
             return redirect('/add');
@@ -272,61 +216,65 @@ class UserController extends Controller
            return back();
         }
 
-        //  return $arr;
 
     }
     //用户密码
     public function password()
     {
         //这个id是死的  张晨思
-        $id=1;
+        $id=session('user')['id'];
         $users  = User::find($id);
-
         return view('Homes.Users.password',['user'=>$users]);
     }
     //修改密码
     public function repass(Request $request)
     {
+        $input = $request->input();
         //这个id是死的  张晨思
-        $id=1;
-
+        $id=session('user')['id'];
         $users  = User::find($id);
         $oldpass = $users->password;
-        // dd($oldpass);
         //判断原密码是否正确
         if((Crypt::decrypt($oldpass))!= ($request->input('oldpass'))){
-            $arr = [
-                'status'=>1,
-                'msg'=>'原密码不正确'
-            ];
-            return $arr;
+            return back()->with('msg','原密码不正确');
 
         }else{
-            $this->validate($request, [
-
+//            $this->validate($request, [
+//
+//                'newpass' => 'regex:/^[\S]{4,16}$/',
+//                'repass'=>'same:newpass',
+//
+//            ],[
+//
+//                'newpass.regex' => '密码格式不正确',
+//                'repass.same'=>'两次密码不一致',
+//
+//            ]);
+            $rule = [
                 'newpass' => 'regex:/^[\S]{4,16}$/',
                 'repass'=>'same:newpass',
-
-            ],[
-
+            ];
+            $msg = [
                 'newpass.regex' => '密码格式不正确',
                 'repass.same'=>'两次密码不一致',
+            ];
 
-            ]);
+            $validator = Validator::make($input,$rule,$msg);
+            if ($validator->fails()){
+                return back()->with('msg','修改失败');
+            }
+
         }
 
         //将密码进行加密
         $newpass = Crypt::encrypt($request->input('newpass'));
-
-
         $users->password = $newpass;
         $res = $users->save();
         if($res){
             //跳转路径错误   张晨思
-            return redirect('/lists');
+            return back()->with('msg','修改成功');
         }else{
-
-            return back();
+            return back()->with('msg','修改失败');
         }
     }
 
@@ -336,12 +284,9 @@ class UserController extends Controller
     public function data()
     {
         //这个id是死的   张晨思
-        $id = 1;
-       // return view('Homes.Users.data');
+        $id = session('user')['id'];
         //获取数据
         $users  = User::find($id);
-        //dd($users);
-       // dd(session());
         return view('Homes.Users.data',['users'=>$users]);
     }
 
