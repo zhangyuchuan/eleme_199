@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home\Shops;
 
+use App\Map\Map;
 use App\Model\ShopCategory;
 use App\Model\ShopInfo;
 use App\Model\User;
@@ -14,6 +15,7 @@ class OpenShopController extends Controller
     //开店首页
     public function  index()
     {
+
         return view('Homes.Open.Open');
     }
     //开店资质页
@@ -73,7 +75,13 @@ class OpenShopController extends Controller
         $user = User::where('id',$uid)->first();
         if($user->auth=='2'){
             $user->auth = '1';
+            $user->save();
         }
+
+        //设置经纬度
+        $map = new Map();
+        $res = $map -> getLngLat($address);
+        $res= json_decode($res);
         //执行存储
         $shop = new ShopInfo;
         $shop->sellerid = $uid;
@@ -83,7 +91,10 @@ class OpenShopController extends Controller
         $shop->address =$address;
         $shop->logo =$logo;
         $shop->status =$status;
+        $shop->lng = $res->result->location->lng;
+        $shop->lat = $res->result->location->lat;
         $res = $shop->save();
+
         //跳转等待审核界面
         if($res){
             return redirect('/home/openlast');

@@ -18,20 +18,6 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        //定义路由组
-        $path = [
-                    '/orders','/center','/safety',
-                    '/add','/password','/data','/integral',
-                    '/collect','/balance', '/opendata','/openmessage',
-                ];
-        foreach($path as $k=>$v){
-          $path[$k] ='http://'.$request->server('HTTP_HOST').$v;
-
-        }
-        if(in_array(url()->previous(),$path)){
-            Session::put('paths',url()->previous());
-        }
-
 
         return view('Homes.Logins.login');
     }
@@ -67,6 +53,8 @@ class LoginController extends Controller
 
         //登陆成功跳转至后台首页
         $path = !empty(session('paths'))?session('paths'):'/lists';
+//        dd($path);
+
         return redirect($path);
     }
 
@@ -75,6 +63,7 @@ class LoginController extends Controller
     {
         //清空登录数据
         session()->forget('user');
+        session()->forget('paths');
         return redirect('/lists');
     }
 

@@ -11,10 +11,6 @@ class ShopInfo extends Model
     public $timestamps = false;
     public $guarded = [];
 
-
-
-
-
     public function goods()
     {
 
@@ -25,5 +21,9 @@ class ShopInfo extends Model
         return $this->belongsTo('App\Model\ShopCategory','cateid','id');
     }
 
+    public function orders()
+    {
+        return $this->hasMany('App\Model\Orders','sid','id');
+    }
 
 }

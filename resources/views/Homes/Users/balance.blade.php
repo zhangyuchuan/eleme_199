@@ -20,7 +20,11 @@
                                     当前账户余额：
                                 </span>
                         <b class="balance-number ng-binding" ng-bind="balance.number">
-                            {{$balance->money}}
+                            @if(!empty($balance))
+                                {{$balance['money']}}
+                                @else
+                                0
+                                @endif
                         </b>
                         元
                     </p>

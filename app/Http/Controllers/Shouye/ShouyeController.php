@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Shouye;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Map\Map;
+use Illuminate\Support\Facades\Session;
 
 class ShouyeController extends Controller
 {
@@ -20,13 +21,15 @@ class ShouyeController extends Controller
 
         $address = [
             'address'=>$address,
-            'lnglat'=> $res->result->location->lng.','.$res->result->location->lat,
+            'lng'=> $res->result->location->lng,
+            'lat'=> $res->result->location->lat,
         ];
-        dd($address);
-        session('address',$address);
-        dd(session('address'));
-        return redirect('/shop/10');
-
+//        dd($res);
+        Session::put('address',$address);
+//        dd(session('address'));
+        return redirect('/lists');
+//        $res = GetDistance($address['lat'],$address['lng'],40.082429866218,116.33864404988);
+//        dd($res);
 
     }
 

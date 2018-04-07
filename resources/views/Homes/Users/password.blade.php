@@ -20,6 +20,12 @@
                     <p class="changepwd-tip">
                         饿了么提示你：使用大小写字母、数字与标点符号的组合，可以大幅提升帐号安全！
                     </p>
+                    <p style="color:red;font-size:20px">
+                        @if(!empty(session('msg')))
+                            {{session('msg')}}
+                            @else
+                        @endif
+                    </p>
                     {{--<!-- ngIf: !firstSet -->--}}
                     {{--<div class="formfield ng-isolate-scope"--}}
                          {{--form-field="" label="原密码" model="changePwdData" property="newPwd">--}}
@@ -166,6 +172,9 @@
                         <div class="layui-input-inline">
                             <input type="password" id="N_repass" name="repass" required="" lay-verify="repass"
                                    autocomplete="off" class="layui-input">
+                        </div>
+                        <div class="layui-form-mid layui-word-aux">
+                            两次密码必须一致
                         </div>
                     </div>
                     <div class="layui-form-item">

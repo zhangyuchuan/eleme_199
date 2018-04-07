@@ -144,7 +144,9 @@
                                             <a class="icon-setting" href="/safety" hardjump="">
                                                 安全设置
                                             </a>
-                                            <a class="icon-logout" href="javascript:;" click="logout()">
+
+                                            <a class="icon-logout" href="/home/logout" click="logout()">
+
                                                 退出登录
                                             </a>
                                         </div>
@@ -158,54 +160,6 @@
 </div>
 <div class="importantnotification container" role="banner">
 </div>
-<!-- <eleme-importantnotification></eleme-importantnotification> -->
-{{--<div class="sidebar" role="complementary" hide="layoutState && layoutState.hideSidebar">--}}
-    {{--<div class="sidebar-tabs">--}}
-        {{--<div class="toolbar-tabs-middle">--}}
-            {{--<a class="toolbar-btn icon-order toolbar-close" href="/profile/order"--}}
-               {{--hardjump="" tooltip="我的订单" tooltip-placement="left" ubt-click="toolbar_order">--}}
-            {{--</a>--}}
-            {{--<div class="toolbar-separator">--}}
-            {{--</div>--}}
-            {{--<a class="toolbar-cartbtn icon-cart toolbar-open" href="JavaScript:" template="cart"--}}
-               {{--class="{'focus': (activeTemplate === 'cart' && isSidebarOpen), 'toolbar-cartbtn-shownum': foodCount.count}"--}}
-               {{--ubt-click="390">--}}
-                {{--购物车--}}
-            {{--</a>--}}
-            {{--<div class="toolbar-separator">--}}
-            {{--</div>--}}
-            {{--<a class="toolbar-btn icon-notice toolbar-open modal-hide" href="JavaScript:"--}}
-               {{--template="message" class="{'focus': (activeTemplate === 'message' && isSidebarOpen), 'toolbar-open': user, 'modal-hide': user}"--}}
-               {{--tooltip="我的信息" tooltip-placement="left" ubt-click="392">--}}
-            {{--</a>--}}
-        {{--</div>--}}
-        {{--<div class="toolbar-tabs-bottom">--}}
-            {{--<div class="toolbar-btn icon-QR-code">--}}
-                {{--<div class="dropbox toolbar-tabs-dropbox">--}}
-                    {{--<a href="http://static11.elemecdn.com/eleme/desktop/mobile/index.html"--}}
-                       {{--target="_blank">--}}
-                        {{--<img src="/home/img/appqc.95e532.png" alt="下载手机应用">--}}
-                        {{--<p>--}}
-                            {{--下载手机应用--}}
-                        {{--</p>--}}
-                        {{--<p class="icon-QR-code-bonus">--}}
-                            {{--即可参加分享红包活动--}}
-                        {{--</p>--}}
-                    {{--</a>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<a id="live800iconlink" class="toolbar-btn icon-service" online-service=""--}}
-               {{--tooltip="在线客服" title="在线客服" tooltip-placement="left" target="_blank" href="JavaScript:"--}}
-               {{--style="visibility: hidden;">--}}
-            {{--</a>--}}
-            {{--<a class="toolbar-btn sidebar-btn-backtop icon-top" tooltip="回到顶部" title="回到顶部"--}}
-               {{--href="JavaScript:" tooltip-placement="left" style="visibility: hidden;">--}}
-            {{--</a>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-    {{--<div class="sidebar-content">--}}
-    {{--</div>--}}
-{{--</div>--}}
 <!-- <eleme-sidebar hide="layoutState && layoutState.hideSidebar"></eleme-sidebar> -->
 <!-- <div view role="main"></div> -->
 <link href="/home/css/vendor.eb86f5.css" rel="stylesheet">
@@ -214,54 +168,7 @@
     <div class="profile-container container" profile-container="" page-title="个人资料"
          page-name="info">
         <div class="clearfix">
-            <div class="location" ng-style="{visibility: geohash ? &#39;&#39; : &#39;hidden&#39;}"
-                 role="navigation" location="">
-                        <span>
-                            当前位置:
-                        </span>
-                <span class="location-current">
-                            <a class="inherit ng-binding" ng-href="/place/wx4spk2hgfer" ubt-click="401"
-                               ng-bind="place.name || place.address" href="">
-                                昌平区204县道(北京市育荣教育园区西)
-                            </a>
-                        </span>
-                <span class="location-change location-hashistory" ng-class="{ &#39;location-hashistory&#39;: user.username &amp;&amp; userPlaces &amp;&amp; userPlaces.length &gt; 0 }">
-                            <a ng-href="/home" ubt-click="400" hardjump="" href="">
-                                [切换地址]
-                            </a>
-                            <ul class="dropbox location-dropbox" ubt-visit="398">
-                                <li class="arrow">
-                                </li>
-                                <!-- ngRepeat: userPlace in userPlaces | filter:filterPlace | limitTo:
-                                4 -->
-                                <li ng-repeat="userPlace in userPlaces | filter:filterPlace | limitTo: 4"
-                                    class="ng-scope">
-                                    <a class="inherit ng-binding" ng-href="/place/wx4spk2jk0db?latitude=40.102375&amp;longitude=116.334404"
-                                       ng-bind="userPlace.name" ubt-click="399" href="">
-                                        昌平区204县道(北京市育荣教育园区西)
-                                    </a>
-                                </li>
-                                <!-- end ngRepeat: userPlace in userPlaces | filter:filterPlace | limitTo:
-                                4 -->
-                                <li class="changelocation">
-                                    <a ng-href="/home" hardjump="" href="">
-                                        修改收货地址
-                                        <span class="icon-location">
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </span>
-                <span ng-transclude="">
-                            <i class="icon-arrow-right ng-scope">
-                            </i>
-                            <span class="ng-binding ng-scope">
-                                个人资料
-                            </span>
-                        </span>
-            </div>
-            <div search-input="">
-            </div>
+
         </div>
         <ul class="profile-sidebar" role="navigation" profile-sidebar="">
             <li class="profile-sidebar-section">
@@ -280,7 +187,7 @@
                     我的订单
                 </h2>
                 <ul>
-                    <li ng-class="{ active: pageName === &#39;order&#39; }">
+                    <li ng-class="{ active: pageName === &#39;order&#39; }" class='lis'>
                         <a href="/orders">
                             所有订单
                         </a>
@@ -295,19 +202,19 @@
                     我的资产
                 </h2>
                 <ul>
-                    <li ng-class="{ active: pageName === &#39;hongbao&#39; }">
+                    <li ng-class="{ active: pageName === &#39;hongbao&#39; }" class='lis'>
                         <a href="/hongbao">
                             我的红包
                         </a>
                     </li>
-                    <li ng-class="{ active: pageName === &#39;balance&#39; }">
+                    <li ng-class="{ active: pageName === &#39;balance&#39; }" class='lis'>
                         <a href="/integral">
-                            账户余额
+                            账户积分
                         </a>
                     </li>
-                    <li ng-class="{ active: pageName === &#39;points&#39; }">
+                    <li ng-class="{ active: pageName === &#39;points&#39; }" class='lis'>
                         <a href="/balance">
-                            我的积分
+                            我的余额
                         </a>
                     </li>
                 </ul>
@@ -319,22 +226,22 @@
                     我的资料
                 </h2>
                 <ul>
-                    <li ng-class="{ active: pageName === &#39;info&#39; }" class="active">
+                    <li ng-class="{ active: pageName === &#39;info&#39; }" class='lis'>
                         <a href="/data">
                             个人资料
                         </a>
                     </li>
-                    <li ng-class="{ active: pageName === &#39;address&#39; }">
+                    <li ng-class="{ active: pageName === &#39;address&#39; }" class='lis'>
                         <a href="/add">
                             地址管理
                         </a>
                     </li>
-                    <li ng-class="{ active: pageName === &#39;security-center&#39; }">
+                    <li ng-class="{ active: pageName === &#39;security-center&#39; }" class='lis'>
                         <a href="/safety">
                             安全中心
                         </a>
                     </li>
-                    <li ng-class="{ active: pageName === &#39;changepassword&#39; }">
+                    <li ng-class="{ active: pageName === &#39;changepassword&#39; }" class='lis'>
                         <a href="/password">
                             修改密码
                         </a>
@@ -484,6 +391,11 @@
 </footer>
 <script src="/home/js/6936dbf3e7d94cffa954bcbcf2b79f38.js">
 </script>
-
+<script>
+    $('.lis').click(function(){
+        $('.lis').removeClass('active');
+        $(this).addClass('active');
+    })
+</script>
 </body>
 </html>

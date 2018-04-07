@@ -47,7 +47,8 @@
   <div ng-view="" role="main" class="ng-scope"> 
    <div class="map ng-scope" ng-class="{mapmode: mapMode}"> 
     <div class="container mapcontainer"> 
-              <div class="map-header clearfix" map-header=""><h1><a href="/" ubt-click="1433"><img src="/home/image/map-logo.9a26ef.png" alt="eleme"></a></h1><!-- ngIf: user.user_id --> <!-- ngIf: !user.user_id --><span class="map-header-right ng-scope" ng-if="!user.user_id"><a ng-href="//h5.ele.me/login/#redirect=https%3A%2F%2Fwww.ele.me%2Fhome%2F" target="_blank" ubt-click="1430" href="//h5.ele.me/login/#redirect=https%3A%2F%2Fwww.ele.me%2Fhome%2F">注册</a> <span>|</span> <a ng-href="//h5.ele.me/login/#redirect=https%3A%2F%2Fwww.ele.me%2Fhome%2F" ubt-click="1431" href="//h5.ele.me/login/#redirect=https%3A%2F%2Fwww.ele.me%2Fhome%2F">登录</a> <a class="btn-security btn-sm" href="//kaidian.ele.me" target="_blank" ubt-click="1432">我要开店</a></span><!-- end ngIf: !user.user_id --></div>
+              <div class="map-header clearfix" map-header=""><h1><a href="/" ubt-click="1433"><img src="/home/image/map-logo.9a26ef.png" alt="eleme"></a></h1><!-- ngIf: user.user_id --> <!-- ngIf: !user.user_id -->
+               <span class="map-header-right ng-scope" ng-if="!user.user_id"><a  target="_blank" ubt-click="1430" href="/register">注册</a> <span>|</span> <a ng-href="" ubt-click="1431" href="/login">登录</a> <a class="btn-security btn-sm" href="/home/openshop" target="_blank" ubt-click="1432">我要开店</a></span><!-- end ngIf: !user.user_id --></div>
      <div class="map-main ng-isolate-scope" ng-class="{mapmode: mapMode}" map-main="" map-mode="mapMode"> 
       <h2 class="map-logo"> <img src="/home/image/map-logo-center.4eb348.png" alt="eleme" /> </h2> 
       <div class="map-navbar clearfix hasuserinfo" ng-class="{hasuserinfo: $root.user.user_id}"> 

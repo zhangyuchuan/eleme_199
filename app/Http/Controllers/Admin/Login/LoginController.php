@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin\Login;
 
+use App\Model\Orders;
+use App\Model\ShopInfo;
 use App\Model\User;
 use Gregwar\Captcha\CaptchaBuilder;
 use Gregwar\Captcha\PhraseBuilder;
@@ -117,7 +119,41 @@ class LoginController extends Controller
     {
         $user = session('user');
 
-        return view('Admin.Common.Index',compact('user'));
+
+        //获取所需数据
+        if($user->auth==0){
+            //获取所有事商家
+            $sellers =count(User::where('auth','1')->get()) ;
+            //获取所有用户
+            $users = count(User::where('auth','2')->get());
+            //获取所有店铺
+            $shops = count(ShopInfo::get());
+            //获取所有订单
+            $orders =count(Orders::get());
+            //获取所有管理员
+            $admins = count(User::where('auth','0')->get());
+            return view('Admin.Common.Index',compact('user','sellers','users','shops','orders','admins'));
+        }elseif($user->auth ==1){
+            //获取所有订单
+            // 先获取登陆用户收的店铺 再根据店铺获取订单
+            $shops = ShopInfo::with('orders')->with('goods')->where('sellerid',$user->id)->get();
+            $sum = [];
+            $sum['orders'] = 0;
+            $sum['goods'] = 0;
+            $sum['sailcount'] = 0;
+            $sum['income'] = 0;
+            $sum['comment'] = 0;
+            foreach($shops as $k=>$v){
+                $sum['orders'] +=count($v->orders);
+                $sum['goods'] +=count($v->goods);
+                $sum['sailcount'] +=$v['sailcount'];
+                $sum['income'] +=$v['income'];
+            }
+            $sum['comment'] = '-111111';
+//            dd($sum);
+            return view('Admin.Common.Index',compact('user','sum'));
+        }
+
     }
 //    退出登录
     public function logout()

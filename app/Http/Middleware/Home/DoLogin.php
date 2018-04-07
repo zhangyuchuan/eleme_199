@@ -3,6 +3,7 @@
 namespace App\Http\Middleware\Home;
 
 use Closure;
+use Illuminate\Support\Facades\Session;
 
 class DoLogin
 {
@@ -18,6 +19,8 @@ class DoLogin
         if (session('user')){
             return $next($request);
         }else{
+            //存住请求路径
+            Session::put('paths',$request->getPathInfo());
             return redirect('home/login')->with('errors','请先登录');
         }
     }

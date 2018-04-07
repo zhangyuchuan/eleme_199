@@ -46,13 +46,13 @@
                                 订单已完成
                             </h5>
                             <p class="orderprogress-statusdesc ng-binding" ng-bind-html="status.description | toTrusted">
-                                18:48确认送达
+                                确认送达
                             </p>
                             <div class="orderprogress-statusbuttons">
                                 <!-- ngIf: remind.show -->
                                 <!-- ngRepeat: button in status.buttons -->
-                                <a href="javascript:" ng-repeat="button in status.buttons" ng-bind="button.text"
-                                   ng-class="button.style" ng-click="button.method()" class="ng-binding ng-scope linktype">
+                                <a href="/lists" ng-repeat="button in status.buttons" ng-bind="button.text"
+                                   >
                                     再来一单
                                 </a>
                                 <!-- end ngRepeat: button in status.buttons -->
@@ -75,7 +75,7 @@
                                 </h4>
                                 <div class="orderprogress-rstextra">
                                             <span ng-bind="&#39;订单号：&#39; + order.unique_id" class="ng-binding">
-                                                订单号：1217606784916104398
+                                                订单号：12345
                                             </span>
                                     <span ng-bind="&#39;商家电话：&#39; + restaurant.phoneMade" class="ng-binding">
                                                 商家电话：15321281416
@@ -171,8 +171,6 @@
                                     <!-- ngSwitchWhen: basketTitle -->
                                     <!-- ngSwitchWhen: food -->
                                         @foreach($all as $v)
-
-
                                     <div ng-switch-when="food" class="orderprogress-totalrow ng-scope">
                                                 <span class="cell name ng-binding" ng-bind="row.food.name">
 
@@ -189,7 +187,7 @@
                                                 {{ $v->bprice * $v->bcnt }}
 
                                                 </span>
-                                        <?php $arr[] =  $v->bprice * $v->bcnt  ?>
+                                    {{$arr[] =  $v->bprice * $v->bcnt}}
 
                                     </div>
 
