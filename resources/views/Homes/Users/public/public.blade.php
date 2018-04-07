@@ -82,7 +82,6 @@
                     首页
                 </a>
                 <a class="topbar-item focus" href="/orders" hardjump="" class="{'focus': $root.locationpath[1] === 'order'}">
-
                     我的订单
                 </a>
                 <a class="topbar-item cooperation" href="/home/openshop/"
@@ -91,14 +90,14 @@
                 </a>
                 <nav class="topbar-nav">
 
-                    <a class="topbar-nav-link" href="" hardjump="">
+                    <a class="topbar-nav-link" href="javascript:;" hardjump="">
 
                         <i class="topbar-nav-icon icon-service">
                         </i>
                         服务中心
                     </a>
 
-                    <a class="topbar-nav-link" href="" hardjump="">
+                    <a class="topbar-nav-link" href="javascript:;" hardjump="">
 
                         规则中心
                     </a>
@@ -145,7 +144,7 @@
                                             <a class="icon-setting" href="/safety" hardjump="">
                                                 安全设置
                                             </a>
-                                            <a class="icon-logout" href="JavaScript:" click="logout()">
+                                            <a class="icon-logout" href="javascript:;" click="logout()">
                                                 退出登录
                                             </a>
                                         </div>
