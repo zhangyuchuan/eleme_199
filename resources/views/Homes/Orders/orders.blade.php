@@ -115,7 +115,7 @@
                                         订单号:
                                         <a ng-href="order/id/1217606784916104398" ng-bind="item.unique_id" class="ng-binding"
                                            href="">
-                                            1217606784916104398
+                                            {{$v->oid}}
                                         </a>
                                     </p>
                                 </td>

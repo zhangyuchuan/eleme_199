@@ -110,7 +110,7 @@
 
                 @if(!empty($all->Orders))
                     @foreach($all->Orders as $k=>$v)
-                        {{$v}}
+
                         <div class="orderblock ng-isolate-scope" ng-repeat="order in recentOrder"
                              data="{ $order: order }">
                             <div class="orderblock-item orderblock-rstinfo clearfix">
@@ -134,10 +134,10 @@
                                         @foreach($goodsname[$k] as $kkk=>$vvv)
                                         <p class="product ng-binding" ng-bind="order.product">
                                             {{--{{dd($vvv)}}--}}
-                                            {{ $vvv['goods']['gname'] }}{{$n[$k]}}份
+                                            {{ $vvv['goods']['gname'] }} 共  {{$n[$k]}}份
                                         </p>
                                         @endforeach
-                                            <a class="productnum" ng-href="order/id/1217606784916104398" href="https://www.ele.me/profile/order/id/1217606784916104398">
+                                            <a class="productnum" ng-href="order/id/1217606784916104398" >
                                                 共
                                                 <i class="count ng-binding" ng-bind="order.productnum">
                                                     {{$n[$k]}}

@@ -83,7 +83,9 @@ class OrderController extends Controller
             $sum += $v->price*$v->bnt;
             $sbnt += $v->bnt;
         }
-        $data['totalprice'] = $sum;
+        $shopinfo = ShopInfo::find($id);
+        $sendmoney= $shopinfo->sendmoney;
+        $data['totalprice'] = $sum+$sendmoney;
         $data['ocnt'] = $sbnt;
         $data['status']= 1;
         $data['ordertime'] = time();
@@ -190,7 +192,7 @@ class OrderController extends Controller
         $all = Ordersinfo::with('goods')->where('oid',$id)->get();
         $shop_all = Ordersinfo::with('shopinfo')->where('oid',$id)->get();
         $arr = [];
-        return view('Homes.Orders.orderdata',compact('all','shop_all','shop','arr'));
+        return view('Homes.Orders.orderdata',compact('all','shop_all','shop','arr','id'));
     }
 
 

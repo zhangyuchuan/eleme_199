@@ -395,7 +395,7 @@
                     <a class="shopnav-tab" href="/shop/{{ $shopinfo->id }}/rate" ng-class="{active: shop.tab === &#39;rate&#39;}">
                         评价
                     </a>
-                    <a class="shopnav-tab" href="/shop/{{ $shopinfo->id }}/info" ng-class="{active: shop.tab === &#39;info&#39;}">
+                    <a class="shopnav-tab" href="javascript:;" ng-class="{active: shop.tab === &#39;info&#39;}">
                         商家资质
                     </a>
                     <!-- ngIf: shopAction===' menu' -->

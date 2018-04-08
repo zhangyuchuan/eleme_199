@@ -45,10 +45,6 @@ class OrdersController extends Controller
     }
 
 
-//    public function del()
-//    {
-//        return view('Admin.Order.OrderDel');
-//    }
 
 
 
