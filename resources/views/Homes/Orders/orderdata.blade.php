@@ -184,10 +184,11 @@
 
                                         <span class="cell price ng-binding" ng-bind="row.food.price * row.food.quantity | number:2">
 
-                                                {{ $v->bprice * $v->bcnt }}
+                                                {{--{{ $v->bprice * $v->bcnt }}--}}
+                                            {{$arr[] =  $v->bprice * $v->bcnt}}
 
                                                 </span>
-                                    {{$arr[] =  $v->bprice * $v->bcnt}}
+
 
                                     </div>
 

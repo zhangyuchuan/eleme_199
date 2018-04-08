@@ -48,6 +48,7 @@ class UserController extends Controller
             $sids[] = $v->sid;
             $oids[] = $v->oid;
         }
+//        dd($oids);
         $shops = ShopInfo::whereIn('id',$sids)->get();
         $goodsname = [];
         foreach($oids as $k=>$v){
@@ -66,6 +67,7 @@ class UserController extends Controller
         }
         //获取用户积分    //获取用户余额
         $users = UserInfo::where('id',$id)->first();
+//        dd($all);
         return view('Homes.Users.center',compact('n','sum','all','shops','users','goodsname'));
 
 

@@ -143,7 +143,7 @@ class OrderController extends Controller
             $n[] = $m;
             $sum[] = $sun;
         }
-
+//        dd($oids);
         return view('Homes.Orders.orders',compact('n','sum','all','shops','users','goodsname'));
     }
 
@@ -168,6 +168,7 @@ class OrderController extends Controller
         $all = Ordersinfo::with('goods')->where('oid',$id)->get();
         $shop_all = Ordersinfo::with('shopinfo')->where('oid',$id)->get();
         $arr = [];
+//        dd($id);
         return view('Homes.Orders.orderdata',compact('all','shop_all','shop','arr'));
     }
 

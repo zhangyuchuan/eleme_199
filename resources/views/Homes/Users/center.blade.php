@@ -137,7 +137,7 @@
                                             {{ $vvv['goods']['gname'] }}{{$n[$k]}}份
                                         </p>
                                         @endforeach
-                                            <a class="productnum" ng-href="order/id/1217606784916104398" href="https://www.ele.me/profile/order/id/1217606784916104398">
+                                            <a class="productnum" ng-href="order/id/1217606784916104398" href="javascript:;">
                                                 共
                                                 <i class="count ng-binding" ng-bind="order.productnum">
                                                     {{$n[$k]}}
