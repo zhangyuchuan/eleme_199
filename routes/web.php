@@ -92,7 +92,7 @@ Route::group(['middleware'=>'adminIslogin'],function() {
     Route::resource('/admin/users/users','Admin\Users\UserController');
     //后台用户修改状态
     //后台订单
-    Route::get('/admin/order/order/info','Admin\Order\OrdersController@info');
+    Route::get('/admin/order/order/info/{id}','Admin\Order\OrdersController@info');
     Route::get('/admin/order/order/list','Admin\Order\OrdersController@List');
     Route::post('/admin/order/order/changestatus','Admin\Order\OrdersController@changestatus');
     Route::resource('/admin/order/order','Admin\Order\OrdersController');

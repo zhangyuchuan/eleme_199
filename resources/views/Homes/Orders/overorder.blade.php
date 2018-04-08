@@ -143,12 +143,12 @@
     <div class="pagination"  style="height: 100px">
         <center><h1><b><image src="/uploads/999999999009.png" style="height: 50px"></image>&nbsp;&nbsp;&nbsp;饿单已成功提交并付款 , 请耐心等待你的外卖</b></h1></center>
     </div>
-    <center><b><a href="/lists">3秒后系统会自动跳转首页，也可点击本处直接跳</a></b></center>
+    <center><b><a href="/lists">2秒后系统会自动跳转首页，也可点击本处直接跳</a></b></center>
     <script>
         function jumpurl(){
           location='/lists';
         }
-        setTimeout('jumpurl()',3000);
+        setTimeout('jumpurl()',2000);
     </script>
     <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
     <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>

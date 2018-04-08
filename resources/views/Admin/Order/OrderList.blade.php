@@ -5,17 +5,17 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="x-body">
-        <div class="layui-row">
-            <form class="layui-form layui-col-md12 x-so" action="/admin/order/order/list" method="get">
+        {{--<div class="layui-row">--}}
+            {{--<form class="layui-form layui-col-md12 x-so" action="/admin/order/order/list" method="get">--}}
 
-                <input type="text" name="username" value="{{$request->sid}}" placeholder="请输入店铺名" autocomplete="off" class="layui-input">
-
-
+                {{--<input type="text" name="username" value="{{$request->sid}}" placeholder="请输入店铺名" autocomplete="off" class="layui-input">--}}
 
 
-                <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
-            </form>
-        </div>
+
+
+                {{--<button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>--}}
+            {{--</form>--}}
+        {{--</div>--}}
         <xblock>
 
 
@@ -56,22 +56,28 @@
 
                 @if($v->status==0)
                     <td class="td-status">
-                        <span class="layui-btn layui-btn-normal layui-btn-mini">已下单</span></td>
-                @else
+                        <span class="layui-btn layui-btn-danger layui-btn-mini">订单失败</span></td>
+                @elseif($v->status==1)
                     <td class="td-status">
-                        <span class="layui-btn layui-btn-normal layui-btn-mini layui-btn-disabled">未下单</span></td>
+                        <span class="layui-btn layui-btn-warning layui-btn-mini">已提交未接单</span></td>
+                    @elseif($v->status==2)
+                        <td class="td-status">
+                            <span class="layui-btn layui-btn-info layui-btn-mini">已接单未签收</span></td>
+                    @elseif($v->status==3)
+                        <td class="td-status">
+                            <span class="layui-btn layui-btn-normal layui-btn-mini">交易成功</span></td>
                 @endif
 
                 <td class="td-manage">
-                    <a onclick="member_stop(this,'{{ $v->oid }}')" href="javascript:;" status="{{ $v->status }}" title="订单设置">
-                        <i class="layui-icon">&#xe601;</i>
-                    </a>
-                    <a title="订单详情" class=" layui-btn layui-btn-normal layui-btn-mini" onclick="x_admin_show('订单详情','/admin/order/order/info',600,400)" title="订单详情" href="javascript:;">
+                    {{--<a onclick="member_stop(this,'{{ $v->oid }}')" href="javascript:;" status="{{ $v->status }}" title="订单设置">--}}
+                        {{--<i class="layui-icon">&#xe601;</i>--}}
+                    {{--</a>--}}
+                    <a title="订单详情" class=" layui-btn layui-btn-normal layui-btn-mini" onclick="x_admin_show('订单详情','/admin/order/order/info/{{$v->oid}}',600,400)" title="订单详情" href="javascript:;">
                         订单详情
                     </a>
-                    <a title="删除" onclick="member_del(this,'{{ $v->oid }}')" href="javascript:;">
-                        <i class="layui-icon">&#xe640;</i>
-                    </a>
+                    {{--<a title="删除" onclick="member_del(this,'{{ $v->oid }}')" href="javascript:;">--}}
+                        {{--<i class="layui-icon">&#xe640;</i>--}}
+                    {{--</a>--}}
                 </td>
 
             </tr>
@@ -114,62 +120,62 @@
 
         /*用户-下单*/
 
-        function member_stop(obj,oid){
-            var status = $(obj).attr('status');
-
-
-            if ($(obj).attr('title') == '取消') {
-                layer.confirm('确认要取消订单吗？',function(index) {
-                    $.ajax({
-                        type: "POST",
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        url: "/admin/order/order/changestatus",
-                        data: {'oid': oid, 'status': status},
-                        dataType: "json",
-                        success: function (data) {
-                            console.log(data);
-                            //发异步把用户状态进行更改
-                            $(obj).attr('title', '取消订单')
-                            $(obj).find('i').html('&#xe62f;');
-
-                            $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已取消');
-                            layer.msg('已取消!', {icon: 5, time: 1000});
-                        }
-                    });
-                });
-
-            } else {
-
-                layer.confirm('确认要下单吗？', function (index) {
-
-                    $.ajax({
-                        type: "POST",
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        url: "/admin/order/order/changestatus",
-                        data: {'oid': oid, 'status': status},
-                        dataType: "json",
-                        success: function (data) {
-                            console.log(data);
-                            $(obj).attr('title', '下单')
-                            $(obj).find('i').html('&#xe601;');
-
-                            $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已下单');
-                            layer.msg('已取消!', {icon: 5, time: 1000});
-                        }
-                    });
-
-                });
-
-            }
-
-
-
-
-        }
+        // function member_stop(obj,oid){
+        //     var status = $(obj).attr('status');
+        //
+        //
+        //     if ($(obj).attr('title') == '取消') {
+        //         layer.confirm('确认要取消订单吗？',function(index) {
+        //             $.ajax({
+        //                 type: "POST",
+        //                 headers: {
+        //                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //                 },
+        //                 url: "/admin/order/order/changestatus",
+        //                 data: {'oid': oid, 'status': status},
+        //                 dataType: "json",
+        //                 success: function (data) {
+        //                     console.log(data);
+        //                     //发异步把用户状态进行更改
+        //                     $(obj).attr('title', '取消订单')
+        //                     $(obj).find('i').html('&#xe62f;');
+        //
+        //                     $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('未下单');
+        //                     layer.msg('已取消!', {icon: 5, time: 1000});
+        //                 }
+        //             });
+        //         });
+        //
+        //     } else {
+        //
+        //         layer.confirm('确认要下单吗？', function (index) {
+        //
+        //             $.ajax({
+        //                 type: "POST",
+        //                 headers: {
+        //                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //                 },
+        //                 url: "/admin/order/order/changestatus",
+        //                 data: {'oid': oid, 'status': status},
+        //                 dataType: "json",
+        //                 success: function (data) {
+        //                     console.log(data);
+        //                     $(obj).attr('title', '确认下单')
+        //                     $(obj).find('i').html('&#xe601;');
+        //
+        //                     $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已下单');
+        //                     layer.msg('已下单!', {icon: 5, time: 1000});
+        //                 }
+        //             });
+        //
+        //         });
+        //
+        //     }
+        //
+        //
+        //
+        //
+        // }
 
         /*用户-删除*/
         function member_del(obj,id){

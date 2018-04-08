@@ -604,7 +604,7 @@
 
 
     @else
-        <div class="nodata ng-isolate-scope" ng-if="!loading &amp;&amp; nofood" nodatatip="" content="你的购物车是空的，去<a href='/place'>下单</a>吧"><p class="nodata-container ng-binding" ng-bind-html="content | toTrusted">你的购物车是空的，去<a href="/place">下单</a>吧</p></div>
+        <div class="nodata ng-isolate-scope" ng-if="!loading &amp;&amp; nofood" nodatatip="" content="你的购物车是空的，去<a href='/lists'>下单</a>吧"><p class="nodata-container ng-binding" ng-bind-html="content | toTrusted">你的购物车是空的，去<a href="/lists">下单</a>吧</p></div>
     @endif
     {{--<div class="checkout-quicksubmit scope" hide="checkout.submitVisable || nofood">--}}
         {{--<div class="container">--}}
