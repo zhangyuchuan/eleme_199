@@ -238,16 +238,16 @@
                     <div class="starrating icon-star ng-isolate-scope" title="评分4.3分" rate-star=""
                          rating="shop.rating">
                                     <span class="icon-star" ng-style="{ width: (rating * 20) + &#39;%&#39; }"
-                                          style="width: 86%;">
+                                          style="width: {{ $shopinfo->score/100*100 }}%;">
                                     </span>
                     </div>
                     (
                     <a ng-href="/shop/1195106/rate" class="ng-binding" href="/shop/{{ $shopinfo->id }}/rate">
-                        456
+                       1
                     </a>
                     )
                     <span class="ng-binding">
-                                    月售758单
+                                    月售{{ $ocnt }}单
                                 </span>
                     </p>
                     <p>
@@ -508,11 +508,11 @@
                                         <div class="starrating icon-star ng-isolate-scope" title="评分4.2分" rate-star=""
                                              rating="food.rating">
                                                 <span class="icon-star" ng-style="{ width: (rating * 20) + &#39;%&#39; }"
-                                                      style="width: 84.8%;">
+                                                      style="width: {{ $vv->gscore/5*100 }}%;">
                                                 </span>
                                         </div>
                                         <span class="color-mute ng-binding">
-                                                (29)
+
                                             </span>
                                         <span class="color-mute ng-binding">
                                                 月售{{ $vv->salecnt }}份

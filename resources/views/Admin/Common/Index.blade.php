@@ -287,17 +287,9 @@
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a _href="/admin/order/order/list" target="_blank">
+                                <a _href="/admin/seller/orders" target="_blank">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>订单列表</cite>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="sub-menu">
-                            <li>
-                                <a _href="/admin/order/order/del" target="_blank">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>订单删除</cite>
                                 </a>
                             </li>
                         </ul>

@@ -10,7 +10,9 @@ class Orders extends Model
     public $table = 'orders';
 
     //    2. 主键
+
     public $primaryKey = '  id';
+
 
     //    3. 是否维护created_at updated_at字段
     public $timestamps = false;
@@ -18,4 +20,12 @@ class Orders extends Model
     //    4. 是否允许批量操作字段
     public $guarded = [];
 
+    public function address()
+    {
+        return $this->hasOne('App\Model\Address','id','addrid');
+    }
+    public function  user()
+    {
+        return $this->hasOne('App\Model\User','id','uid');
+    }
 }
