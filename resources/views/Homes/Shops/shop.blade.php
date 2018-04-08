@@ -238,12 +238,12 @@
                     <div class="starrating icon-star ng-isolate-scope" title="评分4.3分" rate-star=""
                          rating="shop.rating">
                                     <span class="icon-star" ng-style="{ width: (rating * 20) + &#39;%&#39; }"
-                                          style="width: 86%;">
+                                          style="width: {{ $shopinfo->score/100*100 }}%;">
                                     </span>
                     </div>
                     (
                     <a ng-href="/shop/1195106/rate" class="ng-binding" href="/shop/{{ $shopinfo->id }}/rate">
-                        456
+                       1
                     </a>
                     )
                     <span class="ng-binding">

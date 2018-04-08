@@ -28,7 +28,7 @@ class GoodsCateController extends Controller
             })->count();
         //多条件并分页
 
-        $goodscate = GoodsCate::orderBy('id','asc')
+        $goodscate = GoodsCate::orderBy('id','asc')->where('sid',$sid)
             ->where(function($query) use($request){
                 //检测关键字
                 $cate = $request->input('category');

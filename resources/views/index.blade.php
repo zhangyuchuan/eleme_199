@@ -73,7 +73,7 @@
       <h2 class="map-logo"> <img src="/home/image/map-logo-center.4eb348.png" alt="eleme" /> </h2>
       <div class="map-navbar clearfix hasuserinfo" > 
        <div  class="map-city ng-isolate-scope" > 
-        <a class="mapcity-current ng-binding dianji" href="javascript:" >北京</a> 
+        <a class="mapcity-current ng-binding " href="javascript:" >北京</a>
         <!-- ngIf: mapCity.showCities --> 
         <div id='shouye' class="mapcity-dialog ng-scope shouye" > 
          <div class="mapcity-container ui-scrollbar-light " style="max-height: 500px;"> 
@@ -93,11 +93,11 @@
             <!-- ngIf: mapCity.suggests.length && queryText --> 
            </div> 
           </div> 
-          <script type="text/javascript">
-              $('.mapcity-current').click(function(){
-                $('.mapcity-dialog').css("display","block");
-              });
-          </script>
+          {{--<script type="text/javascript">--}}
+              {{--$('.mapcity-current').click(function(){--}}
+                {{--$('.mapcity-dialog').css("display","block");--}}
+              {{--});--}}
+          {{--</script>--}}
           <!-- ngIf: mapCity.groups.$resolved --> 
         <div class="mapcity-list ng-scope" ng-if=""> 
            <!-- ngRepeat: (key, group) in mapCity.groups track by key --> 
@@ -9314,7 +9314,7 @@
         <form class="mapsearch-inputbar ng-pristine ng-valid" action="/doMap" method="post">
          {{ csrf_field() }}
          <div id="l-map" style="display: none;"></div>
-         <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+         <div id="searchResultPanel" style="width:150px;height:auto; display:none;"></div>
          <div id="r-result" style="height: 56px;"><input placeholder="请输入你的收货地址（写字楼，小区，街道或者学校）" name="address" class="ng-pristine ng-valid" required id="suggestId"/> </div>
          <button class="btn-stress" type="submit">搜 索</button>
          
@@ -9326,7 +9326,7 @@
                 }
 
                 var map = new BMap.Map("l-map");
-                map.centerAndZoom("天津",12);                   // 初始化地图,设置城市和地图级别。
+                map.centerAndZoom("北京",12);                   // 初始化地图,设置城市和地图级别。
 
                 var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
                     {"input" : "suggestId"

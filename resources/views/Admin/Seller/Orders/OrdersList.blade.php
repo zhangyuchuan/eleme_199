@@ -59,7 +59,7 @@
                         <span class="layui-btn layui-btn-normal layui-btn-mini" status="{{ $v->status }}"  onclick="changestatus(this,'{{ $v->id }}')">签　收</span></td>
                 @elseif($v->status==3)
                     <td class="td-status">
-                        <span class="layui-btn layui-btn-normal layui-btn-mini layui-btn-disabled" >交易成功</span></td>
+                        <span class="layui-btn layui-btn-normal layui-btn-mini " >交易成功</span></td>
                 @else
                     <td class="td-status">
                         <span class="layui-btn layui-btn-normal layui-btn-mini layui-btn-disabled">订单失败</span></td>
