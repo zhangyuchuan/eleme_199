@@ -8,6 +8,7 @@ namespace App\Http\Controllers\Home\Shops;
 use App\Model\Goods;
 
 
+use App\Model\Orders;
 use App\Model\ShopCategory;
 
 use App\Model\GoodsCate;
@@ -101,9 +102,10 @@ class ShopController extends Controller
     //商铺详情
     public function shop($id)
     {
+        $ocnt = Orders::where('sid',$id)->get()->count();
         $shopinfo = ShopInfo::find($id);
         $gcate = GoodsCate::with('goods')->where('sid',$id)->get();
-        return view('Homes.Shops.shop',compact('shopinfo','gcate'));
+        return view('Homes.Shops.shop',compact('shopinfo','gcate','ocnt'));
     }
 
 

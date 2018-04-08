@@ -52,7 +52,7 @@
                 <td>{{ $v->price }}</td>
                 <td>{{ $goodscate[$v->gcid] }}</td>
                 <td>{{ $shops[$v->sid] }}</td>
-                <td>{{ $v->gdesc }}</td>
+                <td width="120px">{{ $v->gdesc }}</td>
                 <td>{{ $v->salecnt }}</td>
                 <td>{{ $v->gscore }}</td>
                 <td class="td-status">

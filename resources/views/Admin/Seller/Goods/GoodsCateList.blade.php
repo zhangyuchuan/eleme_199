@@ -54,14 +54,14 @@
                         <span class="layui-btn layui-btn-normal layui-btn-mini">已启用 </span>
                 </td>
                 <td class="td-manage">
-                    <a onclick="member_stop(this,{{ $v->id }}) " href="javascript:;"  title="停用">
+                    <a onclick="member_stop(this,'{{ $v->id }}') " href="javascript:;"  title="停用">
                         <i class="layui-icon">&#xe62f;</i>
                     </a>
                     @else
                         <span class="layui-btn layui-btn-normal layui-btn-mini layui-btn-disabled">已停用 </span>
                 </td>
                 <td class="td-manage">
-                    <a onclick="member_stop(this,{{ $v->id }}) " href="javascript:;"  title="启用">
+                    <a onclick="member_stop(this,'{{ $v->id }}') " href="javascript:;"  title="启用">
                         <i class="layui-icon">&#xe601;</i>
                     </a>
                     @endif
