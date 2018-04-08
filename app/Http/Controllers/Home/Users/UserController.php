@@ -32,7 +32,8 @@ class UserController extends Controller
 //        $oid = Orders::where('uid',33)->get();
 //
 //        foreach($oid as $k=>$v){
-//            var_dump(json_encode($v['oid']));
+//            dd($v);
+////            var_dump($v);
 //        }
 //        dd();
         //假设一个用户id   韩伟栋

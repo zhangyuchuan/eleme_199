@@ -110,7 +110,7 @@
 
                 @if(!empty($all->Orders))
                     @foreach($all->Orders as $k=>$v)
-
+                        {{$v}}
                         <div class="orderblock ng-isolate-scope" ng-repeat="order in recentOrder"
                              data="{ $order: order }">
                             <div class="orderblock-item orderblock-rstinfo clearfix">
