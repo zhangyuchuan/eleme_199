@@ -19,7 +19,7 @@ class MerchantController extends Controller
         //$users  = User::get();
         //return view('Admin.Biz.ShopsList',['users'=>$users]);
         // 4. 多条件并分页
-        $users = User::orderBy('id', 'asc')
+        $users = User::orderBy('id', 'asc')->where('auth','1')
             ->where(function ($query) use ($request) {
                 //检测关键字
                 $username = $request->input('keywords1');

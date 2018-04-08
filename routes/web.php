@@ -92,7 +92,7 @@ Route::group(['middleware'=>'adminIslogin'],function() {
     Route::resource('/admin/users/users','Admin\Users\UserController');
     //后台用户修改状态
     //后台订单
-    Route::get('/admin/order/order/info','Admin\Order\OrdersController@info');
+    Route::get('/admin/order/order/info/{id}','Admin\Order\OrdersController@info');
     Route::get('/admin/order/order/list','Admin\Order\OrdersController@List');
     Route::post('/admin/order/order/changestatus','Admin\Order\OrdersController@changestatus');
     Route::resource('/admin/order/order','Admin\Order\OrdersController');
@@ -126,8 +126,12 @@ Route::group(['middleware'=>'adminIslogin'],function() {
     Route::post('/admin/seller/goodscate/statusdown', 'Admin\Seller\GoodsCateController@statusdown');
     Route::resource('/admin/seller/goodscate', 'Admin\Seller\GoodsCateController');
 
+    //店家拒单
+    Route::get('/admin/seller/orders/stoporder/{id}','Admin\Seller\OrdersController@stopOrder');
+    //修改订单状态
+    Route::get('/admin/seller/orders/changestatus/{id}','Admin\Seller\OrdersController@changeStatus');
     //店家后台订单统计
-    //    Admin\Seller\OrdersController
+   Route::resource('/admin/seller/orders','Admin\Seller\OrdersController');
 
 });
 
@@ -176,6 +180,8 @@ Route::group(['middleware'=>'homeIslogin'],function(){
     Route::get('/home/openlast','Home\Shops\OpenShopController@openlast');
     //结算
     Route::get('/shop/{id}/jiesuan','Home\Orders\OrderController@jiesuan');
+    //添加地址
+    Route::post('/shop/{id}/addaddr','Home\Orders\OrderController@addaddr');
     //提交生成订单
     Route::post('/shop/{id}/finish','Home\Orders\OrderController@finish');
     //商品订单

@@ -29,16 +29,11 @@ class UserController extends Controller
     //个人中心  韩伟栋
     public function center()
     {
-//        $oid = Orders::where('uid',33)->get();
-//
-//        foreach($oid as $k=>$v){
-//            var_dump(json_encode($v['oid']));
-//        }
-//        dd();
+
         //假设一个用户id   韩伟栋
         $id=session('user')['id'];
         $all=User::with('Orders')->where('id',$id)->first();
-//        dd($all->Orders);
+
 //        2147483647
         //商家id
         $sids = [];
@@ -164,7 +159,7 @@ class UserController extends Controller
 
         //执行添加 DB::table('users')->insert   Address::create
         $res = Address::create([
-            'uid'=>1,
+            'uid'=>session('user')['id'],
             'rec'=>$input['rec'],
             'addr'=>$input['address1'].$input['address2'],
             'tel'=>$input['tel'],
@@ -239,17 +234,7 @@ class UserController extends Controller
             return back()->with('msg','原密码不正确');
 
         }else{
-//            $this->validate($request, [
-//
-//                'newpass' => 'regex:/^[\S]{4,16}$/',
-//                'repass'=>'same:newpass',
-//
-//            ],[
-//
-//                'newpass.regex' => '密码格式不正确',
-//                'repass.same'=>'两次密码不一致',
-//
-//            ]);
+
             $rule = [
                 'newpass' => 'regex:/^[\S]{4,16}$/',
                 'repass'=>'same:newpass',

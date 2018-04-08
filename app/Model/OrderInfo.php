@@ -17,4 +17,14 @@ class OrderInfo extends Model
 
     //    4. 是否允许批量操作字段
     public $guarded = [];
+
+    public function Goods()
+    {
+        return  $this->hasone('App\Model\Goods','id','gid');
+    }
+
+    public function shopinfo()
+    {
+        return  $this->hasone('App\Model\ShopInfo','id','sid');
+    }
 }

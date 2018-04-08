@@ -75,7 +75,7 @@
                                 </h4>
                                 <div class="orderprogress-rstextra">
                                             <span ng-bind="&#39;订单号：&#39; + order.unique_id" class="ng-binding">
-                                                订单号：12345
+                                                订单号：{{$id}}
                                             </span>
                                     <span ng-bind="&#39;商家电话：&#39; + restaurant.phoneMade" class="ng-binding">
                                                 商家电话：15321281416

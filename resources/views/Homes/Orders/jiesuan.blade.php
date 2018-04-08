@@ -54,6 +54,8 @@
 
 
     <script src="/home/js/jquery.min.js">    </script>
+    <link rel="stylesheet" href="/home/lib/layui/css/layui.css" media="all">
+    <script src="/home/lib/layui/layui.js   " charset="utf-8"></script>
 
     <!--<base href="/">-->
     <base href=".">
@@ -66,83 +68,7 @@
       class="hidesidebar" style="position: relative;">
 <div switch="state.type" state="layoutState" class="isolate-scope">
     <!-- ngSwitchWhen: checkout -->
-    <header class="carttopbar" switch-when="checkout" topbar-checkout=""
-            state="state">
-        <div class="carttopbar-nav container clearfix">
-                    <span class="carttopbar-nav-path">
-                        当前位置：
 
-
-                        <a href="javascript:;" bind="$root.place.name || $root.place.address"
-                           class="binding" href="javascript:;">
-
-
-                            宝鼎中心新活馆
-                        </a>
-                        <i class="icon-arrow-right">
-                        </i>
-
-
-                        <a class="inherit binding" href="javascript:;" bind="state.rstName"
-                           show="state.rstName" href="javascript:;">
-
-
-                            杨国福麻辣烫（崇文门店）
-                        </a>
-                        <i class="icon-arrow-right" show="state.rstName">
-                        </i>
-                        订单信息
-                    </span>
-            <div topbar-profilebox="">
-                <div class="topbar-profilebox">
-                    <!-- ngIf: $root.user.avatar && $root.topbarType !==' checkout' -->
-                    <span class="topbar-profilebox-avatar icon-profile hide" show="!$root.user.username">
-                            </span>
-                    <span show="!$root.user.username" class="hide">
-
-
-                                <a href="javascript:;"
-                                   target="_blank" href="javascript:;">
-
-                                    登录/注册
-                                </a>
-                            </span>
-                    <span class="topbar-profilebox-wrapper" show="$root.user.username">
-                                <!-- ngIf: $root.topbarType===' checkout' -->
-                                <span class="topbar-profilebox-username binding">
-                                    2****b
-                                </span>
-                        <!-- ngIf: $root.topbarType===' checkout' -->
-                        <!-- ngIf: $root.topbarType !==' checkout' -->
-                                <span class="topbar-profilebox-btn icon-arrow-down scope" if="$root.topbarType !== &#39;checkout&#39;">
-                                </span>
-                        <!-- end ngIf: $root.topbarType !==' checkout' -->
-                                <div class="dropbox topbar-profilebox-dropbox">
-
-
-                                    <a class="icon-profile" href="/center" hardjump="">
-                                        个人中心
-                                    </a>
-                                    <a class="icon-star" href="/collect" hardjump="">
-                                        我的收藏
-                                    </a>
-                                    <a class="icon-location" href="/add" hardjump="">
-                                        我的地址
-                                    </a>
-                                    <a class="icon-setting" href="/safety" hardjump="">
-                                        安全设置
-                                    </a>
-                                    <a class="icon-logout" href="javascript:;" click="logout()">
-
-
-                                        退出登录
-                                    </a>
-                                </div>
-                            </span>
-                </div>
-            </div>
-        </div>
-    </header>
     <!-- ngSwitchDefault: -->
 </div>
 <div class="importantnotification container" role="banner">
@@ -432,43 +358,26 @@
                  address-list="addressList" address="address" isbaisheng="isBaishengRst">
                 <h2>
                     收货地址
+                    @if(!empty($useraddr))
                     <a show="addressList.length" class="checkout-addaddress " href="javascript:"
-                       click="addAddress()">
+                       onclick="ginfo()">
                         添加新地址
                     </a>
+                        @endif
                 </h2>
-                @if(!empty($users->useraddr))
+                @if(!empty($useraddr))
                 <select name="addrid" id="" style="width: 700px;height: 50px">
-                    @foreach($users->useraddr as $v)
-                    <option value="{{ $v->id }}" >
+                    @foreach($useraddr as $v)
+                    <option value="{{ $v['id'] }}" >
                         {{--张 先生 18410100203 贵都大酒店广安门内大街217号--}}
-                        {{ $v->rec  }} &nbsp;&nbsp;&nbsp;&nbsp; {{ $v->sex  }}&nbsp;&nbsp;&nbsp; {{ $v->tel  }} &nbsp;&nbsp;&nbsp;{{ $v->addr  }}
-                        {{--<ul ng-hide="!addressList.length" class="checkout-address-list" ng-class="{ showmore: showMoreAddress, showfirst: noInitAddress }">--}}
-                            {{--<!-- ngRepeat: item in addressList -->--}}
-                            {{--<li class="checkout-address ng-scope active" ng-repeat="item in addressList" ng-click="selectAddress($event, item)" ng-class="{active: address.id === item.id}" ng-mouseenter="selectAddress($event, item)">--}}
-                                {{--<i class="checkout-address-icon icon-location-line"></i>--}}
-                                {{--<div class="checkout-address-info">--}}
-                                    {{--<p ng-bind="item.name + [' ', ' 先生 ', ' 女士 '][item.sex] + item.phone" class="ng-binding">张 先生 18410100203</p>--}}
-                                    {{--<p class="color-weak ng-binding" ng-bind="item.address + item.address_detail">贵都大酒店广安门内大街217号</p></div>--}}
-                                {{--<div class="checkout-address-edit" style="float: right" >--}}
-                                    {{--<a href="javascript:">修改</a>--}}
-                                {{--</div>--}}
-                                {{--<!-- ngIf: !item.st_geohash -->--}}
-                                {{--<!-- ngIf: !item.is_deliverable -->--}}
-                                {{--<!-- ngIf: item.st_geohash && item.poi_type===1 && isbaisheng --></li>--}}
-                            {{--<!-- end ngRepeat: item in addressList -->--}}
-                            {{--<a class="checout-showmoreaddress ng-hide" href="javascript:" ng-click="showMoreAddress = true" ng-show="!showMoreAddress &amp;&amp; addressList.length > 1">显示更多地址--}}
-                                {{--<i class="icon-arrow-down"></i></a>--}}
-                            {{--<a class="checout-showmoreaddress ng-hide" href="javascript:" ng-click="showMoreAddress = false" ng-show="showMoreAddress &amp;&amp; addressList.length > 1">收起--}}
-                                {{--<i class="icon-arrow-up"></i></a>--}}
-                        {{--</ul>--}}
+                        {{ $v['rec']  }} &nbsp;&nbsp;&nbsp;&nbsp; {{ $v['sex']  }}&nbsp;&nbsp;&nbsp; {{ $v['tel']  }} &nbsp;&nbsp;&nbsp;{{ $v['addr']  }}
                     </option>
                     @endforeach
                 </select>
                 @else
                 <!-- ngIf: !addressList.length -->
                 <a class="checkout-noaddress scope" if="!addressList.length" href="javascript:"
-                   click="addAddress()">
+                   onclick="ginfo()">
                     + 添加新地址
                 </a>
                 @endif
@@ -604,7 +513,7 @@
 
 
     @else
-        <div class="nodata ng-isolate-scope" ng-if="!loading &amp;&amp; nofood" nodatatip="" content="你的购物车是空的，去<a href='/place'>下单</a>吧"><p class="nodata-container ng-binding" ng-bind-html="content | toTrusted">你的购物车是空的，去<a href="/place">下单</a>吧</p></div>
+        <div class="nodata ng-isolate-scope" ng-if="!loading &amp;&amp; nofood" nodatatip="" content="你的购物车是空的，去<a href='/lists'>下单</a>吧"><p class="nodata-container ng-binding" ng-bind-html="content | toTrusted">你的购物车是空的，去<a href="/lists">下单</a>吧</p></div>
     @endif
     {{--<div class="checkout-quicksubmit scope" hide="checkout.submitVisable || nofood">--}}
         {{--<div class="container">--}}
@@ -624,155 +533,58 @@
         {{--</div>--}}
     {{--</div>--}}
 </div>
-
-
-
-<footer class="footer" role="contentinfo">
-    <div class="container clearfix">
-        <div class="footer-link">
-            <h3 class="footer-link-title">
-                用户帮助
-            </h3>
-
-
-            <a class="footer-link-item" href="https://help.ele.me/pc/" target="_blank">
-
-
-                我的客服
-            </a>
-        </div>
-        <div class="footer-link">
-            <h3 class="footer-link-title">
-                商务合作
-            </h3>
-
-
-            <a class="footer-link-item" href="javascript:;" target="_blank">
-                我要开店
-            </a>
-            <a class="footer-link-item" href="javascript:;"
-               target="_blank">
-                加盟指南
-            </a>
-            <a class="footer-link-item" href="javascript:;"
-               target="_blank">
-                市场合作
-            </a>
-            <a class="footer-link-item" href="javascript:;" target="_blank">
-
-
-                开放平台
-            </a>
-        </div>
-        <div class="footer-link">
-            <h3 class="footer-link-title">
-                关于我们
-            </h3>
-
-            <a class="footer-link-item" href="javascript:;" target="_blank">
-                饿了么介绍
-            </a>
-            <a class="footer-link-item" href="javascript:;" target="_blank">
-                加入我们
-            </a>
-            <a class="footer-link-item" href="javascript:;"
-               target="_blank">
-                联系我们
-            </a>
-            <a class="footer-link-item" href="javascript:;"
-               target="_blank" href="javascript:;">
-
-
-                规则中心
-            </a>
-        </div>
-        <div class="footer-contect">
-            <div class="footer-contect-item">
-                24小时客服热线 :
-
-
-                <a class="inherit" href="javascript:;">
-
-
-                    10105757
-                </a>
-            </div>
-            <div class="footer-contect-item">
-                关注我们 :
-                <div href="JavaScript:" class="icon-wechat" ubt-click="402">
-                    <div class="dropbox dropbox-bottom footer-contect-dropbox" ubt-visit="402">
-                        <img src="/home/jiesuan_files/wexinqc100@2x.393ade.png" alt="微信号: elemeorder">
-                        <p>
-                            微信号: elemeorder
-                        </p>
-                        <p>
-                            饿了么网上订餐
-                        </p>
+<div id="backg" style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0.5; background: rgb(0, 0, 0); z-index: 1000; display: none;"></div>
+<div class="addressdialog" id="ginfo" style="z-index: 1005; left: 237px; top: 120px; display: none">
+    <div onclick="xiaoshi()" class="addressdialog-close"></div><div class="addressdialog-header">添加新地址</div>
+    <div class="addressdialog-content">
+        <div class="addressform">
+            <form id="addrform" action="/shop/{{ $shopinfo->id }}/addaddr" method="post">
+                {{ csrf_field() }}
+                <div>
+                    <div class="addressformfield"><label>姓名</label><input placeholder="请输入您的姓名" name="rec">
+                        <div class="addressformfield-hint">
+                            <span></span>
+                        </div></div>
+                    <div class="addressformfield sexfield"><label>性别</label><div><input id="sexfield-1-male" name="sex" type="radio" value="先生" checked><label for="sexfield-1-male">先生</label><input id="sexfield-1-female" type="radio" name="sex" value="女士"><label for="sexfield-1-female">女士</label></div><div class="addressformfield-hint"><span></span></div>
+                    </div>
+                    <div class="addressformfield">
+                        <label>详细地址</label><input placeholder="单元、门牌号" name="addr">
+                        <div class="addressformfield-hint"><span></span>
+                        </div>
+                    </div>
+                    <div class="addressformfield phonefield">
+                        <label>手机号</label><input placeholder="请输入您的手机号" name="tel" id="tel" lay-verify="required|phone" autocomplete="off">
+                        <div class="addressformfield-hint"><span></span>
+                        </div>
                     </div>
                 </div>
-
-
-                <a href="/orders" class="icon-weibo" target="_blank">
-
-
-                </a>
-            </div>
-        </div>
-        <div class="footer-mobile">
-
-
-            <a href="javascript:;" target="_blank">
-
-
-                <img src="/home/jiesuan_files/appqc.95e532.png" class="footer-mobile-icon"
-                     alt="扫一扫下载饿了么手机 App">
-            </a>
-            <div class="footer-mobile-content">
-                <h3>
-                    下载手机版
-                </h3>
-                <p>
-                    扫一扫,手机订餐方便
-                </p>
-            </div>
-        </div>
-        <div class="footer-copyright serif">
-            <h5 class="owner">
-                所有方：上海拉扎斯信息科技有限公司
-            </h5>
-            <p>
-                增值电信业务许可证 :
-
-
-                <a href="javascript:;" target="_blank">
-                    沪B2-20150033
-                </a>
-                |
-                <a href="javascript:;" target="_blank">
-                    沪ICP备 09007032
-                </a>
-                |
-                <a href="javascript:;">
-
-
-                    上海工商行政管理
-                </a>
-                Copyright ©2008-2017 ele.me, All Rights Reserved.互联网药品信息服务资格证书 编号：（沪）-经营性-2016-0011
-            </p>
-        </div>
-        <div class="footer-police container">
-
-
-            <a href="javascript:;" rel="nofollow" target="_blank">
-
-
-                <img alt="已通过沪公网备案，备案号 310100103568" src="/home/jiesuan_files/picp_bg.e373b3.jpg"
-                     height="30">
-            </a>
+                <div class="addressform-buttons"><button id="addrtj">保存</button>
+                </div>
+            </form>
         </div>
     </div>
-</footer>
-<script src="/home/jiesuan_files/home">
+</div>
+<script>
+    $('#addrform').submit(function(){
+
+        var ptn = /^1[345678]\d{9}$/;
+        if(ptn.test($('#tel').val())){
+            return true;
+
+        };
+
+        return false;
+    })
+    function ginfo() {
+            $('#backg').css('display','block');
+            $('#ginfo').css('display','block');
+            // console.log($('#backg'));
+            // console.log( $('#ginfo'));
+    }
+    function xiaoshi(){
+        $('#backg').css('display','none');
+        $('#ginfo').css('display','none');
+    }
 </script>
 </body>
 

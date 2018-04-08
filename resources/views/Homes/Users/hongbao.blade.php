@@ -21,7 +21,7 @@
                             <p class="hongbaoblock-condition ng-binding">满15元可用</p>
                         </div>
                         <h3 class="hongbaoblock-name ng-binding">新用户首单红包</h3>
-                        <div class="hongbaoblock-intro"><p>仅限手机客户端使用</p><!-- ngIf: data.subscriber_line_number --><p class="ng-binding">2018-03-28<i class="to">至</i>2018-04-03</p></div><!-- ngIf: data.used || data.passed -->
+                        <div class="hongbaoblock-intro"><p>仅限手机客户端使用</p><!-- ngIf: data.subscriber_line_number --><p class="ng-binding">2018-04-04<i class="to">至</i>2018-04-15</p></div><!-- ngIf: data.used || data.passed -->
                         <i class="hongbaoblock-tip ng-scope" ng-if="data.used || data.passed"></i>
                         <!-- end ngIf: data.used || data.passed --></li>
                     <!-- end ngRepeat: data in pageContext.pageData --></ul>

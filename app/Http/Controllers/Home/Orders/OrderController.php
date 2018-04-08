@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home\Orders;
 
 
 
+use App\Model\Address;
 use App\Model\Goods;
 
 use App\Model\ShopInfo;
@@ -25,7 +26,8 @@ class OrderController extends Controller
 
     public function jiesuan($id)
     {
-        $users = User::with('useraddr')->find(1);
+//        $users = User::with('useraddr')->find(1);
+        $useraddr = Address::where('uid',session('user')->id)->orderBy('id','desc')->get()->toArray();
         $shopinfo = ShopInfo::find($id);
         if (empty(session()->get('gcarts'))){
             $carts = [];
@@ -39,10 +41,26 @@ class OrderController extends Controller
             $sbnt += $v->bnt;
         }
 //        dd($sum);
-        return view('Homes.Orders.jiesuan',compact('sum','sbnt','shopinfo','users'));
+        return view('Homes.Orders.jiesuan',compact('sum','sbnt','shopinfo','useraddr'));
 
 
     }
+
+    //添加地址
+    public  function addaddr(Request $request, $id)
+    {
+        $input = $request ->except('_token');
+        $input['uid']= session('user')->id;
+
+//        dd($input);
+        $res = Address::create($input);
+        if ($res){
+            return redirect('/shop/'.$id.'/jiesuan');
+        }else{
+            return back();
+        }
+    }
+
 
     // 提交生成订单
     public  function finish(Request $request,$id)
@@ -65,28 +83,34 @@ class OrderController extends Controller
             $sum += $v->price*$v->bnt;
             $sbnt += $v->bnt;
         }
-        $data['totalprice'] = $sum;
+        $shopinfo = ShopInfo::find($id);
+        $sendmoney= $shopinfo->sendmoney;
+        $data['totalprice'] = $sum+$sendmoney;
         $data['ocnt'] = $sbnt;
         $data['status']= 1;
         $data['ordertime'] = time();
-        $oid = date('YmdHis').mt_rand(1000,9999);
+        $oid =date('YmdHis').mt_rand(1000,9999);
+//        $oid =time().mt_rand(1000,9999);
         $data['oid'] = $oid;
-
+//        dd($data);
         DB::beginTransaction();
         $res = Orders::create($data);
         $flag = $this->writeOrders($oid);
         if ($res && $flag){
             DB::commit();
             session()->forget('gcarts');
+
             //店铺销量表增加订单数数量
             $ocount = ShopInfo::where('id',$id)->first()->ocount;
             $shop = ShopInfo::where('id',$id)->update(['ocount'=>$ocount+1]);
             return redirect('/overorder')->with('oid',$oid);
+
         }else{
             DB::rollBack();
             return back();
         }
     }
+
 
 //    向数据库添加订单详情数据
     public function  writeOrders($oid)
@@ -168,7 +192,7 @@ class OrderController extends Controller
         $all = Ordersinfo::with('goods')->where('oid',$id)->get();
         $shop_all = Ordersinfo::with('shopinfo')->where('oid',$id)->get();
         $arr = [];
-        return view('Homes.Orders.orderdata',compact('all','shop_all','shop','arr'));
+        return view('Homes.Orders.orderdata',compact('all','shop_all','shop','arr','id'));
     }
 
 
