@@ -2,19 +2,20 @@
 @section('title','饿了么-网上订餐_外卖_饿了么订餐官网')
 @section('content')
     <div class="container clearfix scope">
-        <div class="location" style="{visibility: geohash ? '' : 'hidden'}" role="navigation"
-             location="" if="geohash">
+        <div class="container clearfix scope">
+            <div class="location" style="{visibility: geohash ? '' : 'hidden'}" role="navigation"
+                 location="" if="geohash">
         <span>
         当前位置:
         </span>
-            <span class="location-current">
-            <a class="inherit binding" href="/place/wx4eyv2e1qf" ubt-click="401" bind="place.name || place.address"
-               href="/place/wx4eyv2e1qf">
-                昌平区回龙观村东区(龙域中街南70米)
+                <span class="location-current">
+            <a class="inherit binding" href="/" ubt-click="401" bind="place.name || place.address"
+               href="/">
+                {{$address['address']}}
             </a>
         </span>
-            <span class="location-change" class="{ 'location-hashistory': user.username && userPlaces && userPlaces.length > 0 }">
-            <a href="/home" ubt-click="400" hardjump="" href="/home">
+                <span class="location-change" class="{ 'location-hashistory': user.username && userPlaces && userPlaces.length > 0 }">
+            <a href="/" ubt-click="400" hardjump="" >
                 [切换地址]
             </a>
             <ul class="dropbox location-dropbox" ubt-visit="398">
@@ -54,18 +55,16 @@
         </div>
     </div>
     <div ng-show="!outsideRstsVisible" class="container ng-scope">
-        @if(!$shops->isEmpty())
+        @if(!empty($shops))
         @foreach($shops as $k=>$v)
         <table ng-repeat="group in rstGroups | orderBy: [ &#39;-is_opening&#39;, &#39;status&#39; ] track by group.restaurant.id"
                class="typo-table search-foodtable ng-scope">
-
             <tbody >
-
             {{--<div style="height:10px"></div>--}}
             <tr >
                 <th colspan="4" >
                     <h4 class="typo-h5" >
-                        <a ng-href="/shop/1112108" class="ng-binding" href="https://www.ele.me/shop/1112108">
+                        <a class="ng-binding" href="/shop/{{$v->id}}">
                             {{$v->name}}
                         </a>
                         <div class="rstblock-activity">
@@ -100,7 +99,7 @@
                 <td>
                     <a ng-if="group.restaurant.is_opening" ng-href="/shop/1112108#155065643"
                        ubt-click="510" ubt-data-restaurant_id="1112108" ubt-data-dish_id="155065643"
-                       class="ng-scope" href="https://www.ele.me/shop/1112108#155065643">
+                       class="ng-scope" href="/shop/{{$v->id}}">
                                     <span class="ng-binding">
                                         {{$n->gname}}
                                         <br>
@@ -120,7 +119,7 @@
                        ng-if="group.restaurant.is_opening" ng-href="/shop/1112108#155065643" ng-click="setCart(group.restaurant.id, food.id)"
                        ng-bind="group.restaurant.status === 1 ? &#39;去购买&#39; : &#39;可预订&#39;"
                        ubt-click="511" ubt-data-restaurant_id="" ubt-data-dish_id="155065643"
-                       href="https://www.ele.me/shop/1112108#155065643">
+                       href="/shop/{{$v->id}}">
                         去购买
                     </a>
                 </td>
@@ -137,7 +136,6 @@
             </tr>
             @endif
             @endforeach
-
             </tbody>
         </table>
         @endforeach

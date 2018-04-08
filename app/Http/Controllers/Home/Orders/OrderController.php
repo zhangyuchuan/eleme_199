@@ -71,6 +71,7 @@ class OrderController extends Controller
         $data['uid']= $user['id'];
 
         $data['sid'] = $id;
+
         if(!empty($input['umsg'])){
             $data['umsg'] = $input['umsg'];
         }
@@ -96,13 +97,16 @@ class OrderController extends Controller
         if ($res && $flag){
             DB::commit();
             session()->forget('gcarts');
-            return redirect('/overorder');
+
+            //店铺销量表增加订单数数量
+            $ocount = ShopInfo::where('id',$id)->first()->ocount;
+            $shop = ShopInfo::where('id',$id)->update(['ocount'=>$ocount+1]);
+            return redirect('/overorder')->with('oid',$oid);
+
         }else{
             DB::rollBack();
             return back();
         }
-
-//        return  $goods;
     }
 
 
@@ -133,10 +137,8 @@ class OrderController extends Controller
     public function orders()
     {
         //假设一个用户id   韩伟栋
-        $id=6;
-
+        $id=session('user')['id'];
         $all=User::with('Orders')->where('id',$id)->first();
-//        dd($all);
         //商家id
         $sids = [];
         //订单id
@@ -145,13 +147,13 @@ class OrderController extends Controller
             $sids[] = $v->sid;
             $oids[] = $v->oid;
         }
-//        dd($oids);
-        $shops = ShopInfo::whereIn('id',$sids)->get();
 
+        $shops = ShopInfo::whereIn('id',$sids)->get();
+        $goodsname = [];
         foreach($oids as $k=>$v){
             $goodsname[] = Ordersinfo::with('goods')->where('oid',$v)->get()->toArray();
         }
-//        dd($goodsname);
+
         $n = [];
         $sum = [];
         foreach($goodsname as $k=>$v){
@@ -169,9 +171,11 @@ class OrderController extends Controller
 
 
     //
-    public function overorder()
+    public function overorder(Request $request)
     {
-        return view('Homes.Orders.overorder');
+        //订单id
+        $oid =session('oid');
+        return view('Homes.Orders.overorder',compact('oid'));
     }
 
 
@@ -179,21 +183,14 @@ class OrderController extends Controller
     //订单详情
     public function orderdata($id)
     {
+
        $order = Orders::where('oid',$id)->first();
-//        dd($order);
        $sid = $order['sid'];
-//       dd($sid);
-
         $shop = ShopInfo::where('id',$sid)->first();
-
-
         $all = Ordersinfo::with('goods')->where('oid',$id)->get();
-
         $shop_all = Ordersinfo::with('shopinfo')->where('oid',$id)->get();
-
-//        dd($shop_all);
-
-        return view('Homes.Orders.orderdata',compact('all','shop_all','shop'));
+        $arr = [];
+        return view('Homes.Orders.orderdata',compact('all','shop_all','shop','arr'));
     }
 
 

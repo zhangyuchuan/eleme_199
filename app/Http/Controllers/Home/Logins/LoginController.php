@@ -53,7 +53,7 @@ class LoginController extends Controller
 
         //登陆成功跳转至后台首页
         $path = !empty(session('paths'))?session('paths'):'/lists';
-
+//        dd($path);
 
         return redirect($path);
     }
@@ -63,6 +63,7 @@ class LoginController extends Controller
     {
         //清空登录数据
         session()->forget('user');
+        session()->forget('paths');
         return redirect('/lists');
     }
 

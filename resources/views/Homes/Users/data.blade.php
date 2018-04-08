@@ -19,11 +19,11 @@
                                     头像
                                 </span>
                         <span class="profileinfo-face">
-                                    <img ng-src="//fuss10.elemecdn.com/1/aa/517c48e40061040af3a2b6a96bf94jpeg.jpeg?imageMogr2/format/webp/quality/85"
-                                         alt="seeklegend" src="./个人中心_个人资料 _ 饿了么网上订餐_files/517c48e40061040af3a2b6a96bf94jpeg(1).jpeg">
-                                    <a class="profileinfo-facedit" href="">
-                                        编辑头像
-                                    </a>
+                                    <img ng-src=""
+                                         alt="用户还未上传头像" src="/home/image/image_kobe.b5df90.png">
+                                    {{--<a class="profileinfo-facedit" href="">--}}
+                                        {{--编辑头像--}}
+                                    {{--</a>--}}
                                 </span>
                     </p>
                     <p class="profileinfo-item">
@@ -46,9 +46,11 @@
                         <!-- ngIf: user.is_mobile_valid -->
                         <span ng-if="user.is_mobile_valid" class="ng-scope">
                                     <span class="profileinfo-value ng-binding" ng-bind="user.mobile">
-
+                                        @if($users->phone!='')
                                         {{$users->phone}}
-
+                                        @else
+                                        手机号未添加
+                                            @endif
                                     </span>
                                     <a class="profileinfo-link" href="">
                                         [修改]
@@ -65,9 +67,11 @@
                         <!-- ngIf: !user.is_email_valid -->
                         <span ng-if="!user.is_email_valid" class="ng-scope">
                                     <span class="profileinfo-value unbind">
-
-                                        {{$users->email}}
-
+                                        @if($users->mail!='')
+                                            {{$users->mail}}
+                                        @else
+                                            邮箱未添加
+                                        @endif
                                     </span>
                                     <a class="profileinfo-link unbind" href="">
                                         [立即绑定]

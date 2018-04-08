@@ -19,7 +19,12 @@
                                     当前账户积分：
                                 </span>
                         <b class="points-number ng-binding" ng-bind="points">
-                            {{$users['score']}}
+
+                            @if(!empty($users))
+                                {{$users['score']}}
+                                @else
+                            0
+                                @endif
                         </b>
                         分
                     </p>

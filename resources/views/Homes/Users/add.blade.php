@@ -46,11 +46,6 @@
                             {{$v->rec}}
                             <span class="ng-binding">
                                         {{$v->sex}}
-                                {{--@if($users->sex='女')--}}
-                                    {{--女士--}}
-                                {{--@else--}}
-                                    {{--先生--}}
-                                {{--@endif--}}
                                     </span>
                         </div>
                         <div class="desktop-addressblock-address ng-binding" ng-bind="address.address + &#39; &#39; + address.address_detail">
@@ -81,15 +76,12 @@
             @endforeach
             @endif
                     <!-- end ngRepeat: address in userAddresses -->
-                    <button class="desktop-addressblock desktop-addressblock-addblock" ng-click="addAddress()">
+                    <button class="desktop-addressblock desktop-addressblock-addblock" ng-click="addAddress()" style="margin-top:15px">
                         <a href="/create">
-
                         <i class="icon-plus">
+                            添加新地址
                         </i>
-                        添加新地址
-
-
-
+                        </a>
                     </button>
 
 

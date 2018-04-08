@@ -19,13 +19,12 @@
                 </div>
                 <div class="profile-perosondata">
                     <h3 class="profile-name binding">
-                        夜已深,
                         <strong class="binding">
                             {{ $all->username }}
                         </strong>
                     </h3>
                     <p class="profile-tips binding" bind="timeSection.tipText">
-                        是不是饿的睡不着呀？吃个夜宵呗！
+
                     </p>
                     <p class="profile-security">
                         账户安全：
@@ -42,10 +41,7 @@
                         <a href="javascript:;" class="icon mobile icon-profile-phone scope"
                            if="user.is_mobile_valid">
                         </a>
-                        <!-- end ngIf: user.is_mobile_valid -->
-                        <!-- ngIf: user.is_email_valid -->
-                        <!-- ngIf: !user.is_mobile_valid -->
-                        <!-- ngIf: !user.is_email_valid -->
+
                         <a href="javascript:;" class="icon email icon-profile-email none scope"
                            if="!user.is_email_valid" tooltip="未绑定邮箱">
                         </a>
@@ -73,7 +69,11 @@
                     </p>
                     <p class="profile-infoitem-number score">
                                         <span class="number binding" bind="user.point">
-                                            {{ $users->score }}
+                                            @if(!empty($users['score']))
+                                            {{ $users['score'] }}
+                                                @else
+                                            0
+                                                @endif
                                         </span>
                         分
                     </p>
@@ -86,7 +86,11 @@
                     </p>
                     <p class="profile-infoitem-number balance">
                                         <span class="number binding" bind="user.balance| number : 2">
-                                           {{ $users->money }}
+                                           @if(!empty($users['money']))
+                                                {{ $users['money'] }}
+                                            @else
+                                                0
+                                            @endif
                                         </span>
                         元
                     </p>
@@ -106,6 +110,7 @@
 
                 @if(!empty($all->Orders))
                     @foreach($all->Orders as $k=>$v)
+
                         <div class="orderblock ng-isolate-scope" ng-repeat="order in recentOrder"
                              data="{ $order: order }">
                             <div class="orderblock-item orderblock-rstinfo clearfix">
@@ -141,7 +146,7 @@
                                             </a>
                             </div>
                             <div class="orderblock-item orderblock-time ng-binding">
-                                {{ $v->ordertime }}
+                                {{ date('Y-m-d H:i:s',$v->ordertime) }}
                                 <br>
                             </div>
                             <div class="orderblock-item orderblock-price">
@@ -159,8 +164,7 @@
                                    ng-bind="order.statusText">
                                     订单已完成
                                 </p>
-                                <a class="statuslink ng-binding" ng-href="order/id/1217606784916104398"
-                                   ng-bind="order.realStatus === 4 ? &#39;立即评价&#39; : &#39;订单详情&#39;" href="/orderdata/{{ $v->oid }}">
+                                <a class="statuslink ng-binding" href="/orderdata/{{ $v->oid }}">
                                     订单详情
                                 </a>
                             </div>

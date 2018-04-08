@@ -7,47 +7,47 @@
 <div class="clearfix" id="clearfix" data="filteredRestaurants = (rstStream.restaurants | filter: rstStream.filter | filter: otherFilter | orderBy: [ '-is_opening', rstStream.orderBy || 'index' ])"
         >
         {{--商家列表--}}
-        @if(!$shops->isEmpty())
+        @if(!empty($shops))
             @foreach($shops as $k=>$v)
-                @if($v->status==1)
-                <a class="rstblock" href="/shop/{{$v->id}}" data-rst-id="152185819" data-bidding=""target="_blank">
+                @if($v['status']==1)
+                <a class="rstblock" href="javascript:;"  onclick='alert("商家休息暂不接单,选点别的吧!")' data-rst-id="152185819" data-bidding=""target="_blank">
                     <div class="rstblock-logo" style="opacity:0.4">
-                        <img class="rstblock-logo-icon" src="{{$v->logo}}"
+                        <img class="rstblock-logo-icon" src="{{$v['logo']}}"
                              alt="" width="70" height="70">
                         <span>
-                                {{$v->finishtime}}分钟
+                                {{$v['finishtime']}}分钟
                                 </span>
                     </div>
 
                     <div class="rstblock-content"  style="opacity:0.4">
-                        @elseif($v->status==0)
-                            <a class="rstblock" href="/shop/{{$v->id}}" data-rst-id="152185819" data-bidding=""target="_blank">
+                        @elseif($v['status']==0)
+                            <a class="rstblock" href="/shop/{{$v['id']}}" data-rst-id="152185819" data-bidding=""target="_blank">
                                 <div class="rstblock-logo" >
-                                    <img class="rstblock-logo-icon" src="{{$v->logo}}"
+                                    <img class="rstblock-logo-icon" src="{{$v['logo']}}"
                                          alt="" width="70" height="70">
                                     <span>
-                                {{$v->finishtime}}分钟
+                                {{$v['finishtime']}}分钟
                                 </span>
                                 </div>
 
                                 <div class="rstblock-content"  >
                             @endif
                         <div class="rstblock-title">
-                            {{$v->name}}
+                            {{$v['name']}}
                         </div>
                         <div class="starrating icon-star">
 
-                        <span class="icon-star" style="width:{{$v->score}}%;">
+                        <span class="icon-star" style="width:{{$v['score']}}%;">
                         </span>
 
                         </div>
                         <span class="rstblock-monthsales">
-                        月售{{$v->sailcount}}单
+                        月售{{$v['ocount']}}单
                     </span>
                         <div class="rstblock-cost">
-                            配送费¥{{$v->sendmoney}}
+                            配送费¥{{$v['sendmoney']}}
                         </div></div>
-                        @if($v->status==1)
+                        @if($v['status']==1)
                         <div class="rstblock-relaxing" style="opacity:1;position:relative;bottom:20px" >商家休息,暂不接单</div>
                         @endif
 
