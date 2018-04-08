@@ -68,83 +68,7 @@
       class="hidesidebar" style="position: relative;">
 <div switch="state.type" state="layoutState" class="isolate-scope">
     <!-- ngSwitchWhen: checkout -->
-    <header class="carttopbar" switch-when="checkout" topbar-checkout=""
-            state="state">
-        <div class="carttopbar-nav container clearfix">
-                    <span class="carttopbar-nav-path">
-                        当前位置：
 
-
-                        <a href="javascript:;" bind="$root.place.name || $root.place.address"
-                           class="binding" href="javascript:;">
-
-
-                            宝鼎中心新活馆
-                        </a>
-                        <i class="icon-arrow-right">
-                        </i>
-
-
-                        <a class="inherit binding" href="javascript:;" bind="state.rstName"
-                           show="state.rstName" href="javascript:;">
-
-
-                            杨国福麻辣烫（崇文门店）
-                        </a>
-                        <i class="icon-arrow-right" show="state.rstName">
-                        </i>
-                        订单信息
-                    </span>
-            <div topbar-profilebox="">
-                <div class="topbar-profilebox">
-                    <!-- ngIf: $root.user.avatar && $root.topbarType !==' checkout' -->
-                    <span class="topbar-profilebox-avatar icon-profile hide" show="!$root.user.username">
-                            </span>
-                    <span show="!$root.user.username" class="hide">
-
-
-                                <a href="javascript:;"
-                                   target="_blank" href="javascript:;">
-
-                                    登录/注册
-                                </a>
-                            </span>
-                    <span class="topbar-profilebox-wrapper" show="$root.user.username">
-                                <!-- ngIf: $root.topbarType===' checkout' -->
-                                <span class="topbar-profilebox-username binding">
-                                    2****b
-                                </span>
-                        <!-- ngIf: $root.topbarType===' checkout' -->
-                        <!-- ngIf: $root.topbarType !==' checkout' -->
-                                <span class="topbar-profilebox-btn icon-arrow-down scope" if="$root.topbarType !== &#39;checkout&#39;">
-                                </span>
-                        <!-- end ngIf: $root.topbarType !==' checkout' -->
-                                <div class="dropbox topbar-profilebox-dropbox">
-
-
-                                    <a class="icon-profile" href="/center" hardjump="">
-                                        个人中心
-                                    </a>
-                                    <a class="icon-star" href="/collect" hardjump="">
-                                        我的收藏
-                                    </a>
-                                    <a class="icon-location" href="/add" hardjump="">
-                                        我的地址
-                                    </a>
-                                    <a class="icon-setting" href="/safety" hardjump="">
-                                        安全设置
-                                    </a>
-                                    <a class="icon-logout" href="javascript:;" click="logout()">
-
-
-                                        退出登录
-                                    </a>
-                                </div>
-                            </span>
-                </div>
-            </div>
-        </div>
-    </header>
     <!-- ngSwitchDefault: -->
 </div>
 <div class="importantnotification container" role="banner">
@@ -589,7 +513,7 @@
 
 
     @else
-        <div class="nodata ng-isolate-scope" ng-if="!loading &amp;&amp; nofood" nodatatip="" content="你的购物车是空的，去<a href='/place'>下单</a>吧"><p class="nodata-container ng-binding" ng-bind-html="content | toTrusted">你的购物车是空的，去<a href="/place">下单</a>吧</p></div>
+        <div class="nodata ng-isolate-scope" ng-if="!loading &amp;&amp; nofood" nodatatip="" content="你的购物车是空的，去<a href='/lists'>下单</a>吧"><p class="nodata-container ng-binding" ng-bind-html="content | toTrusted">你的购物车是空的，去<a href="/lists">下单</a>吧</p></div>
     @endif
     {{--<div class="checkout-quicksubmit scope" hide="checkout.submitVisable || nofood">--}}
         {{--<div class="container">--}}

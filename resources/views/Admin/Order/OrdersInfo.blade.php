@@ -21,7 +21,7 @@
                     <td>{{$v->id}}</td>
                     <td>{{$v->gid}}</td>
                     <td>{{$v->oid}}</td>
-                    <td><img src="/uploads/6.jpg" alt="" style="width:80px"></td>
+                    <td><img src="/uploads/{{$v->gpic}}"></td>
                     <td>{{$v->bprice}}</td>
                     <td>{{$v->bcnt}}</td>
 
@@ -32,11 +32,6 @@
             </tbody>
             @endforeach
         </table>
-        <div class="page">
-            <div>
-                {{$ordersinfo->links()}}
-            </div>
-        </div>
 
     </div>
     <script>

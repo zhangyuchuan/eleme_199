@@ -81,12 +81,12 @@
 
                         <i class="layui-icon">&#xe601;</i>
                     </a>
-                    <a title="编辑"  onclick="x_admin_show('编辑','/admin/users/users/grade',600,400)" href="javascript:;">
-                        <i class="layui-icon">&#xe642;</i>
-                    </a>
-                    <a onclick="x_admin_show('修改密码','/admin/users/users/audit',600,400)" title="修改密码" href="javascript:;">
-                        <i class="layui-icon">&#xe631;</i>
-                    </a>
+                    {{--<a title="编辑"  onclick="x_admin_show('编辑','/admin/users/users/grade',600,400)" href="javascript:;">--}}
+                        {{--<i class="layui-icon">&#xe642;</i>--}}
+                    {{--</a>--}}
+                    {{--<a onclick="x_admin_show('修改密码','/admin/users/users/audit',600,400)" title="修改密码" href="javascript:;">--}}
+                        {{--<i class="layui-icon">&#xe631;</i>--}}
+                    {{--</a>--}}
                     <a title="删除" onclick="member_del(this,'{{ $v->id }}')" href="javascript:;">
                         <i class="layui-icon">&#xe640;</i>
                     </a>

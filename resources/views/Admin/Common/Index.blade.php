@@ -151,15 +151,15 @@
 
                     </ul>
 
-                    <ul class="sub-menu">
-                        <li>
-                            <a _href="{{ url('admin/goods/create')}}" target="_blank">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>商品添加</cite>
-                            </a>
-                        </li >
+                    {{--<ul class="sub-menu">--}}
+                        {{--<li>--}}
+                            {{--<a _href="{{ url('admin/goods/create')}}" target="_blank">--}}
+                                {{--<i class="iconfont">&#xe6a7;</i>--}}
+                                {{--<cite>商品添加</cite>--}}
+                            {{--</a>--}}
+                        {{--</li >--}}
 
-                    </ul>
+                    {{--</ul>--}}
 
 
                 </li>
