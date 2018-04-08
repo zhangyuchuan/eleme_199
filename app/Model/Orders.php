@@ -10,7 +10,7 @@ class Orders extends Model
     public $table = 'orders';
 
     //    2. 主键
-    public $primaryKey = 'oid';
+    public $primaryKey = '  id';
 
     //    3. 是否维护created_at updated_at字段
     public $timestamps = false;

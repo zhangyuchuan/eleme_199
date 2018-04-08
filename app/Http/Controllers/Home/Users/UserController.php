@@ -29,12 +29,12 @@ class UserController extends Controller
     //个人中心  韩伟栋
     public function center()
     {
-//        $oid = Orders::where('uid',33)->get();
-//
-//        foreach($oid as $k=>$v){
-//            dd($v);
-////            var_dump($v);
-//        }
+        $oid = Orders::where('uid',33)->get();
+
+        foreach($oid as $k=>$v){
+            dd($v);
+//            var_dump($v);
+        }
 //        dd();
         //假设一个用户id   韩伟栋
         $id=session('user')['id'];
